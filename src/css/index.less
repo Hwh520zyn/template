@@ -1,0 +1,204 @@
+.swiper-button-prev{
+    left: 8%;
+}
+.swiper-button-next{
+    right: 8%;
+}
+.banner{
+    &-img{
+        width: 100%;
+        height: 500px;
+        background: red;
+        background-size: 100% 100%; 
+    }
+    &-img2{
+        background: #ccf;
+        background-size: 100% 100%; 
+    }
+    &-img3{
+        background: tomato;
+        background-size: 100% 100%; 
+    }
+}
+
+.main{
+    .main-casebox-case-title,.main-brandbox-brand-title{
+        width: 320px;
+        color: RGBA(85, 85, 85, 1);
+        font-size: 36px;
+        text-align: center;
+        padding: 60px 0 30px 0;
+        margin: 0 auto;
+        background: url(~@/assets/pc/title-img.png) no-repeat 0 80px;
+    }
+    // 经典案例
+    &-casebox{
+        width: 100%;
+        height: auto;
+        &-case{
+            width: 1200px;
+            height: auto;
+            margin: 0 auto;
+            &-title{}
+            &-list{
+                display: flex;
+                justify-content: space-around;
+                &-item{
+                    width: 380px;
+                    height: 310px;
+                    border-radius: 5px;
+                    box-shadow:0px 7px 15px 0px rgba(0,0,0,0.08);
+                    &-img{
+                        width: 380px;
+                        height: 250px;
+                        border-radius: 5px 5px 0 0 ;
+                    }
+                    &-name{
+                        line-height: 60px;
+                        text-align: center;
+                        color: RGBA(85, 85, 85, 1);
+                        font-size: 16px;
+                        overflow: hidden;
+                        width: 380px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        padding: 0 10px;
+                    }
+                    &:hover{
+                        box-shadow:0px 7px 15px 0px rgba(0,0,0,0.2);
+                    }
+                }
+            }
+            &-more{
+                width: 152px;
+                height: 40px;
+                border-radius: 22px;
+                border: 1px solid RGBA(139, 94, 255, 0.5);
+                margin: 60px auto 80px; 
+                text-align: center;
+                line-height: 40px;
+                a{
+                   font-size: 16px;
+                   color: RGBA(107, 62, 224, 1); 
+                }
+                span{
+                    display: inline-block;
+                    width: 12px;
+                    height: 12px;
+                    background: url(~@/assets/pc/more.png) no-repeat;
+                    background-size: 100% 100%;
+                    margin-top: 2px;                    
+                }
+            }
+        }
+    }
+
+    // 品牌传播
+    &-brandbox{
+        width: 100%;
+        height: auto;
+        background: RGBA(246, 247, 250, 1);
+        &-brand{
+            width: 1200px;
+            height: auto;
+            margin: 0 auto;
+            &-intro{
+                width: 1200px;
+                height: 152px;
+                background-color:RGBA(139, 94, 255, 1);
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                padding: 0 145px;
+                &-img{
+                    width: 66px;
+                    height: 95px;
+                    margin-right: 40px;
+                }
+                &-img2{
+                    width: 93px;
+                    height: 66px;
+                    margin-right: 40px;
+                }
+                &-txtbox{
+                    color: #fff;
+                    &-title{
+                        font-size: 24px;
+                        position: relative;
+                        font-weight: 500;
+                        &:before{
+                            content: '';
+                            position: absolute;
+                            bottom: -6px;
+                            left: 2px;
+                            width: 20px;
+                            height: 4px;
+                            background: #fff;
+                            border-radius:3px;
+                        }
+                    }
+                    &-txt{
+                        font-size: 14px;
+                        margin-top: 20px;
+                        color: rgba(255,255,255,.8);
+                        b{
+                            color: rgba(255,255,255,1)
+                        }
+                    }
+                    &-txt2{
+                        margin-top: 5px;
+                        color: rgba(255,255,255,.8);
+                        b{
+                            color: rgba(255,255,255,1)
+                        }
+                    }
+                }
+            }
+
+            &-list{
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                margin-bottom: 100px;
+                &-item{
+                    width: 380px;
+                    height: 80px;
+                    margin-top: 50px;
+                    display: flex;
+                    align-items: center;
+                    &-img{
+                        width: 80px;
+                        height: 80px;
+                        background: tomato;
+                        border-radius: 50%;
+                        margin-right: 20px;
+                    }
+                    &-txtbox{
+                        width: 280px;
+                        &-title{
+                            font-size: 20px;
+                            color: RGBA(51, 51, 51, 1);
+                        }
+                        &-txt{
+                            margin-top: 12px;
+                            font-size: 14px;
+                            color: RGBA(119, 119, 119, 1);
+                        }
+                    }
+                }
+            }
+            .main-spread-list{
+                display: flex;
+                justify-content: space-around;
+                
+                &-item{
+                    width: 220px;
+                    height: 307px;
+                    border-radius: 5px;
+                }
+            }
+
+        }
+        
+    }
+}
