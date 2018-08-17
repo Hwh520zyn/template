@@ -1,14 +1,27 @@
+@basecolor:#6B3EE0;
 .swiper-button-prev{
-    left: 8%;
+    left: 8% !important;
 }
 .swiper-button-next{
-    right: 8%;
+    right: 8% !important;
+}
+.swiper-pagination-bullet{
+    width: 20px !important;
+    height: 5px !important;
+    background: RGBA(17, 17, 17, 0.5)!important;
+    border-radius: 5px !important;
+}
+.swiper-pagination-bullet-active{
+    width: 30px !important;
+    height: 5px !important;
+    background: #fff !important; 
 }
 .banner{
+    position: relative;
     &-img{
         width: 100%;
-        height: 500px;
-        background: red;
+        height: 350px;
+        background: url(~@/assets/pc/banner-pc1.png) no-repeat;
         background-size: 100% 100%; 
     }
     &-img2{
@@ -19,26 +32,93 @@
         background: tomato;
         background-size: 100% 100%; 
     }
+    .banner-btn{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 100px;
+        border:3px solid rgba(255,255,255,0.3);
+        border-radius:25px;
+        a{
+            display: block;
+            width: 180px;
+            height:45px;
+            background:linear-gradient(-90deg,rgba(104,59,224,1),rgba(144,102,255,1));
+            border-radius:25px;
+            text-align: center;
+            line-height: 45px;
+            font-size: 18px;
+            color: #fff;
+            span{
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                background: url(~@/assets/pc/more-hover.png) no-repeat;
+                background-size: 100% 100%;
+                margin-top: 2px;  
+                margin-left: 5px;
+            }
+        }
+        &:hover{
+            border:3px solid rgba(255,255,255,1);
+        }
+    }
 }
 
 .main{
-    .main-casebox-case-title,.main-brandbox-brand-title{
-        width: 320px;
-        color: RGBA(85, 85, 85, 1);
+    
+    .main-casebox,.main-brandbox,.main-servicebox,.main-activebox，
+    .main-customerbox
+    {
+        width: 100%;
+        height: auto;
+    }
+    .main-casebox-case,.main-brandbox-brand,.main-servicebox-service,
+    .main-activebox-active,.main-customerbox-customer
+    {
+        width: 1200px;
+        height: auto;
+        margin: 0 auto;
+    }
+    .main-casebox-case-title,.main-brandbox-brand-title,
+    .main-servicebox-service-title,.main-activebox-active-title,
+    .main-customerbox-customer-title
+    {
+        width: 300px;
         font-size: 36px;
         text-align: center;
-        padding: 60px 0 30px 0;
+        padding: 80px 0 60px 0;
+        position: relative;
         margin: 0 auto;
-        background: url(~@/assets/pc/title-img.png) no-repeat 0 80px;
+        &:before{
+            content: '';
+            width: 50px;
+            height:9px;
+            background: url(~@/assets/pc/title-img-left.png) no-repeat ;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(50%);
+        }
+        &:after{
+            content: '';
+            width: 50px;
+            height:9px;
+            background: url(~@/assets/pc/title-img-right.png) no-repeat ;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(50%);
+        }
+    }
+    .change-title{
+        width: 400px;
     }
     // 经典案例
     &-casebox{
-        width: 100%;
-        height: auto;
         &-case{
-            width: 1200px;
-            height: auto;
-            margin: 0 auto;
             &-title{}
             &-list{
                 display: flex;
@@ -79,7 +159,7 @@
                 line-height: 40px;
                 a{
                    font-size: 16px;
-                   color: RGBA(107, 62, 224, 1); 
+                   color: @basecolor; 
                 }
                 span{
                     display: inline-block;
@@ -89,19 +169,27 @@
                     background-size: 100% 100%;
                     margin-top: 2px;                    
                 }
+                &:hover{
+                    background-color: @basecolor;
+                    a{
+                        color: #fff;
+                    }
+                    span{
+                        background: url(~@/assets/pc/more-hover.png) no-repeat;
+                        background-size: 100% 100%;
+                    }
+                }
             }
         }
     }
 
     // 品牌传播
     &-brandbox{
-        width: 100%;
-        height: auto;
         background: RGBA(246, 247, 250, 1);
         &-brand{
-            width: 1200px;
-            height: auto;
-            margin: 0 auto;
+            .change-padding{
+                margin-top: 100px;
+            }
             &-intro{
                 width: 1200px;
                 height: 152px;
@@ -110,15 +198,28 @@
                 display: flex;
                 align-items: center;
                 padding: 0 145px;
+                &-img,&-img2,&-img3{
+                    margin-right: 40px;
+                }
                 &-img{
                     width: 66px;
                     height: 95px;
-                    margin-right: 40px;
                 }
                 &-img2{
                     width: 93px;
                     height: 66px;
-                    margin-right: 40px;
+                }
+                &-img3{
+                    width: 86px;
+                    height: 90px;
+                }
+                &-img4{
+                    width: 77px;
+                    height: 83px;
+                }
+                &-img5{
+                    width: 89px;
+                    height: 87px;
                 }
                 &-txtbox{
                     color: #fff;
@@ -169,7 +270,6 @@
                     &-img{
                         width: 80px;
                         height: 80px;
-                        background: tomato;
                         border-radius: 50%;
                         margin-right: 20px;
                     }
@@ -187,18 +287,422 @@
                     }
                 }
             }
+            //全媒体渠道传播
             .main-spread-list{
                 display: flex;
                 justify-content: space-around;
-                
+                margin: 50px 0 100px 0;
                 &-item{
                     width: 220px;
                     height: 307px;
                     border-radius: 5px;
+                    text-align: center;
+                    background: #fff;
+                    &-num{
+                        font-size: 64px;
+                        color: @basecolor;
+                        margin-top: 30px;
+                        margin-bottom: 20px;
+                        span{
+                            display: inline-block;
+                            width: 22px;
+                            height: 22px;
+                            background: url(~@/assets/pc/more.png) no-repeat;
+                            background-size: 100% 100%;
+                            margin-left: -10px;
+                        }
+                    }
+                    &-txt{
+                        font-size: 16px;
+                        color: RGBA(85, 85, 85, 1);
+                        position: relative;
+                        margin-bottom: 30px;
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            bottom: -10px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 20px;
+                            height: 3px;
+                            background: RGBA(154, 115, 255, 1);
+                        }
+                    }
+                    &-list{
+                       width: auto;
+                       padding-left: 70px;
+                        li{
+                           line-height: 20px; 
+                           text-align: left;
+                           color: #777777;
+                           font-size: 14px;
+                           &:before{
+                               content: '·';
+                               width: 4px;
+                               height: 4px;
+                               color: #C7AA40;
+                               font-size: 30px;
+                               vertical-align: middle;
+                               margin-right: 10px;
+                               position: relative;
+                               top: -3px;
+                           }
+                           &:last-child{
+                               &:before{
+                                   visibility: hidden;
+                               }
+                           }
+                           
+                        }
+                    }
+                    &:nth-child(4),&:nth-child(5){
+                        .main-spread-list-item-list{
+                            padding-left: 50px;
+                        }
+                    }
+                }
+            }
+            //管理工具支持
+            .main-support-list{
+                display: flex;
+                justify-content: space-around;
+                margin: 50px 0 100px 0;
+                &-item{
+                    width: 250px;
+                    height: 328px;
+                    border-radius: 10px;
+                    box-shadow:0px 2px 8px 0px rgba(0,0,0,0.05);
+                    &-top{
+                        width: 250px;
+                        height: 130px;
+                        background: #fff;
+                        border-radius: 10px 10px 0 0 ;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        img{
+                            width: 75px;
+                            height: 65px;
+                        }
+                    }
+                    &-bottom{
+                        text-align: center;
+                        padding: 0 25px;
+                        &-title{
+                            color: #333333;
+                            font-size: 20px;
+                            margin: 20px 0;
+                        }
+                        &-txt{
+                            line-height: 20px;
+                            color: #999;
+                            font-size: 14px;
+                            text-align: left;
+                            span{
+                                color: #555;
+                                font-weight: 500;
+                            }
+                        }
+                    }
                 }
             }
 
         }
+        .place-index{
+            height: 100px;
+        }
         
+    }
+
+    // 服务优势
+    &-servicebox{
+        background: #FFF;
+        &-service{
+            &-list{
+                display: flex;
+                justify-content: space-around;
+                &-item{
+                    width: 250px;
+                    height: 333px;
+                    border-radius: 10px;
+                    position: relative;
+                    box-shadow:0px 4px 15px 0px rgba(0,0,0,0.08);
+                    text-align: center;
+                    &-tag{
+                        position: absolute;
+                        left: 20px;
+                        top: 0;
+                        width: 19px;
+                        height: 25px;
+                        background: url(~@/assets/pc/tag.png) no-repeat;
+                        background-size: 100% 100%;
+                    }
+                    &-img{
+                        position: relative;
+                        img{
+                            width: 88px;
+                            height: 96px;
+                            margin: 39px 0 63px 0;
+                        }
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            width: 20px;
+                            height: 3px;
+                            background: @basecolor;
+                            border-radius: 2px;
+                            bottom: 50px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                    }
+                    &-title{
+                        font-size: 20px;
+                        color: #333333;
+                    }
+                    &-txt{
+                        font-size: 14px;
+                        color: #999;
+                        padding:10px 26px 0;
+                    }
+                }
+            }
+        }
+    }
+
+    // 品牌活动
+    &-activebox{
+        background: #F6F7FA;
+        &-active{
+            &-list{
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                padding-bottom: 40px;
+                // justify-content: left;
+               &-item{
+                width: 350px;
+                height: 310px;
+                border-radius: 10px;
+                box-shadow:0px 7px 15px 0px rgba(0,0,0,0.08);
+                margin-bottom: 60px;
+                &-img{
+                    img{
+                        width: 380px;
+                        height: 250px;
+                        border-radius:10px 10px 0 0;
+                    }
+                }
+                &-txtbox{
+                    height: 60px;
+                    padding: 0 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    &-title{
+                        color: #555;
+                        font-size: 18px;
+                    }
+                    &-detail{
+                        color: #C7AA40;
+                        font-size: 14px;
+                        span{
+                            display: inline-block;
+                            width: 14px;
+                            height: 14px;
+                            background: url(~@/assets/pc/right-arrow.png) no-repeat;
+                            background-size: 100% 100%;
+                            vertical-align: middle;
+                            margin-left: 5px;
+                        }
+                    }
+                }
+                &:hover{
+                 box-shadow:0px 7px 15px 0px rgba(0,0,0,0.2);
+                } 
+               }
+            }
+        }
+    }
+    // 部分合作客户
+    &-customerbox{
+        &-customer{
+            &-list{
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                margin-bottom: 100px;
+                &-item{
+                    width: 120px;
+                    height: 100px;
+                    text-align: center;
+                    margin-right: 30px;
+                    margin-bottom: 50px;
+                    img{
+                        width: 120px;
+                        height: 70px;
+                    }
+                    p{
+                        margin-top: 10px
+                    }
+                    &:nth-child(8),&:nth-child(16){
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+    //联系我们
+    &-contactbox{
+        width: 100%;
+        height: auto;
+        background: #F6F7FA;
+        padding-bottom: 70px;
+        &-contact{
+            width: 1200px;
+            height: auto;
+            margin: 0 auto;
+            &-title{
+                color: #555;  
+                font-size: 36px;
+                text-align: center;
+                padding: 80px 0 60px 0;
+            }
+            &-formbox{
+                display: flex;
+                height: 360px;
+                border-radius:0px 5px 5px 0px;
+                box-shadow:0px 2px 8px 0px rgba(0,0,0,0.05);
+                &-left{
+                    width: 600px;
+                    background: #fff;
+                    padding: 30px 50px 40px;
+                    position: relative;
+                    &-title{
+                        font-size: 22px;
+                        color: #333333;
+                        margin-bottom: 20px;
+                    }
+                    &-inputbox{
+                        margin-bottom: 20px;
+                        position: relative;
+                        label{
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            left: 20px;
+                            color: #555;
+                            font-size: 14px;
+                        }
+                        input{
+                            width: 500px;
+                            height: 45px;
+                            background: #F5F5F5;
+                            border:none;
+                            border: 1px solid #EEEEEE;
+                            border-radius: 3px;
+                            padding-left: 100px;
+                        }
+                        .error-txt{
+                            position: absolute;
+                            color: #FC1D3F;
+                            line-height: 20px;
+                            display: none;
+                        }
+
+                        
+                    }
+                    .success{
+                        border: 1px solid #EEEEEE;
+                        .error-txt{
+                            display: none;
+                        }
+                        .empty-error-txt{
+                            display: none;
+                        }
+                    }
+                    .error{
+                        input{
+                            border: 1px solid #FC1D3F;
+                        }
+                        .error-txt{
+                            display: block;
+                        }
+                        .empty-error-txt{
+                            display: none;
+                        }
+                    }
+                    .empty-error{
+                        input{
+                            border: 1px solid #FC1D3F;
+                        }
+                        .error-txt{
+                            display: none;
+                        }
+                        .empty-error-txt{
+                            display: block;
+                        }
+                    }
+                    &-btn{
+                        display: block;
+                        border-radius: 3px;
+                        background: @basecolor;
+                        width: 130px;
+                        height: 45px;
+                        text-align: center;
+                        line-height: 45px;
+                        color: #fff;
+                        font-size: 16px;
+                        position: absolute;
+                        right: 50px;
+                        &:hover{
+                            background: #7A51E3;
+                        }
+                    }
+                }
+                &-right{
+                    flex: 1;
+                    background: @basecolor;
+                    padding: 30px 50px 0;
+                    color: #fff;
+                    position: relative;
+                    &-address{
+                        font-size: 22px;
+                        margin-bottom: 30px;
+                    }
+                    &-txt{
+                        font-size: 14px;
+                        margin-bottom: 10px;
+                        span{
+                            margin-left: 30px;
+                        }
+                    }
+                    &-code{
+                        position: absolute;
+                        right: 60px;
+                        bottom: 0;
+                        width: 169px;
+                        height: 194px;
+                        background: url(~@/assets/pc/iphone-qrcode.png) no-repeat;
+                        background-size: 100% 100%;
+                    }
+                }
+            }
+        }
+    }
+    // 版权
+    &-copybox{
+        font-size: 12px;
+        color: #555555;
+        line-height: 20px;
+        text-align: center;
+        padding-top: 30px;
+        &-tag{
+            width: 21px;
+            height: 24px;
+            margin: 10px auto 40px;
+            background: url(~@/assets/pc/foot-tag.png) no-repeat;
+            background-size: 100% 100%;
+        }
     }
 }
