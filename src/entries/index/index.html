@@ -18,8 +18,8 @@
         <a href="">立即咨询<span></span></a>
       </div>
     </div>
-    <!-- <div class="swiper-pagination"></div> -->
-    <!-- <div class="swiper-button-prev swiper-button-white"></div>
+    <!-- <div class="swiper-pagination"></div> 
+    <div class="swiper-button-prev swiper-button-white"></div>
     <div class="swiper-button-next swiper-button-white"></div> -->
     
   </div>  
@@ -31,7 +31,7 @@
   <div class="main-casebox">
     <div class="main-casebox-case">
       <div class="main-casebox-case-title">经典案例</div>
-      <div class="main-casebox-case-list">
+      <div class="main-casebox-case-list" id="main-casebox-case-list">
         <!-- 1 -->
         <div class="main-casebox-case-list-item">
           <a href="">
@@ -40,7 +40,7 @@
           <p class="main-casebox-case-list-item-name">上海禾新医院</p>
         </div>
         <!-- 2 -->
-        <div class="main-casebox-case-list-item">
+        <div class="main-casebox-case-list-item" id="left-center">
             <a href="">
               <img src="https://img1.dxycdn.com/2018/0810/908/3293989826575480662-10.png" alt="" class="main-commonbox-common-list-item-img">
             </a>
@@ -81,6 +81,14 @@
           </div>
         </div>
       </div>
+      <!-- detail -->
+      <div class="common-btn-detail">
+        <a href="javascript:;">查看详情 <span></span></a>
+      </div>
+      <!-- close -->
+      <div class="common-btn-close"></div>
+
+
       <!-- list -->
       <div class="main-brandbox-brand-list">
         <!-- 1 -->
@@ -202,10 +210,14 @@
             <div class="main-brandbox-brand-list-item-txtbox-title">个性化定制</div>
             <div class="main-brandbox-brand-list-item-txtbox-txt">针对医疗机构的个性化需求，提供服务咨询和解决方案</div>
           </div>
+
+
+         
+
         </div>
       </div>
       <!-- 全媒体渠道传播 -->
-      <div class="main-brandbox-brand-intro">
+      <div class="main-brandbox-brand-intro chang-intro-height">
         <div class="main-brandbox-brand-intro-img main-brandbox-brand-intro-img2">
           <img src="~@/assets/pc/item2.png" alt="">
         </div>
@@ -217,6 +229,13 @@
         </div>
       </div>
      
+       <!-- detail -->
+       <div class="common-btn-detail">
+        <a href="javascript:;">查看详情 <span></span></a>
+      </div>
+      <!-- close -->
+      <div class="common-btn-close"></div>
+
       <div class="main-spread-list">
         <!-- 1 -->
         <div class="main-spread-list-item">
@@ -281,7 +300,7 @@
       </div>
       <!-- end全媒体渠道传播 -->
       <!-- 管理工具支持 -->
-      <div class="main-brandbox-brand-intro">
+      <div class="main-brandbox-brand-intro chang-intro-height2" >
         <div class="main-brandbox-brand-intro-img main-brandbox-brand-intro-img3">
           <img src="~@/assets/pc/item3.png" alt="">
         </div>
@@ -292,6 +311,13 @@
           </div>
         </div>
       </div>
+
+      <!-- detail -->
+      <div class="common-btn-detail">
+        <a href="javascript:;">查看详情 <span></span></a>
+      </div>
+      <!-- close -->
+      <div class="common-btn-close"></div>
 
       <div class="main-support-list">
         <!-- 1 -->
@@ -352,7 +378,7 @@
       </div>
       <!-- end管理工具支持 -->
       <!-- 行业整合资源 -->
-      <div class="main-brandbox-brand-intro">
+      <div class="main-brandbox-brand-intro chang-intro-height2">
         <div class="main-brandbox-brand-intro-img main-brandbox-brand-intro-img4">
           <img src="~@/assets/pc/item4.png" alt="">
         </div>
@@ -365,7 +391,7 @@
       </div>
       <!-- end行业整合资源 -->
       <!-- 全体系培训输出 -->
-      <div class="main-brandbox-brand-intro change-padding">
+      <div class="main-brandbox-brand-intro change-padding chang-intro-height">
         <div class="main-brandbox-brand-intro-img main-brandbox-brand-intro-img5">
           <img src="~@/assets/pc/item5.png" alt="">
         </div>
@@ -631,26 +657,49 @@
         </form>
 
         <div class="main-contactbox-contact-formbox-right">
-            <div class="main-contactbox-contact-formbox-right-address">地址</div>
-            <div class="main-contactbox-contact-formbox-right-txt">杭州市滨江区江虹路 611 号上峰电商产业园 3 号楼 5 楼</div>
-            <div class="main-contactbox-contact-formbox-right-txt">电话：0571-26896070   <span>邮箱：lc@dxy.cn</span> </div>
-            <div class="main-contactbox-contact-formbox-right-txt" style="margin-top: 140px">医院品牌管理与传播，关注  <b>医苑汇</b> 就够了</div>
-            <div class="main-contactbox-contact-formbox-right-txt">扫描右侧二维码立即关注</div>
-            <div class="main-contactbox-contact-formbox-right-code"></div>
+          <div class="main-contactbox-contact-formbox-right-address">地址</div>
+          <div class="main-contactbox-contact-formbox-right-txt">杭州市滨江区江虹路 611 号上峰电商产业园 3 号楼 5 楼</div>
+          <div class="main-contactbox-contact-formbox-right-txt">电话：0571-26896070   <span>邮箱：lc@dxy.cn</span> </div>
+          <div class="main-contactbox-contact-formbox-right-txt" style="margin-top: 140px">医院品牌管理与传播，关注  <b>医苑汇</b> 就够了</div>
+          <div class="main-contactbox-contact-formbox-right-txt">扫描右侧二维码立即关注</div>
+          <div class="main-contactbox-contact-formbox-right-code"></div>
         </div>
+
+        <div class="mobile-addressbox">
+            <div class="mobile-addressbox-address">
+              <h3>地址</h3>
+              <p>杭州市滨江区江虹路 611 号上峰电商产业园 3 号楼 5 楼</p>
+              <p>电话：0571-26896070 <span>邮箱：lc@dxy.cn</span> </p>
+            </div>
+            <div class="mobile-addressbox-codebox">
+              <img src="~@/assets/pc/fix-code.png" alt="">
+              <div class="mobile-addressbox-codebox-txt">
+                <p>医院品牌管理与传播，关注 医苑汇 就够了</p>
+                <b>扫描左侧二维码立即关注</b>
+              </div>
+              
+            </div>
+        </div> 
+
       </div>
     </div>
   </div>
   <!-- end联系我们 -->
-  <!-- 版权 -->
-  <div class="main-copybox">
-    <p>
-        Copyright &#169 2000-2018 DXY All Rights Reserved. 
-        <br>浙B2-20070219(含BBS) （浙）-经营性-2017-0006 浙公网安备 33010802004314 号 
-        <br>本网站用字经北京北大方正电子有限公司授权许可
-    </p>
-    <div class="main-copybox-tag"></div>
+  <div class="foot-box">
+    <div class="foot-box-wrapper">
+      <div class="foot-box-wrapper-logobox">
+        <div class="foot-box-wrapper-logobox-logo">
+          <a href="">
+            <!-- <img src="" alt=""> -->
+          </a>
+        </div>
+        <div class="foot-box-wrapper-logobox-txt">加入医院汇，我们将为您提供定制化品牌运营服务，共同打造品牌成功。</div>
+      </div>
+      <div class="foot-box-wrapper-btnbox">
+        <a href="#main-contactbox">免费咨询</a>
+      </div>
+    </div>
   </div>
-  <!-- end 版权-->
+  <div class="place-foot-index"></div>
 </div>
 <!-- endmain -->

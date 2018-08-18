@@ -16,7 +16,37 @@ new Swiper('.swiper-container', {
 //     prevEl: '.swiper-button-prev'
 //   }
 })
+const oL = $('#main-casebox-case-list').outerWidth() / 2
+$('#main-casebox-case-list').css({ 'offsetLeft': oL })
+console.log($('#main-casebox-case-list').clientLeft)
 
+class Toggle {
+  constructor ({ el }) {
+    Object.assign(this, {
+      el: el
+    })
+    this.init()
+  }
+  init () {
+    this.eventInit()
+  }
+  eventInit () {
+    this.el.on('click', function () {
+      $(this).next().next().addClass('height').removeClass('none-height')
+      $(this).next().show()
+    })
+    this.el.next().on('click', function () {
+      $(this).hide()
+      $(this).next().addClass('none-height').removeClass('height')
+    })
+  }
+}
+
+new Toggle({
+  el: $('.common-btn-detail')
+})
+
+// 表单
 class ValidateForm {
   constructor ({ el, validateReg, msgCallback = () => { } }) {
     Object.assign(this, {
