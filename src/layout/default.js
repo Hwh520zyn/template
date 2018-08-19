@@ -12,12 +12,11 @@ import $ from 'jquery'
 $('.head-box-wrapper-nav').css({'zIndex': 2})
 $('.back-top').css({'zIndex': 10})
 $('.banner-btn').css({'zIndex': 10})
-$('.foot-box-wrapper').css({'zIndex': 10})
+$('.foot-box').css({'zIndex': 10})
 if (isMobile) {
   $('.foot-place').outerHeight(0)
 } else {
   const Hei = $('.main-copybox').outerHeight()
-  console.log(Hei)
   $('.foot-place').outerHeight(Hei)
 }
 
@@ -30,3 +29,12 @@ $('.mobile-toggle-nav').on('click', function () {
   $('.head-box-wrapper-nav').toggleClass('show')
 })
 
+// if (window.location.pathname !== '`yyh`' && window.location.pathname !== 'yyh') {
+//   $('.head-box-wrapper-nav').hide()
+//   $('.foot-place').hide()
+// }
+
+// if (window.location.pathname !== '``' && window.location.pathname !== '') {
+//   $('.mobile-search').show()
+//   $('.head-box-wrapper-nav').hide()
+// }

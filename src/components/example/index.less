@@ -1,0 +1,46 @@
+@import "~@/componentsCss/common/index.less";
+
+@color: @primary-color;
+// base
+@width: 100%;
+@padding: @spacing-base;
+// title
+@title-padding: @spacing-lg 0;
+// content
+@content-padding: 0 @spacing-sm;
+@content_left-margin: 0 @spacing-lg 0 0;
+
+// mixins
+.font-size-base() {
+  .font-size-level(@font-size-base);
+}
+.font-size-title() {
+  .font-size-level(@font-size-title);
+}
+
+.@{base-name}-example {
+  width: @width;
+  color: @color;
+  padding: @padding;
+  &-title {
+    .font-size-title();
+    padding: @title-padding;
+  }
+  &-content {
+    .flex-row(true);
+    .font-size-base();
+    padding: @content-padding;
+    &_left {
+      .flex-column();
+      flex-shrink: 0;
+      margin: @content_left-margin;
+    }
+    &_right {
+      .flex-column();
+      flex-shrink: 0;
+    }
+    &_item {
+      text-align: left;
+    }
+  }
+}

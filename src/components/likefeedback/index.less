@@ -1,0 +1,198 @@
+@import '~@/componentsCss/common/index.less';
+
+@fontSize-12: @font-size-12;
+@fontSize-14: @font-size-14;
+@fontSize-16: @font-size-16;
+@btnBgColor: @blue;
+@cancleVoteBgColor: @red;
+@fontColor: #94959f;
+@themeColor:#e1e4ea;
+@spacing10:@spacing-10;
+@spacing20:@spacing-20;
+@spacing30: 30px;
+
+.@{base-name}-likeback{
+    min-width:1000px;
+    height: auto;
+    background: #F1F3F4;
+    .flex-row(true);
+    padding: 40px 0;
+    transition: all .5s; //////////
+
+    .@{base-name}-cardBox{
+         .flex-row();
+         
+        .@{base-name}-card1{
+            .flex-column(true);
+            width:200px;
+            height: auto;
+            background: #fff; 
+            margin-right: @spacing20;
+            border-radius: 4px;
+            font-size: @fontSize-12;
+            border: 0;
+            padding: @spacing10;
+            &-left{
+                width: 180px;
+                height: 120px;
+            }
+            &-content{
+                margin-left: 0;
+                flex: 1;
+                &-head{
+                    margin: 0;
+                    &_title{
+                        width: 180px;
+                        font-size: @fontSize-14;
+                        .text-ellipsis();
+                        color: #474747;
+                        font-weight: 500;
+                        margin-top: 5px;
+                        margin-bottom: 16px;
+                    }
+                    &_time{
+                        display: none;
+                    }
+                }
+                &-describe{
+                    color: @fontColor;
+                    font-size: @fontSize-12;
+                    margin-bottom: 12px;
+                    height: auto;
+                }
+
+                &-detail{
+                    text-align: center;
+                    padding: 0;
+                    margin: 0;
+                    position: relative;
+                    flex-direction: column;
+                    &:before{
+                        content: '';
+                        width: 200px;
+                        height: 1px;
+                        background:@themeColor;
+                        position: absolute;
+                        top: 0;
+                        left: -10px;
+                    }
+                    /* 已投票 */ 
+                    &_voted{
+                        //display: none;
+                        color: @fontColor;
+                        font-size: @fontSize-12;
+                        margin: 12px 0 19px;
+                        font-weight: 500;
+                    }
+                   
+                    .hbd-btn-radius{
+                        margin-bottom: @spacing10;
+                    }
+                     /* 取消按钮 */ 
+                    .hbd-btn-danger{
+                        display: none;
+                    }
+                    /* 投票成功！ */ 
+                    &-successvote{
+                        display: none;
+                        color: @btnBgColor;
+                        font-size: @fontSize-16;
+                        font-weight: 500;
+                        padding: 35px 0;
+                       &_img{
+                           display: inline-block;
+                           width: 27px;
+                           height: 27px;
+                           vertical-align: bottom;
+                       }
+                        &_txt{
+                           margin-left: 19px;
+                        }
+                    }
+                }
+               
+            }
+        }
+    }
+
+}
+
+@media (max-width: 768px){
+    html{
+        font-size: 100vw / 7.5
+    }
+    .@{base-name}-likeback{
+        min-width: 0;
+        width:100%;
+        height: auto;
+        padding: .4rem .25rem 0;
+        .@{base-name}-cardBox{
+             flex-wrap: wrap;
+             justify-content: flex-start ;
+             font-size: .24rem;
+             
+            .@{base-name}-card1{
+                width: 3.35rem;
+                margin:0;
+                border-radius: 0.04rem;
+                margin-bottom: .25rem;
+                font-size: .24rem;
+                padding: .15rem;
+                &:nth-child(odd){
+                    margin-right: .25rem;
+                }
+                   
+                &-left{
+                    width: 3.05rem;
+                    height:2rem;
+                    padding: .15rem;
+                        
+                }
+                &-content{
+                    margin: 0 .15rem;
+                     &-head{
+                         &_title{
+                            width: 3.05rem;
+                            font-size: .24rem;
+                            margin-top: .13rem;
+                            margin-bottom: .24rem;
+                         }
+                     }  
+                     &-describe{
+                        font-size: .2rem;
+                        margin-bottom: .14rem; 
+                     } 
+                     &-detail{
+                        border-top: 0.01rem solid @themeColor;
+                        &:before{
+                             height: 0;
+                        }
+                         /* 已投票 */ 
+                        &_voted{
+                            //display: none;
+                            font-size: .19rem;
+                            margin: .19rem 0 .33rem;
+                        }
+                        .hbd-btn-radius{
+                            margin-bottom: .2rem;
+                        }
+                        /* 投票成功！ */ 
+                        &-successvote{
+                            font-size: .26rem;
+                            padding: .53rem 0;
+                        &_img{
+                            width: .45rem;
+                            height: .45rem;
+                        }
+                            &_txt{
+                            margin-left:.28rem;
+                            }
+                        }
+                     }
+                }
+            }
+        }
+    }
+}
+
+

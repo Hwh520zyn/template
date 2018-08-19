@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "jquery": "1.12.4",
-    "swiper": "4.3.5"
+    "swiper": "4.3.5",
+    "@dxy/pure-components": "^0.1.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

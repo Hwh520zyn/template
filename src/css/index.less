@@ -18,19 +18,21 @@
 }
 .banner{
     position: relative;
+    width: 100%;
+    min-width: 1200px;
     &-img{
         width: 100%;
         height: 350px;
         background: url(~@/assets/pc/banner-pc1.png) no-repeat;
-        background-size: 100% 100%; 
+        background-size: cover; 
     }
     &-img2{
         background: #ccf;
-        background-size: 100% 100%; 
+        background-size: cover%; 
     }
     &-img3{
         background: tomato;
-        background-size: 100% 100%; 
+        background-size: cover; 
     }
     .banner-btn{
         position: absolute;
@@ -79,6 +81,7 @@
         width: 1200px;
         height: auto;
         margin: 0 auto;
+        background: #F6F7FA;
     }
     .main-casebox-case-title,.main-brandbox-brand-title,
     .main-servicebox-service-title,.main-activebox-active-title,
@@ -125,6 +128,7 @@
     // 经典案例
     &-casebox{
         &-case{
+            background: #fff !important;
             &-title{}
             &-list{
                 display: flex;
@@ -415,17 +419,20 @@
         }
         .place-index{
             height: 100px;
+            min-width:1200px;
+            background: #F6F7FA; 
         }
         
     }
 
     // 服务优势
     &-servicebox{
-        background: #FFF;
         &-service{
+            background: #fff !important;
             &-list{
                 display: flex;
                 justify-content: space-around;
+                margin-bottom: 100px;
                 &-item{
                     width: 250px;
                     height: 333px;
@@ -532,6 +539,7 @@
     // 部分合作客户
     &-customerbox{
         &-customer{
+            background: #fff !important;
             &-list{
                 display: flex;
                 justify-content: space-around;
@@ -564,11 +572,12 @@
         width: 100%;
         height: auto;
         background: #F6F7FA;
-        padding-bottom: 70px;
         &-contact{
             width: 1200px;
             height: auto;
             margin: 0 auto;
+            background: #F6F7FA;
+            padding-bottom: 70px;
             &-title{
                 color: #555;  
                 font-size: 36px;
@@ -767,6 +776,8 @@
     }
     .banner{
         position: relative;
+        min-width: 0;
+        width: 100%;
         &-img{
             width: 100%;
             height: 4rem;
@@ -826,7 +837,7 @@
         {
             width: 3.24rem;
             font-size: .46rem;
-            padding: .8rem 0 .5rem 0;
+            padding: .6rem 0 .5rem 0;
             &:before{
                 content: '';
                 width: .5rem;
@@ -904,9 +915,9 @@
                         border-radius: .1rem;
                         box-shadow:0 .07rem .15rem 0 rgba(0,0,0,0.08);
                         margin-right: .5rem;
-                        &-img{
+                        img{
                             width: 5.5rem;
-                            height: 3.62rem;
+                            height: 3rem;
                             border-radius: .05rem .05rem 0 0 ;
                         }
                         &-name{
@@ -1014,6 +1025,7 @@
                         &-txt2{
                             margin-top: .2rem;
                             color: rgba(255,255,255,.8);
+                            font-size: .24rem;
                             b{
                                 color: rgba(255,255,255,1)
                             }
@@ -1110,20 +1122,20 @@
                            width: auto;
                            padding-left: 1.1rem;
                             li{
-                               line-height: 20px; 
+                               line-height: .25rem; 
                                text-align: left;
                                color: #777777;
-                               font-size: 14px;
+                               font-size: .24rem;
                                &:before{
                                    content: '·';
-                                   width: 4px;
-                                   height: 4px;
+                                   width: .08rem;
+                                   height: .08rem;
                                    color: #C7AA40;
-                                   font-size: 30px;
+                                   font-size: .4rem;
                                    vertical-align: middle;
-                                   margin-right: 10px;
+                                   margin-right: .1rem;
                                    position: relative;
-                                   top: -3px;
+                                   top: -.03rem;
                                }
                                &:last-child{
                                    &:before{
@@ -1204,11 +1216,13 @@
             &-service{
                 &-list{
                     flex-wrap: wrap;
+                    margin-bottom: .3rem;
                     &-item{
                         width: 3.35rem;
                         height: 4.13rem;
                         border-radius: .1rem;
                         box-shadow:0px .04rem .15rem 0px rgba(0,0,0,0.08);
+                        margin-bottom: .5rem;
                         &-tag{
                             left: .4rem;
                             top: 0;
@@ -1327,7 +1341,7 @@
                             color: #777;
                             font-size: .24rem;
                         }
-                        &:nth-child(8),&:nth-child(16){
+                        &:nth-child(8n){
                             margin-right: 0;
                         }
                     }
@@ -1339,11 +1353,11 @@
             width: 100%;
             height: auto;
             background: #F6F7FA;
-            padding-bottom: 0;
             &-contact{
                 width: 100%;
                 height: auto;
                 margin: 0 auto;
+                padding-bottom: 0;
                 &-title{
                     color: #555;  
                     font-size: .46rem;

@@ -1,0 +1,37 @@
+// 等腰三角形 - 向上
+.top-triangle(@width, @height, @color) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-top-width: 0;
+  border-bottom-width: @height;
+  border-right-width: @width / 2;
+  border-left-width: @width / 2;
+  border-color: transparent;
+  border-bottom-color: @color;
+}
+
+// 等腰三角形 - 向下
+.bottom-triangle(@width, @height, @color) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-top-width: @height;
+  border-bottom-width: 0;
+  border-right-width: @width / 2;
+  border-left-width: @width / 2;
+  border-color: transparent;
+  border-top-color: @color;
+}
+
+// 直角三角形
+.right-triangle(@width, @height) {}
+
+// 圆形
+.circle-triangle(@size) {
+  width: @size;
+  height: @size;
+  border-radius: 50%;
+}

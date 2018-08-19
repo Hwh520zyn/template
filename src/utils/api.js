@@ -6,18 +6,18 @@ const handleResponse = response => {
   const { success, message, error } = response
   const msg = message || error || '请求失败，未知错误'
   if (!success && msg !== '无评论内容') {
-    alert(msg)
+    console.log(msg)
   } else {
     return response
   }
 }
 const handleError = err => {
   if (err.status) {
-    alert(`请求失败[${err.status}]：${err.statusText}`)
+    console.log(`请求失败[${err.status}]：${err.statusText}`)
   } else if (err.status === 0) { // 请求未完成，页面就跳转发生的中断错误不弹窗提示
     return err
   } else {
-    alert('请求失败')
+    console.log('请求失败')
   }
 }
 

@@ -1,0 +1,68 @@
+@import "./index.less";
+// 主题二
+.@{base-name}-tabs-theme2 {
+  // pc
+  @padding: 40px;
+  @bg-color: @white;
+  @header-padding: 0;
+  @header-item-padding: 5px 10px;
+  @header-font-size: 14px;
+  @header-font-color: #D1D5DC; // mobile
+  @mobile-padding: 0;
+  @mobile-header-padding: 0;
+  @mobile-header-item-padding: .26rem .76rem;
+  @mobile-header-font-size: .3rem;
+  .header-font-size() {
+    .font-size-level(@header-font-size);
+    @media (max-width: 768px) {
+      font-size: @mobile-header-font-size;
+    }
+  }
+  .content-style() {
+    width: 100%;
+    background-color: @white;
+    padding: 50px;
+  }
+  .@{base-name}-tabs {
+    padding: @padding;
+    background-color: @bg-color;
+    &-scroll {
+      position: relative;
+      z-index: 1;
+      background-color: @header-bg-color;
+      border-bottom: 1px solid @header-font-color;
+    }
+    &-header {
+      padding: @header-padding;
+      color: @header-font-color;
+      li {
+        padding: @header-item-padding;
+        .header-font-size();
+        border-bottom: 2px solid transparent;
+        transition: border @transition;
+        &.active {
+          color: @active-color;
+          border-bottom-color: @active-color;
+        }
+      }
+    }
+    &-content {
+      .content-style();
+    }
+  }
+  @media (max-width: 768px) {
+    .@{base-name}-tabs {
+      padding: @mobile-padding;
+      &-scroll {
+        border-bottom: .02rem solid @header-font-color;
+      }
+      &-header {
+        padding: @mobile-header-padding;
+        li {
+          padding: @mobile-header-item-padding;
+          border-bottom: .02rem solid transparent;
+        }
+      }
+    }
+  }
+}

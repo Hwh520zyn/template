@@ -1,0 +1,42 @@
+.flex-column(@center: false) when (@center) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column(@center: false) when not (@center) {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row(@center: false) when (@center) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row(@center: false) when not (@center) {
+  display: flex;
+  flex-direction: row;
+}
+
+.text-ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.no-ellipsis() {
+  overflow: auto;
+  white-space: normal;
+  text-overflow: clip;
+}
+
+.flex-setting(@justify: flex-start, @align: stretch, @direction: row) {
+  display: flex;
+  justify-content: @justify;
+  align-items: @align;
+  flex-direction: @direction;
+}
