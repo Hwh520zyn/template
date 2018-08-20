@@ -17,7 +17,7 @@ $('#arrow-box i').on('click', function () {
 function template (data) {
   return `<div class="hbd-articleLists">
   <div class="hbd-cardBox" id="hbd-cardBox">
-      <a href="javascript:;">
+      <a href="/interdetail">
           <div class="hbd-card1">
               <div class="hbd-card1-left">
                   <!-- img -->
@@ -25,7 +25,7 @@ function template (data) {
                   <!-- END img -->
               </div>
               <div class="hbd-card1-content">
-                  <div class="hbd-card1-content-head verticalCenter">
+                  <div class="hbd-card1-content-head verticalCenter">${data.title}
                       <div class="hbd-card1-content-head_time textRight">2018 6-5</div>
                   </div>
                   <div class="hbd-card1-content-describe textLeft">
@@ -33,7 +33,7 @@ function template (data) {
                   </div>
                   <div class="hbd-card1-content-detail verticalCenter">
                       <div class="hbd-card1-content-detail-experts">
-                          本期专家：于小宝 吴俊 李力
+                      本期专家：于小宝 吴俊 李力
                       </div>
                       <div class="hbd-card1-content-detail-experts-cont textRight">查看详情 <span></span> </div>
                   </div>
@@ -51,9 +51,10 @@ let baseConfig = {
   },
   api: Api.pageList,
   params: {
-    id: 1
+    page: 1,
+    size: 5
   },
-  onSuccess (res) {
+  onSuccess (res)  {
     let items = res.results.items.map(item => {
       let title = item.title
       return { ...item,
@@ -101,3 +102,10 @@ let mobileConfig = {
 
 if (isMobile) new PullList(mobileConfig)
 else new PageList(pcConfig)
+
+$('#focus input').on('focus', function () {
+  $('#focus').addClass('focus').removeClass('blur')
+})
+$('#focus input').on('blur', function () {
+  $('#focus').addClass('blue').removeClass('focus')
+})

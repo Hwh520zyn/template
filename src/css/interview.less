@@ -1,9 +1,14 @@
+@import '~@/css/variable.less';
+.head-box-wrapper-nav-list,.mobile-toggle-nav{
+    display: none !important;
+  }
 // banner
 .interview-bannerbox{
     width: 100%;
     min-width: 1200px;
     height: 300px;
-    background: #ccf;
+    background: url(~@/assets/pc/banner-interview-pc.png) no-repeat;
+    background-size: 100% 100%;
 }
 // main
 .main-interviewbox{
@@ -35,6 +40,10 @@
                         color: #333333;
                         font-size: 14px;
                         margin-top: 5px;
+                        &:hover{
+                            color:@basecolor;
+                            border: 1px solid @basecolor;
+                        }
                     }
                     &-arrow{
                         position: absolute;
@@ -47,12 +56,32 @@
                             cursor: pointer;
                             color: #DDDDDD;
                             // &:active{
-                            //     color: #6B3EE0;
+                            //     color: @basecolor;
                             // }
                         }
                         .changecolor{
-                            color: #6B3EE0;
+                            color: @basecolor;
                         }
+                    }
+                }
+                .focus{
+                    input{
+                        &:focus{
+                            border: 1px solid @basecolor;
+                        }
+                    }
+                    .icon-sousuo:before{
+                        color: @basecolor;
+                    }
+                }
+                .blur{
+                    input{
+                        &:focus{
+                            border: 1px solid DDD;
+                        }
+                    }
+                    .icon-sousuo:before{
+                        color: #DDD;
                     }
                 }
                 &-input{
@@ -69,7 +98,15 @@
                         color: #B5B5B5;
                         font-size: 14px;
                         padding-right: 40px;
+                        &:hover{
+                            border: 1px solid @basecolor;
+                        }
+                        
                     }
+                    
+                    // &.focus{
+                    //    
+                    // }
                     .icon-sousuo:before{
                       content: '\e676';
                       position: absolute;  
@@ -80,6 +117,12 @@
                       font-size: 28px;
                     }
                 }
+            }
+        }
+        &-list{
+            margin-bottom: 100px;
+            .common_pageBean_content li[data-actived=true]{
+                background-color: @basecolor;
             }
         }
     }
@@ -103,6 +146,7 @@
                 justify-content: space-around;
                 flex-wrap: wrap;
                 padding-bottom: 40px;
+                
                 &-item{
                     width: 120px;
                     height: 100px;
@@ -131,12 +175,16 @@
     html{
         font-size: calc(100vw /7.5)
     }
+    .mobile-search{
+        display: block !important;
+    }
     // banner
 .interview-bannerbox{
     width: 100%;
     min-width: 0;
     height: 4rem;
-    background: #ccf;
+    background: url(~@/assets/mobile/banner-interview-mobile.png) no-repeat;
+    background-size: 100% 100%;
 }
 // main
 .main-interviewbox{
@@ -180,11 +228,11 @@
                             cursor: pointer;
                             color: #DDDDDD;
                             // &:active{
-                            //     color: #6B3EE0;
+                            //     color: @basecolor;
                             // }
                         }
                         .changecolor{
-                            color: #6B3EE0;
+                            color: @basecolor;
                         }
                     }
                 }

@@ -1,4 +1,5 @@
 @import '~@/componentsCss/common/index.less';
+@import '~@/css/variable.less';
 @fontSize-12: @font-size-12;
 @fontSize-14: @font-size-14;
 @fontSize-18: @font-size-18;
@@ -23,6 +24,19 @@
       &:hover {
         cursor: pointer;
         box-shadow:0px 2px 12px 0px rgba(0,0,0,0.15);
+         .hbd-card1-content{
+          &-detail{
+            &-experts{
+              &-cont{
+                color: @basecolor;
+                span{
+                  background: url(~@/assets/pc/right-arrow-blank-hover.png) no-repeat;
+                  background-size: 100% 100%;
+                }
+              }
+            }
+          }
+        }
       }
       &-left {
         width: 356px;
@@ -41,6 +55,7 @@
         &-head {
           color: #474747;
           margin: @spacing5 0 0;
+          font-size: 24px;
           .flex-row(true);
           &_title {
             width: 600px;
@@ -79,7 +94,7 @@
                 display: inline-block;
                 width: 18px;
                 height: 18px;
-                background: url(~@/assets/pc/right-arrow.png) no-repeat;
+                background: url(~@/assets/pc/right-arrow-blank.png) no-repeat;
                 background-size: 100% 100%;
                 margin-top: -2px;
                 vertical-align: middle;
@@ -130,6 +145,12 @@
           width: 4.2rem;
           &-head {
             margin: 0;
+            font-size: .32rem;
+            width: 4.2rem;
+            height: .4rem;
+            display: block;
+            .text-ellipsis();
+            justify-content: unset;
             &_title {
               width: 4.2rem;
               font-weight: 600;
@@ -138,7 +159,7 @@
               .no-ellipsis();
             }
             &_time {
-              display: none;
+              visibility: hidden;
             }
           }
           &-describe {

@@ -1,0 +1,110 @@
+@import '~@/css/variable.less';
+@import '~@/css/interdetail.less';
+.head-box-wrapper-nav-list{
+    display: flex !important;
+}
+.info-placebox{
+    width: 100%;
+    height: 90px;
+    background: #F5F5F5;
+    &-place{
+        width: 1200px;
+        margin: 0 auto;
+    }
+}
+.hbd-tabs{
+    &-scroll{
+        position: absolute;
+        top: 110px;
+        margin-bottom: 0;
+    }
+}
+.main-interdebox-interde-contbox{
+    padding: 0;
+}
+
+.main-interdebox-interde-contbox-cont-left{
+    .main-bottom-list-item{
+        .hbd-articleLists {
+            .hbd-cardBox{
+                .hbd-card1-content-detail-experts{
+                    visibility: unset ;
+                }
+                .hbd-card1-content-detail-experts-cont{
+                   span{
+                    background: none;
+                    display: inline;
+                    margin-left: 5px;
+                   }
+                }
+                .active-like{
+                    .icon-z-like:before{
+                        content: '\e510';
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width:768px) {
+    html{
+        font-size: calc(100vw/7.5)
+    }
+    .head-box{
+        display: block;
+        .mobile-search{
+            display: none !important;
+        }
+        .mobile-toggle-nav{
+            display: block !important;
+        }
+    }
+
+    .info-placebox{
+        width: 100%;
+        height: 1rem;
+        background: #fff;
+        &-place{
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+    .hbd-tabs{
+        &-scroll{
+            position: absolute;
+            top: 1.2rem;
+            margin-bottom: 0;
+        }
+    }
+    .main-interdebox-interde-contbox{
+        padding: 0;
+    }
+    
+    .main-interdebox-interde-contbox-cont-left{
+        border-top: .01rem solid #E5E5E5;
+        .main-bottom-list-item{
+            .hbd-articleLists {
+                .hbd-cardBox{
+                    .hbd-card1{
+                        padding-bottom: .3rem;
+                    }
+                    .hbd-card1-content-detail-experts{
+                        visibility: unset ;
+                    }
+                    .hbd-card1-content-detail-experts-cont{
+                       span{
+                        background: none;
+                        display: inline;
+                        margin-left: 5px;
+                       }
+                    }
+                    .active-like{
+                        .icon-z-like:before{
+                            content: '\e510';
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

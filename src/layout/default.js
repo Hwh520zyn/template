@@ -29,12 +29,20 @@ $('.mobile-toggle-nav').on('click', function () {
   $('.head-box-wrapper-nav').toggleClass('show')
 })
 
+// 点赞
+$('.main-sharebox-like').on('click', function () {
+  $(this).addClass('active-like')
+  $(this).find('span').html('已点赞')
+})
+
 // if (window.location.pathname !== '`yyh`' && window.location.pathname !== 'yyh') {
 //   $('.head-box-wrapper-nav').hide()
 //   $('.foot-place').hide()
 // }
 
+// if( isMobile ) {
 // if (window.location.pathname !== '``' && window.location.pathname !== '') {
 //   $('.mobile-search').show()
 //   $('.head-box-wrapper-nav').hide()
+// }
 // }
