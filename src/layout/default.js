@@ -2,6 +2,7 @@ import '@/css/reset.less'
 import '@/css/layout.less'
 import 'babel-polyfill'
 import '@/font/iconfont.css'
+import '@/css/dxy-article.less'
 import isMobile from '@/utils/isMobile'
 
 import $ from 'jquery'
@@ -35,8 +36,7 @@ $('.main-sharebox-like').on('click', function () {
   $(this).find('span').html('已点赞')
 })
 
-// if (window.location.pathname !== '`yyh`' && window.location.pathname !== 'yyh') {
-//   $('.head-box-wrapper-nav').hide()
+// if (window.location.pathname !== '`/`' && window.location.pathname !== '/') {
 //   $('.foot-place').hide()
 // }
 
@@ -46,3 +46,10 @@ $('.main-sharebox-like').on('click', function () {
 //   $('.head-box-wrapper-nav').hide()
 // }
 // }
+
+// $('.index').on('click', function () {
+//   window.location.href = '/'
+// })
+// $('.info').on('click', function () {
+//   window.location.href = '/info'
+// })

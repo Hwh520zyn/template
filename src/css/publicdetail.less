@@ -1,0 +1,113 @@
+.main-bottom-list-item{
+    padding-top: 10px;
+    &-titlebox{
+        font-size:28px;
+        color: #333;
+        &-titletxt{
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 30px;
+            .main-bottom-list-timebox{
+               span{
+                   margin-left: 30px;
+               }
+            }
+            .main-bottom-list-sizebox{
+                i{
+                    color: #ccc;
+                    font-size: 12px;
+                    padding: 0 5px;
+                }
+                span{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    &-txtbox{
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        padding: 30px 0;
+    }
+    .main-copy-public{
+        margin-top: 30px;
+        color: #555555;
+        font-size: 14px;
+        &-title{
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        &-txt{
+            line-height: 26px;
+        }
+    }
+}
+
+
+@media(max-width:768px){
+    html{
+        font-size: calc(100vw/7.5)
+    }
+    .head-box{
+        display: none !important;
+    }
+    .info-placebox{
+        display: none;
+    }
+    .hbd-tabs-scroll{
+        display: none !important;
+    }
+    .main-bottom-list-item{
+        padding-top: .3rem;
+        padding: 0 .3rem;
+        &-titlebox{
+            font-size:.42rem;
+            color: #333;
+            &-titletxt{
+                margin-top: .2rem;
+                font-size: .26rem;
+                color: #777;
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 30px;
+                .main-bottom-list-timebox{
+                   span{
+                       margin-left: .5rem;
+                   }
+                }
+                .main-bottom-list-sizebox{
+                    display: none;
+                    i{
+                        color: #ccc;
+                        font-size: 12px;
+                        padding: 0 5px;
+                    }
+                    span{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        &-txtbox{
+            border-top: none;
+            border-bottom: none;
+            padding: 0 0;
+        }
+        .main-copy-public{
+            display: none;
+            margin-top: 30px;
+            color: #555555;
+            font-size: 14px;
+            &-title{
+                margin-bottom: 10px;
+                font-weight: 500;
+            }
+            &-txt{
+                line-height: 26px;
+            }
+        }
+    }
+}

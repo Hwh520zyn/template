@@ -1,22 +1,18 @@
-import '@/css/interview.less'
+import '@/css/infolist.less'
+import '@/css/interdetail.less'
+import '@/css/info.less'
 import '@/css/articlelist.less'
 // import PageList from '@/components/page-list'
 // import PullList from '@/components/pull-list'
 // import Loading from '@/components/loading'
-// import Api from '@/utils/api'
 // import isMobile from '@/utils/isMobile'
-import $ from 'jquery'
-
-$('#arrow-box i').on('click', function () {
-  $(this).css({'color': '#6B3EE0'}).siblings().css({'color': '#DDD'})
-})
-
-// 引入模版相关样式文件
+// import Api from '@/utils/api'
+// import $ from 'jquery'
 
 // function template (data) {
 //   return `<div class="hbd-articleLists">
 //   <div class="hbd-cardBox" id="hbd-cardBox">
-//       <a href="/interdetail">
+//       <a href="javascript:;">
 //           <div class="hbd-card1">
 //               <div class="hbd-card1-left">
 //                   <!-- img -->
@@ -28,13 +24,13 @@ $('#arrow-box i').on('click', function () {
 //                       <div class="hbd-card1-content-head_time textRight">2018 6-5</div>
 //                   </div>
 //                   <div class="hbd-card1-content-describe textLeft">
-//                   ${data.content}
+//                           ${data.content}
 //                   </div>
 //                   <div class="hbd-card1-content-detail verticalCenter">
 //                       <div class="hbd-card1-content-detail-experts">
-//                       本期专家：于小宝 吴俊 李力
+//                               丁香园 2018-08-01
 //                       </div>
-//                       <div class="hbd-card1-content-detail-experts-cont textRight">查看详情 <span></span> </div>
+//                       <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span>点赞</span> </div>
 //                   </div>
 //               </div>
 //           </div>
@@ -45,7 +41,7 @@ $('#arrow-box i').on('click', function () {
 
 // let baseConfig = {
 //   listConfig: {
-//     container: '#exampleList',
+//     container: '#bottom-list-infolist',
 //     template
 //   },
 //   api: Api.pageList,
@@ -70,7 +66,7 @@ $('#arrow-box i').on('click', function () {
 //   onInit () {
 //     if (!isMobile) return
 //     this.$loading = new Loading({
-//       el: '#examplePagination',
+//       el: '#bottomPagination-infolist',
 //       type: 'ballLine',
 //       text: '正在加载中...'
 //     })
@@ -83,7 +79,7 @@ $('#arrow-box i').on('click', function () {
 // let pcConfig = {
 //   ...baseConfig,
 //   pageConfig: {
-//     ele: '#examplePagination',
+//     ele: '#bottomPagination-infolist',
 //     cur: 1,
 //     limit: 10,
 //     total: 100
@@ -94,7 +90,7 @@ $('#arrow-box i').on('click', function () {
 //   ...baseConfig,
 //   pullConfig: {
 //     distance: 0,
-//     ele: '#exampleList',
+//     ele: '#bottom-list-infolist',
 //     maxError: 10
 //   }
 // }
@@ -102,9 +98,3 @@ $('#arrow-box i').on('click', function () {
 // if (isMobile) new PullList(mobileConfig)
 // else new PageList(pcConfig)
 
-$('#focus input').on('focus', function () {
-  $('#focus').addClass('focus').removeClass('blur')
-})
-$('#focus input').on('blur', function () {
-  $('#focus').addClass('blue').removeClass('focus')
-})
