@@ -1,0 +1,131 @@
+@import "~@/componentsCss/common/index.less";
+@import "./theme1.less";
+@import "./theme2.less";
+@import "./theme3.less";
+@import "./theme4.less";
+@width: 100%;
+@active-color: @primary-color;
+@header-bg-color: @white;
+@transition: .3s cubic-bezier(.78, .14, .15, .86);
+// 基本结构样式，四个主题公用
+.@{base-name}-tabs {
+  width: @width;
+  margin: 0 auto;
+  &-scroll {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-header {
+    width: auto;
+    overflow: auto;
+    display: flex;
+    transition: all @transition;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    li {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      flex-shrink: 0;
+      a {
+        position: relative;
+        transition: all @transition;
+      }
+      a:after {
+        content: "";
+        background: @active-color;
+        transition: all @transition;
+        opacity: 0;
+      }
+      &.active {
+        color: @active-color;
+        a:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &-content {
+    &_item {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
+.@{base-name}-tabs-theme4 {
+  @padding: 40px;
+  @bg-color: @white;
+  @header-padding: 0;
+  @header-item-padding: 8px 20px;
+  @header-font-size: 14px;
+  @header-font-color: #D1D5DC;
+  @bg-color: @white;
+  @con-font-color: @font-color;
+  .header-item-after() {
+    position: absolute;
+    transform: translateX(-50%);
+    bottom: -14px;
+    left: 50%;
+    width: 20px;
+    height: 3px;
+    border-radius: 2px;
+  }
+  .content-style() {
+    width: auto;
+    padding: 8px 20px;
+    color: @con-font-color;
+  }
+  .mobile-style() {
+    @media (max-width: 768px) {
+      .@{base-name}-tabs {
+        padding: 0;
+      }
+    }
+  }
+  .@{base-name}-tabs {
+    display: flex;
+    padding: @padding;
+    background-color: @bg-color;
+    &-scroll {
+      width: auto;
+      position: relative;
+      &:after {
+        content: "";
+        width: 1px;
+        height: 100%;
+        background-color: @header-font-color;
+        position: absolute;
+        top: 0;
+        right: 1px;
+      }
+    }
+    &-header {
+      position: relative;
+      z-index: 1;
+      flex-direction: column;
+      padding: @header-padding;
+      color: @header-font-color;
+      li {
+        padding: @header-item-padding;
+        .font-size-level(@header-font-size);
+        text-align: right;
+        border-right: 2px solid transparent;
+        transition: border @transition;
+        &.active {
+          color: @active-color;
+          border-color: @active-color;
+        }
+      }
+    }
+    &-content {
+      .content-style();
+    }
+  }
+  .mobile-style();
+}

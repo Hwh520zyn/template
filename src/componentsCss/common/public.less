@@ -1,0 +1,16 @@
+@import "../mixins/index.less";
+// 常用
+.clearfix {
+  &:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    zoom: 1;
+    clear: both;
+  }
+}
+.hide {
+  display: none;
+}
