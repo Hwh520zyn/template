@@ -41,6 +41,7 @@ function template (data) {
 </div>`
 }
 var api
+api = Api.pageList
 // 排序 -- 正序
 $('#sort-normal').on('click', function () {
   api = Api.pageList({ sort: 1 })
@@ -120,8 +121,6 @@ let mobileConfig = {
 }
 if (isMobile) new PullList(mobileConfig)
 else new PageList(pcConfig)
-
-
 
 // 搜索框
 $('#focus input').on('focus', function () {

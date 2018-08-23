@@ -2,6 +2,7 @@ import '@/css/index.less'
 import 'swiper/dist/css/swiper.min.css'
 import Swiper from 'swiper/dist/js/swiper.min.js'
 import * as Validate from '@/utils/validateRegExp'
+import isMobile from '@/utils/isMobile'
 import $ from 'jquery'
 new Swiper('.swiper-container', {
   effect: 'fade',
@@ -137,7 +138,8 @@ window.onscroll = function (e) {
   var e = e || event
   var stop = document.body.scrollTop || document.documentElement.scrollTop
   // console.log(stop)
-  if (stop > 5510) {
+  
+  if (stop > 5510 ) {
     $('.foot-box').hide()
   } else {
     $('.foot-box').show()
