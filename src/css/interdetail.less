@@ -1,7 +1,33 @@
 @import '~@/css/variable.less';
 @import '~@/css/interview.less';
 @import '~@/css/articlelist.less';
+.share_btn{
+    display: none !important;
+}
+.dxy-share {
+    .plg_share_style3 {
+        .plg_ico_sina,.plg_ico_qzone{
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        .plg_ico_sina{
+            background: url(~@/assets/pc/wb-hover.png) no-repeat !important;
+            background-size: 100% 100% !important;
 
+        }
+        .plg_ico_qzone{
+            background: url(~@/assets/pc/kj-hover.png) no-repeat !important;
+            background-size: 100% 100% !important;
+        }
+    }
+    
+    .plg_share_el_nav1_ico{
+        width: 23px !important;
+        height: 23px !important;
+        margin-left: 0 !important;
+    }
+}
 .main-interdebox{
     width: 100%;
     height: auto;
@@ -138,7 +164,7 @@
                                     }
                                     
                                 }
-                                li:nth-child(2){
+                                .share-dxy{
                                     background: url(~@/assets/pc/dxy.png) no-repeat;
                                     background-size: 100% 100%;
                                     &:hover{
@@ -146,7 +172,7 @@
                                         background-size: 100% 100%;
                                     }
                                 }
-                                li:nth-child(3){
+                                .share-qzone{
                                     background: url(~@/assets/pc/kj.png) no-repeat;
                                     background-size: 100% 100%;
                                     &:hover{
@@ -154,7 +180,7 @@
                                         background-size: 100% 100%;
                                     }
                                 }
-                                li:nth-child(4){
+                                .share-wx{
                                     margin-right: 0;
                                     background: url(~@/assets/pc/wx.png) no-repeat;
                                     background-size: 100% 100%;
@@ -324,11 +350,12 @@
                                 }
                             }
                         }
-                        .main-mobile{
-                            display: none;
-                        }
+                       
                     }
 
+                }
+                .main-mobile{
+                    display: none;
                 }
                 .main-right{
                     width: 300px;
@@ -383,8 +410,39 @@
     html{
         font-size: calc(100vw/7.5)
     }
+    .body-auto{
+        position: static ;
+    }
+    .over-body{
+        position: fixed ;
+    }
     .head-box{
         display: none;
+    }
+    .dxy-share {
+        .plg_share_style3 {
+            .plg_ico_sina,.plg_ico_qzone{
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+            .plg_ico_sina{
+                background: url(~@/assets/pc/wb-hover.png) no-repeat !important;
+                background-size: 100% 100% !important;
+    
+            }
+            .plg_ico_qzone{
+                background: url(~@/assets/pc/kj-hover.png) no-repeat !important;
+                background-size: 100% 100% !important;
+            }
+        }
+        
+        .plg_share_el_nav1_ico{
+            width: 1.2rem !important;
+            height: 1.2rem !important;
+            margin-left: 0 !important;
+            opacity: 0;
+        }
     }
     .other-nav-box{
         display: flex;
@@ -400,6 +458,92 @@
         }
         &-txt{
             font-size: .36rem;
+        }
+        &-share{
+            position: relative;
+            
+        }
+        .mobile-share-brower{
+            display: none;
+            transition: all .5s;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            overflow: hidden ;
+            .share-box{
+                width: 100%;
+                height: 3.18rem;
+                background: #F1F1F1;
+                position: absolute;
+                bottom: .94rem;
+                .icon-box{
+                    margin-top: .5rem;
+                    display: flex;
+                    padding: 0 .3rem;
+                    justify-content: space-around;
+                    &-icon{
+                        width: 1.2rem;
+                        height: 1.64rem;
+                        &-avator{
+                            width: 1.2rem;
+                            height: 1.2rem;
+                            border-radius: 50%;
+                            // background: red;
+                        }
+                        &-txt{
+                            color: #777;
+                            font-size: .2rem;
+                            text-align: center;
+                            margin-top: .2rem;
+                        }
+                    }
+                }
+            }
+            .link-box{
+                display: none;
+                width: 100%;
+                height: 3.18rem;
+                background: #F1F1F1;
+                position: absolute;
+                bottom: .94rem;
+                padding: 0 .3rem;
+                user-select:text;
+                &-txt{
+                    color: #777;
+                    font-size: .32rem;
+                    padding: .3rem 0 .2rem 0;
+                }
+                &-textarea{
+                    width: 100%;
+                    height: 1.8rem;
+                    border: .02rem dashed #B5B5B5;
+                    background: #F5F5F5;
+                    padding: .2rem;
+                    font-size: .24rem;
+                    color: #333;
+                    word-break:break-all;
+                    line-height: .4rem;
+                    -webkit-user-select:text;
+                    -moz-user-select:text;
+                    -ms-user-select:text;
+                    user-select:text;
+                }
+            }
+            .share-cancle{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: .94rem;
+                background: #F8F8F8;
+                font-size: .32rem;
+                color: #333;
+                text-align: center;
+                line-height: .94rem;
+            }
         }
     }
     .main-interdebox{
@@ -487,6 +631,11 @@
                                 color: #777777;
                                 font-size: 18px;
                                 overflow: unset;
+                            }
+                            &-content{
+                                &_item{
+                                    margin-bottom: .3rem;
+                                }
                             }
                             &-header{
                                 overflow: unset;
@@ -620,24 +769,25 @@
                                     }
                                 }
                             }
-                            .main-mobile{
-                                display: block;
-                                .main-right-txt{
-                                    color: #777;
-                                    font-size: .28REM;
-                                    line-height: .48REM;
-                                    margin-bottom: .8rem;
-                                    div{
-                                        margin-bottom: .06rem;
-                                    } 
-                                    span{
-                                        color: #555;
-                                        margin-left: .3rem;
-                                    } 
-                                }
-                            }
+                            
                         }
     
+                    }
+                    .main-mobile{
+                        display: block;
+                        .main-right-txt{
+                            color: #777;
+                            font-size: .28REM;
+                            line-height: .48REM;
+                            margin-bottom: .8rem;
+                            div{
+                                margin-bottom: .06rem;
+                            } 
+                            span{
+                                color: #555;
+                                margin-left: .3rem;
+                            } 
+                        }
                     }
                     .main-right{
                         display: none;

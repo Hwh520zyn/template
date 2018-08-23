@@ -16,9 +16,13 @@ new Swiper('.swiper-container', {
 //     prevEl: '.swiper-button-prev'
 //   }
 })
-const oL = $('#main-casebox-case-list').outerWidth() / 2
-$('#main-casebox-case-list').css({ 'offsetLeft': oL })
-console.log($('#main-casebox-case-list').clientLeft)
+new Swiper('#swiper-container', {
+  autoplay: false,
+  spaceBetween: 20,
+  slidesOffsetBefore: 28
+})
+const oL = ($('#main-casebox-case-list').outerWidth() + $('.main-casebox-case-list-item').outerWidth() / 2) / 2
+$('#main-casebox-case-list').scrollLeft(oL)
 
 class Toggle {
   constructor ({ el }) {
@@ -129,3 +133,13 @@ $('#btn-form').on('click', function (e) {
   valiate.btnEvent()
 })
 
+window.onscroll = function (e) {
+  var e = e || event
+  var stop = document.body.scrollTop || document.documentElement.scrollTop
+  // console.log(stop)
+  if (stop > 5510) {
+    $('.foot-box').hide()
+  } else {
+    $('.foot-box').show()
+  }
+}

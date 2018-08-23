@@ -2,6 +2,13 @@
 .swiper-button-prev{
     left: 8% !important;
 }
+#swiper-container{
+    .swiper-slide{
+        width: 380px !important;
+        margin-right: 20px !important;
+    }
+}
+
 .swiper-button-next{
     right: 8% !important;
 }
@@ -22,7 +29,8 @@
     min-width: 1200px;
     &-img{
         width: 100%;
-        height: 350px;
+       height: 0;
+       padding-bottom: 25%;
         background: url(~@/assets/pc/banner-pc1.png) no-repeat;
         background-size: cover; 
     }
@@ -235,7 +243,6 @@
                     &-title{
                         font-size: 24px;
                         position: relative;
-                        font-weight: 500;
                         &:before{
                             content: '';
                             position: absolute;
@@ -381,6 +388,7 @@
                     height: 328px;
                     border-radius: 10px;
                     box-shadow:0px 2px 8px 0px rgba(0,0,0,0.05);
+                    background: #f8f8f8;
                     &-top{
                         width: 250px;
                         height: 130px;
@@ -409,7 +417,6 @@
                             text-align: left;
                             span{
                                 color: #555;
-                                font-weight: 500;
                             }
                         }
                     }
@@ -438,8 +445,11 @@
                     height: 333px;
                     border-radius: 10px;
                     position: relative;
-                    box-shadow:0px 4px 15px 0px rgba(0,0,0,0.08);
+                    box-shadow:0px 5px 5px 0px rgba(0,0,0,0.08);
                     text-align: center;
+                    &:hover{
+                         box-shadow:0px 5px 5px 5px rgba(0,0,0,0.08);
+                    }
                     &-tag{
                         position: absolute;
                         left: 20px;
@@ -604,11 +614,13 @@
                         position: relative;
                         label{
                             position: absolute;
-                            top: 50%;
+                            top: 53%;
                             transform: translateY(-50%);
                             left: 20px;
                             color: #555;
                             font-size: 14px;
+                            z-index: 9;
+
                         }
                         input{
                             width: 500px;
@@ -618,19 +630,29 @@
                             border: 1px solid #EEEEEE;
                             border-radius: 3px;
                             padding-left: 100px;
+                            &:focus{
+                                background: #fff;
+                            }
+                            
                         }
                         .error-txt{
                             position: absolute;
                             color: #FC1D3F;
-                            line-height: 20px;
+                            line-height: 25px;
                             display: none;
                             font-size: 12px;
+                            
                         }
 
                         
                     }
                     .success{
                         border: 1px solid #EEEEEE;
+                        input{
+                            position: relative;
+                            top: 0;
+                            
+                        }
                         .error-txt{
                             display: none;
                         }
@@ -641,6 +663,8 @@
                     .error{
                         input{
                             border: 1px solid #FC1D3F;
+                            position: relative;
+                            top: 2px;
                         }
                         .error-txt{
                             display: block;
@@ -652,6 +676,9 @@
                     .empty-error{
                         input{
                             border: 1px solid #FC1D3F;
+                            position: relative;
+                            top: 2px;
+                            
                         }
                         .error-txt{
                             display: none;
@@ -728,7 +755,10 @@
           &-logobox{
             display: flex;
             align-items: center;
-            &-logo{}
+            &-logo{
+                width: 40px;
+                height: 40px;
+            }
             &-txt{
               margin-left: 20px;
             }
@@ -760,6 +790,14 @@
     .swiper-button-prev{
         left: 8% !important;
     }
+    #swiper-container{
+        .swiper-slide{
+            width: 5.5rem !important;
+            margin-right: .4rem!important;
+            margin-left: -.15rem;
+        }
+    }
+    
     .swiper-button-next{
         right: 8% !important;
     }
@@ -903,18 +941,22 @@
         // 经典案例
         &-casebox{
             &-case{
+                position: relative;
                 &-title{}
                 &-list{
+                    width: 100%;
                     display: flex;
                     justify-content:unset;
                     overflow-x: auto;
-                    height: 4.1rem;
+                    height: 4.3rem;
                     &-item{
+                        display: inline-block;
                         width: 5.5rem;
                         height: 4rem;
                         border-radius: .1rem;
                         box-shadow:0 .07rem .15rem 0 rgba(0,0,0,0.08);
-                        margin-right: .5rem;
+                        margin-right: .6rem;
+                       
                         img{
                             width: 5.5rem;
                             height: 3rem;
@@ -930,8 +972,9 @@
                             box-shadow:0px 7px 15px 0px rgba(0,0,0,0.2);
                         }
                         &:last-child{
-                            padding-right: 0;
+                            padding-right:0;
                         }
+                        &-item:nth-child{}
                     }
                 }
                 &-more{
@@ -1197,7 +1240,6 @@
                                 text-align: left;
                                 span{
                                     color: #555;
-                                    font-weight: 500;
                                 }
                             }
                         }
@@ -1334,7 +1376,7 @@
                         margin-bottom: 1rem;
                         img{
                             width: 2rem;
-                            height: 1rem;
+                            height: 1.1rem;
                         }
                         p{
                             margin-top: .3rem;
@@ -1382,7 +1424,7 @@
                             margin-bottom: .2rem;
                         }
                         &-inputbox{
-                            margin-bottom: .3rem;
+                            margin-bottom: .4rem;
                             position: relative;
                             label{
                                 position: absolute;
@@ -1397,14 +1439,19 @@
                                 height: .8rem;
                                 background: #F5F5F5;
                                 border:none;
-                                border: .01rem solid #EEEEEE;
+                                border: .01rem solid #ccc;
                                 border-radius: .06rem;
                                 padding-left: 1.7rem;
+                                outline: none;
+                                border-radius: .06rem;
+                                &:focus{
+                                    background: #fff;
+                                }
                             }
                             .error-txt{
                                 position: absolute;
                                 color: #FC1D3F;
-                                line-height: .3rem;
+                                line-height: .45rem;
                                 display: none;
                                 font-size: .24rem;
                             }
@@ -1413,6 +1460,10 @@
                         }
                         .success{
                             border: .01rem solid #EEEEEE;
+                            input{
+                                position: relative;
+                                top: 0;
+                            }
                             .error-txt{
                                 display: none;
                             }
@@ -1423,6 +1474,8 @@
                         .error{
                             input{
                                 border: .01rem solid #FC1D3F;
+                                position: relative;
+                                top: .02rem;
                             }
                             .error-txt{
                                 display: block;
@@ -1434,6 +1487,8 @@
                         .empty-error{
                             input{
                                 border: .01rem solid #FC1D3F;
+                                position: relative;
+                                top: .02rem;
                             }
                             .error-txt{
                                 display: none;

@@ -3,7 +3,38 @@
 <div class="other-nav-box">
     <div class="other-nav-box-back" onClick="javascript :history.back(-1);"> <i class="iconfont icon-back"></i></div>
     <div class="other-nav-box-txt"> 第九期 </div>
-    <div class="other-nav-box-share"><i class="iconfont icon-fenxiang1"></i> </div>
+    <div class="other-nav-box-share">
+        <a href="javascript:;"><i class="iconfont icon-fenxiang1"></i> </a> 
+        
+    </div>
+    <div class="mobile-share-brower">
+            <div class="share-box" >
+                <div class="icon-box">
+                    <div class="icon-box-icon ">
+                        <div class="icon-box-icon-avator " id="icon-box-wx-friends"></div>
+                        <div class="icon-box-icon-txt">微信好友</div>
+                    </div>
+                    <div class="icon-box-icon ">
+                        <div class="icon-box-icon-avator " id="icon-box-wx-circle"></div>
+                        <div class="icon-box-icon-txt">微信朋友圈</div>
+                    </div>
+                    <div class="icon-box-icon ">
+                        <div class="icon-box-icon-avator " id="icon-box-qzone"></div>
+                        <div class="icon-box-icon-txt">QQ空间</div>
+                    </div>
+                    <div class="icon-box-icon ">
+                        <div class="icon-box-icon-avator " id="icon-box-wb"></div>
+                        <div class="icon-box-icon-txt">新浪微博</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="link-box">
+                <div class="link-box-txt">长按复制下方链接，去粘贴给好友吧：</div>
+                <p class="link-box-textarea"></p>
+            </div>
+            <div class="share-cancle">取消</div>
+        </div>
 </div>
 <div class="main-interdebox">
     <div class="main-interdebox-interde">
@@ -21,20 +52,20 @@
                 </div>
                 <!-- 点赞、分享 -->
                 <div class="main-sharebox">
-                    <div class="main-sharebox-like"> <i class="iconfont icon-z-like"></i> <span>点赞</span> </div>
+                    <div class="main-sharebox-like"> <i class="iconfont icon-z-like"></i> <span> <a href="javascript:;">点赞</a></span> </div>
                     <div class="main-sharebox-share"> 
                       <i class="iconfont icon-fenxiang1"></i> <span>分享</span>
                       <div class="main-sharebox-share-hover">
                         <ul class="main-sharebox-share-hover-icon">
-                          <li><a href="">占</a></li>
-                          <li><a href="">位</a></li>
-                          <li><a href="">用</a></li>
-                          <li></li>
+                          <li id="dxy-share-sina" class="share-sina"></li>
+                          <!-- <li id="dxy-share-idxy" class="share-dxy"></li> -->
+                          <li id="dxy-share-qzone" class="share-qzone"></li>
+                          <li class="share-wx"></li>
                         </ul>
                         <ol class="main-sharebox-share-hover-cont">
-                          <li class="show-li">分享到新浪微博 </li>
-                          <li>分享到丁香园论坛</li>
-                          <li>分享到 QQ 空间</li>
+                          <li class="show-li" >分享到新浪微博 </li>
+                          <!-- <li>分享到丁香园论坛</li> -->
+                          <li >分享到 QQ 空间</li>
                           <li>
                             <img src="~@/assets/pc/share-code.png" alt="">
                             <P>微信扫一扫分享</P> 
@@ -59,7 +90,7 @@
                         <a>专家会新闻</a>
                         </li>
                         <li active="2">
-                        <a>专家风采</a>
+                        <a>专题前言</a>
                         </li>
                         </li>
                     </ul>

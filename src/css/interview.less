@@ -124,6 +124,9 @@
             .common_pageBean_content li[data-actived=true]{
                 background-color: @basecolor;
             }
+            .sort-list{
+                display: none;
+            }
         }
     }
     //partner
@@ -216,6 +219,9 @@
                         color: #333333;
                         font-size: .3rem;
                         margin-top: 0;
+                        &:hover{
+                            border:none;
+                        }
                     }
                     &-arrow{
                         position: absolute;
@@ -243,6 +249,9 @@
         }
         &-list{
             margin-bottom: 1rem;
+            .sort-list{
+                display: none;
+            }
         }
     }
     //partner

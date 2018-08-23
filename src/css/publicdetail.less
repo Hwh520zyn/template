@@ -1,5 +1,6 @@
 .main-bottom-list-item{
     padding-top: 10px;
+   
     &-titlebox{
         font-size:28px;
         color: #333;
@@ -30,15 +31,38 @@
     &-txtbox{
         border-top: 1px solid #eee;
         border-bottom: 1px solid #eee;
-        padding: 30px 0;
+        padding: 30px 0 60px;
+        position: relative;
+        .like-box{
+            position: absolute;
+            display: flex;
+            bottom: 30px;
+            right: 0;
+            color: #999999;
+            cursor: pointer;
+            .main-sharebox-like,.main-sharebox-share{
+                width: auto;
+                &:hover{
+                    color: #6B3EE0;
+                }
+            }
+            .active-like{
+                .icon-z-like:before{
+                    content: '\e510';
+                }
+            }
+            .main-sharebox-like{
+                margin-right: 30px;
+            }
+        }
     }
+    
     .main-copy-public{
         margin-top: 30px;
         color: #555555;
         font-size: 14px;
         &-title{
             margin-bottom: 10px;
-            font-weight: 500;
         }
         &-txt{
             line-height: 26px;
@@ -94,7 +118,40 @@
         &-txtbox{
             border-top: none;
             border-bottom: none;
-            padding: 0 0;
+            padding: 0 0 1rem 0;
+            .like-box{
+                width: auto;
+                position: absolute;
+                display: flex;
+                bottom: .5rem;
+                left: 55%;
+                transform: translateX(-50%);
+                color: #999999;
+                cursor: pointer;
+                .main-sharebox-like,.main-sharebox-share{
+                    width: 3rem;
+                    height: .62rem;
+                    border: .02rem solid #ccc;
+                    text-align: center;
+                    line-height: .62rem;
+                    border-radius: .36rem;
+                    font-size: .24rem;
+                    i{
+                        font-size: .3rem;
+                    }
+                    &:hover{
+                        color: #6B3EE0;
+                    }
+                }
+                .active-like{
+                    .icon-z-like:before{
+                        content: '\e510';
+                    }
+                }
+                .main-sharebox-like{
+                    margin-right: .6rem;
+                }
+            }
         }
         .main-copy-public{
             display: none;
@@ -103,7 +160,6 @@
             font-size: 14px;
             &-title{
                 margin-bottom: 10px;
-                font-weight: 500;
             }
             &-txt{
                 line-height: 26px;
