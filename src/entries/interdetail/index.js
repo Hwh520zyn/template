@@ -75,3 +75,7 @@ $('#icon-box-wx-friends, #icon-box-wx-circle').on('click', function () {
   $('.link-box').show()
   $('.link-box-textarea').html(url)
 })
+
+$('.prevent').on('click', function (e) {
+  e.preventDefault()
+})

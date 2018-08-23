@@ -125,7 +125,10 @@ const valiate = new ValidateForm({
   ],
   btn: $('#btn-form'),
   msgCallback (res) {
-    console.log(res)
+    // 'ww' : res[0].vlaue
+    console.log(res[0].value)
+    // console.log(res[0].value)
+
   }
 })
 
