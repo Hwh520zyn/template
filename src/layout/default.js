@@ -46,6 +46,10 @@ $( function () {
   }
   let url = this.location.search
   switch (url) {
+    case '?news' :{
+      tabs(1)
+      break
+    }
     case '?character': {
       tabs(2)
       break

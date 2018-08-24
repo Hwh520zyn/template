@@ -10,7 +10,8 @@ const apiMap = {
   // demo
   // example: submit: ['post', 'submit', '5a002f098eda7f5e17603a10']
   demo: ['get', 'apiPath', '5b026e89ab672884de9dd704'],
-  pageList: ['get', '/healthzh/list', '5b178010e1540c84e3377b5f']
+  pageList: ['get', '/healthzh/list', '5b178010e1540c84e3377b5f'],
+  submitInfo: ['post', '/survey/submit']
 }
 
 const apis = {}
@@ -18,8 +19,10 @@ const apis = {}
 for (let api in apiMap) {
   const data = apiMap[api]
   let url = `${root}${data[1]}`
+  // console.log(url)
   if (process.env.MOCK_DATA && data[2]) {
     url = `${mockRoot}${data[2]}`
+    // console.log(url)
     if (mockProxy) {
       url += `?_mockProxyStatus=${mockProxy}`
     }
