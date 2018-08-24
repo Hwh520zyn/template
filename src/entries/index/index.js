@@ -4,6 +4,7 @@ import Swiper from 'swiper/dist/js/swiper.min.js'
 import * as Validate from '@/utils/validateRegExp'
 import isMobile from '@/utils/isMobile'
 import $ from 'jquery'
+import API from '@/utils/api'
 new Swiper('.swiper-container', {
   effect: 'fade',
   autoplay: {
@@ -125,10 +126,23 @@ const valiate = new ValidateForm({
   ],
   btn: $('#btn-form'),
   msgCallback (res) {
-    // 'ww' : res[0].vlaue
-    console.log(res[0].value)
     // console.log(res[0].value)
-
+    let _formData = null
+    if (window.location.href.indexOf('y.dxy.net') !== -1) {
+      _formData = {
+        val_153665: res[0].value,
+        val_153666: res[1].value,
+        val_153667: res[2].value
+      }
+    }
+    API.submitInfo(
+      Object.assign(_formData, {
+        token: res[3].value,
+        token2: res[4].value,
+        username: res[5].value,
+        fid: res[6].value
+      })
+    )
   }
 })
 
