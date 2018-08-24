@@ -79,3 +79,4 @@ $('#icon-box-wx-friends, #icon-box-wx-circle').on('click', function () {
 $('.prevent').on('click', function (e) {
   e.preventDefault()
 })
+
