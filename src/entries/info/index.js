@@ -11,7 +11,6 @@ new Tabs({
   el: '.main-interdebox-interde-contbox-cont-left',
   defaultActive: 1
 })
- 
 function page (el, pageel, api, type) {
   let baseConfig = {
     listConfig: {

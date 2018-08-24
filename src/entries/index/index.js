@@ -138,11 +138,10 @@ $('#btn-form').on('click', function (e) {
 })
 
 window.onscroll = function (e) {
-  var e = e || event
+  var ev = e || event
   var stop = document.body.scrollTop || document.documentElement.scrollTop
   // console.log(stop)
-  
-  if (stop > 5510 ) {
+  if (stop > 5510) {
     $('.foot-box').hide()
   } else {
     $('.foot-box').show()
