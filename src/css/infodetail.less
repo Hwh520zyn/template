@@ -1,0 +1,150 @@
+@import '~@/css/variable.less';
+
+.other-nav-box{
+    justify-content: space-between;
+}
+.main-right-img{
+    width: 172px !important;
+    height: 172px !important;
+    margin: 30px 50px 20px !important;
+}
+.main-right{
+    height:960px !important;
+    padding: 0 15px!important;
+    margin-top: 0 !important;
+}
+.main-sharebox-share{
+    .show-share{
+        display: block;
+    }
+    position: relative;
+    &:hover{
+        color: @basecolor;
+        .icon-fenxiang1:before{
+            color: @basecolor;
+        } 
+    }
+    &-hover{
+        display: none;
+       ol, ul{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        width:166px;
+        height: auto;
+        background: #f7f7f7;
+        border-radius:5px;
+        right: 0;
+        top: 50px;
+        position: absolute;
+        padding-bottom: 20px;
+        box-shadow:0px 2px 10px 0px rgba(0,0,0,0.16);
+        &:after{
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 10px solid #f7f7f7;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            position: absolute;
+            transform: rotate(-90deg);
+            right: 30px;
+            top: -12px;
+        }
+        &-icon{
+            padding:20px 15px !important;
+            display: flex;
+            justify-content: space-around;
+            li{
+                width: 24px;
+                height: 24px;
+                margin-right: 10px;
+                background: url(~@/assets/pc/wb.png) no-repeat;
+                background-size: 100% 100%;
+                &:hover{
+                    background: url(~@/assets/pc/wb-hover.png) no-repeat;
+                    background-size: 100% 100%;
+                }
+                a{
+                    font-size: 30px;
+                    position: relative;
+                    top: -10px;
+                    left: -4px;
+                    opacity: 0;
+                }
+                
+            }
+            .share-dxy{
+                background: url(~@/assets/pc/dxy.png) no-repeat;
+                background-size: 100% 100%;
+                &:hover{
+                    background: url(~@/assets/pc/dxy-hover.png) no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+            .share-qzone{
+                background: url(~@/assets/pc/kj.png) no-repeat;
+                background-size: 100% 100%;
+                &:hover{
+                    background: url(~@/assets/pc/kj-hover.png) no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+            .share-wx{
+                margin-right: 0;
+                background: url(~@/assets/pc/wx.png) no-repeat;
+                background-size: 100% 100%;
+                &:hover{
+                    background: url(~@/assets/pc/wx-hover.png) no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+        }
+        &-cont{
+            width: 100%;
+            position: relative;
+            right: -22%;
+            li{
+                font-size: 12px;
+                color: #555;
+                display: none;
+                img{
+                    width: 92px;
+                    height: 92px;
+                }
+                P{
+                    margin-top: 10px;
+                }
+            }
+            .show-li{
+                display: block
+            }
+            .hide-li{
+                display: none;
+            }
+        }
+    }
+}
+@media(max-width: 768px){
+    html{
+        font-size: calc(100vw/7.5)
+    }
+    .like-box{
+        display: none !important;
+    }
+    .main-interdebox-interde-contbox-cont-left{
+        padding:0 !important;
+    }
+    .main-interdebox-interde-contbox{
+        padding-top: 0 !important;
+    }
+    // .main-bottom-list-item{
+    //     padding: 0 !important;
+    // }
+    .main-bottom-list-item-txtbox{
+        padding: 0 0 .5rem !important;
+    }
+}
