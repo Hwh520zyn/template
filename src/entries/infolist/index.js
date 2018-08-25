@@ -16,19 +16,19 @@ function template (data) {
           <div class="hbd-card1">
               <div class="hbd-card1-left">
                   <!-- img -->
-                  <img class="hbd-card1-left_img" src="${data.img}" alt="">
+                  <img class="hbd-card1-left_img" src="${data.titleImg}" alt="">
                   <!-- END img -->
               </div>
               <div class="hbd-card1-content">
-                  <div class="hbd-card1-content-head verticalCenter">${data.title}
+                  <div class="hbd-card1-content-head verticalCenter">${data.remark}·${data.title}
                       <div class="hbd-card1-content-head_time textRight">2018 6-5</div>
                   </div>
                   <div class="hbd-card1-content-describe textLeft">
-                          ${data.content}
+                          ${data.description}
                   </div>
                   <div class="hbd-card1-content-detail verticalCenter">
                       <div class="hbd-card1-content-detail-experts">
-                              丁香园 2018-08-01
+                      ${data.articleDate.slice(0, 10)}
                       </div>
                       <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span>点赞</span> </div>
                   </div>
