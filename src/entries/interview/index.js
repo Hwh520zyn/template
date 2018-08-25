@@ -41,32 +41,29 @@ function template (data) {
 </div>`
 }
 // --------------------------------------
-var params = {}
-params = {
-  page: 1,
-  size: 10
-}
 // api = Api.pageList
 // 排序 -- 正序
-$('#sort-normal').on('click', function () {
-  params = {
+$('#sort-normal').on('click', async function () {
+  const params = {
     page: 1,
     size: 10,
     sort: 1
   }
+  const res = await Api.pageList(params)
+  window.page_list.pageChangeToDo(1, res)
+  console.log('res', res)
 })
 
 // 排序 -- 倒序
-$('#sort-reverse').on('click', function () {
-  location.href = '/healthzh/list?sort'
-  const url = location.search
-  if (url === '?sort') {
-    params = {
-      page: 1,
-      size: 10,
-      sort: 2
-    }
+$('#sort-reverse').on('click', async function () {
+  const params = {
+    page: 1,
+    size: 10,
+    sort: 2
   }
+  const res = await Api.pageList(params)
+  window.page_list.pageChangeToDo(1, res)
+  console.log('res', res)
 })
 // 搜索
 $('.common-search').on('change', function (e) {
@@ -87,7 +84,10 @@ let baseConfig = {
     template
   },
   api: Api.pageList,
-  params, // 发送的参数 -------------
+  params: {
+    page: 1,
+    size: 10
+  }, // 发送的参数 -------------
   onSuccess (res) {
     const res2 = res.results.items
     let items = res2.map(item => {
@@ -135,7 +135,10 @@ let mobileConfig = {
   }
 }
 if (isMobile) new PullList(mobileConfig)
-else new PageList(pcConfig)
+else {
+  window.page_list = new PageList(pcConfig)
+
+}
 
 // 搜索框
 $('#focus input').on('focus', function () {
