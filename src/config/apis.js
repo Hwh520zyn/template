@@ -10,8 +10,8 @@ const apiMap = {
   // demo
   // example: submit: ['post', 'submit', '5a002f098eda7f5e17603a10']
   demo: ['get', 'apiPath', '5b026e89ab672884de9dd704'],
-  pageList: ['get', '/healthzh/list', '5b178010e1540c84e3377b5f'],
-  infoPageList: ['get', '/channellist', '5b178010e1540c84e3377b5f'],
+  pageList: ['get', '/healtharticle/list', '5b178010e1540c84e3377b5f'],
+  infoPageList: ['get', '/channellistapi', '5b178010e1540c84e3377b5f'],
   submitInfo: ['post', '/survey/submit']
 }
 

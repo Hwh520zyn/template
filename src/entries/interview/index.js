@@ -51,7 +51,7 @@ $('#sort-normal').on('click', async function () {
   }
   const res = await Api.pageList(params)
   window.page_list.pageChangeToDo(1, res)
-  console.log('res', res)
+  // console.log('res', res)
 })
 
 // 排序 -- 倒序
@@ -63,16 +63,18 @@ $('#sort-reverse').on('click', async function () {
   }
   const res = await Api.pageList(params)
   window.page_list.pageChangeToDo(1, res)
-  console.log('res', res)
+  // console.log('res', res)
 })
 // 搜索
-$('.common-search').on('change', function (e) {
+$('.common-search').on('change', async function (e) {
   const val = $(this).val()
-  params = {
+  const params = {
     page: 1,
     size: 10,
     keywords: val
   }
+  const res = await Api.pageList(params)
+  window.page_list.pageChangeToDo(1, res)
 })
 // function param ( params = {} ) {
 //   return params

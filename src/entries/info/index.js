@@ -86,7 +86,7 @@ param = {
   size: 10,
   id: 43
 }
-$('.hbd-tabs-header').on('click', 'li', function () {
+$('.hbd-tabs-header').on('click', 'li', async function () {
   const index = $(this).index()
   if (index === 0) {
     param = {
@@ -94,38 +94,50 @@ $('.hbd-tabs-header').on('click', 'li', function () {
       size: 10,
       id: 43
     }// 最新资讯
+    const res = await Api.infoPageList(param)
+    window.page_list.pageChangeToDo(1, res)
   } else if (index === 1) {
     param = {
       page: 1,
       size: 10,
       id: 39631
     }// 行业人物
+    const res = await Api.infoPageList(param)
+    window.page_list.pageChangeToDo(1, res)
   } else if (index === 2) {
     param = {
       page: 1,
       size: 10,
       id: 8928
     }// 医疗热点
+    const res = await Api.infoPageList(param)
+    window.page_list.pageChangeToDo(1, res)
   } else if (index === 3) {
     param = {
       page: 1,
       size: 10,
       id: 7972
     }// 医患关系
+    const res = await Api.infoPageList(param)
+    window.page_list.pageChangeToDo(1, res)
   } else if (index === 4) {
     param = {
       page: 1,
       size: 10,
       id: 444
     }// 医院管理
+    const res = await Api.infoPageList(param)
+    window.page_list.pageChangeToDo(1, res)
   } else if (index === 5) {
     param = {
       page: 1,
       size: 10,
       id: 3380
     }// 学术人文
+    const res = await Api.infoPageList(param)
+    window.page_list.pageChangeToDo(1, res)
   }
-  
+
 })
 // 分页1
 page('#bottom-list', '#bottomPagination', param, 'news')
