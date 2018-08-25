@@ -1,0 +1,276 @@
+// ========== 公共部分 ==========
+.hbd-loading {
+  position: relative;
+  min-height: 30px;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// =========== start 圆打转 pc 端样式=========
+.hbd-loading__ballLine {
+  .ball_line_rotate {
+    position: relative;
+    top: -16px;
+    left: -20px;
+    div {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      position: absolute;
+      background-color: transparent;
+    }
+    div:nth-child(1) {
+      opacity: 0.3;
+    }
+    div:nth-child(2) {
+      // border-color: transparent;
+      border-color: rgba(94, 139, 255, 1);
+      border-right-color: #fff;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation: ball_line_rotate 0.8s linear infinite;
+      animation: ball_line_rotate 0.8s linear infinite;
+    }
+  }
+  .ball_line_hint {
+    position: relative;
+    left: 30px;
+    span {
+      font-size: 16px;
+      font-family: "PingFangSC-Regular";
+      color: rgba(148, 149, 159, 1);
+      line-height: 24px;
+    }
+  }
+  @keyframes ball_line_rotate {
+    25% {
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+    50% {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+    75% {
+      -webkit-transform: rotate(270deg);
+      transform: rotate(270deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+}
+
+// ============ end =============
+@media (max-width: 768px) {
+  html {
+    font-size: calc(100vw / 7.5);
+  } // =========== start 圆打转 =========
+  .hbd-loading__ballLine {
+    .ball_line_rotate {
+      position: relative;
+      top: -0.22rem;
+      left: -0.2rem;
+      div {
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        position: absolute;
+        background-color: transparent;
+      }
+      div:nth-child(1) {
+        opacity: 0.3;
+      }
+      div:nth-child(2) {
+        // border-color: transparent;
+        border-color: rgba(94, 139, 255, 1);
+        border-right-color: #fff;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation: ball_line_rotate 0.8s linear infinite;
+        animation: ball_line_rotate 0.8s linear infinite;
+      }
+    }
+    .ball_line_hint {
+      position: relative;
+      left: 0.5rem;
+      span {
+        font-size: 0.24rem;
+        font-family: "PingFangSC-Regular";
+        color: rgba(148, 149, 159, 1);
+        line-height: 0.32rem;
+      }
+    }
+  } // ============ end =============
+}
+
+// =========== start 花瓣 pc 端样式=========
+@distance: 8.485284px;
+@right-distance: 12px;
+.hbd-loading__squareSpin {
+  .square_spin_fade {
+    position: relative;
+    top: -5px;
+    left: 0;
+    div {
+      width: 3px;
+      height: 8px;
+      border-radius: 2px;
+      background-color: rgba(94, 139, 255, 1);
+      position: absolute;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation: square_spin_fade 1.2s linear infinite;
+      animation: square_spin_fade 1.2s linear infinite;
+    }
+    div:nth-child(1) {
+      top: -@right-distance;
+      left: 0;
+    }
+    div:nth-child(2) {
+      top: -@distance;
+      left: @distance;
+      -webkit-animation-delay: 0.15s;
+      animation-delay: 0.15s;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    div:nth-child(3) {
+      top: 0;
+      left: @right-distance;
+      -webkit-animation-delay: 0.3s;
+      animation-delay: 0.3s;
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+    div:nth-child(4) {
+      top: @distance;
+      left: @distance;
+      -webkit-animation-delay: 0.45s;
+      animation-delay: 0.45s;
+      -webkit-transform: rotate(135deg);
+      transform: rotate(135deg);
+    }
+    div:nth-child(5) {
+      top: @right-distance;
+      left: 0;
+      -webkit-animation-delay: 0.6s;
+      animation-delay: 0.6s;
+    }
+    div:nth-child(6) {
+      top: @distance;
+      left: -@distance;
+      -webkit-animation-delay: 0.75s;
+      animation-delay: 0.75s;
+      -webkit-transform: rotate(-135deg);
+      transform: rotate(-135deg);
+    }
+    div:nth-child(7) {
+      top: 0;
+      left: -@right-distance;
+      -webkit-animation-delay: 0.9s;
+      animation-delay: 0.9s;
+      -webkit-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+    }
+    div:nth-child(8) {
+      top: -@distance;
+      left: -@distance;
+      -webkit-animation-delay: 1.05s;
+      animation-delay: 1.05s;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+  }
+  .ball_line_hint {
+    position: relative;
+    left: 30px;
+    span {
+      font-size: 16px;
+      font-family: "PingFangSC-Regular";
+      color: rgba(148, 149, 159, 1);
+      line-height: 24px;
+    }
+  }
+  @keyframes square_spin_fade {
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+} // ============ end =============
+@media (max-width: 768px) {
+  html {
+    font-size: calc(100vw / 7.5);
+  } // =========== start 花瓣 =========
+  //比率0.707107
+  @distance: 5.656856px;
+  @right-distance: 8px;
+  .hbd-loading__squareSpin {
+    .square_spin_fade {
+      position: relative;
+      top: -2.5px;
+      left: 0;
+      div {
+        width: 2px;
+        height: 5px;
+        border-radius: 2px;
+        background-color: rgba(94, 139, 255, 1);
+        position: absolute;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation: square_spin_fade 1.2s linear infinite;
+        animation: square_spin_fade 1.2s linear infinite;
+      }
+      div:nth-child(1) {
+        top: -@right-distance;
+        left: 0;
+      }
+      div:nth-child(2) {
+        top: -@distance;
+        left: @distance;
+      }
+      div:nth-child(3) {
+        top: 0;
+        left: @right-distance;
+      }
+      div:nth-child(4) {
+        top: @distance;
+        left: @distance;
+      }
+      div:nth-child(5) {
+        top: @right-distance;
+        left: 0;
+      }
+      div:nth-child(6) {
+        top: @distance;
+        left: -@distance;
+      }
+      div:nth-child(7) {
+        top: 0;
+        left: -@right-distance;
+      }
+      div:nth-child(8) {
+        top: -@distance;
+        left: -@distance;
+      }
+    }
+    .ball_line_hint {
+      position: relative;
+      left: 0.5rem;
+      span {
+        font-size: 0.24rem;
+        font-family: "PingFangSC-Regular";
+        color: rgba(148, 149, 159, 1);
+        line-height: 0.32rem;
+      }
+    }
+  } // ============ end =============
+}

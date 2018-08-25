@@ -1,0 +1,169 @@
+.main-bottom-list-item{
+    padding-top: 10px;
+   
+    &-titlebox{
+        font-size:28px;
+        color: #333;
+        &-titletxt{
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 30px;
+            .main-bottom-list-timebox{
+               span{
+                   margin-left: 30px;
+               }
+            }
+            .main-bottom-list-sizebox{
+                i{
+                    color: #ccc;
+                    font-size: 12px;
+                    padding: 0 5px;
+                }
+                span{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    &-txtbox{
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        padding: 30px 0 60px;
+        position: relative;
+        .like-box{
+            position: absolute;
+            display: flex;
+            bottom: 30px;
+            right: 0;
+            color: #999999;
+            cursor: pointer;
+            .main-sharebox-like,.main-sharebox-share{
+                width: auto;
+                &:hover{
+                    color: #6B3EE0;
+                }
+            }
+            .active-like{
+                .icon-z-like:before{
+                    content: '\e510';
+                }
+            }
+            .main-sharebox-like{
+                margin-right: 30px;
+            }
+        }
+    }
+    
+    .main-copy-public{
+        margin-top: 30px;
+        color: #555555;
+        font-size: 14px;
+        &-title{
+            margin-bottom: 10px;
+        }
+        &-txt{
+            line-height: 26px;
+        }
+    }
+}
+
+
+@media(max-width:768px){
+    html{
+        font-size: calc(100vw/7.5)
+    }
+    .head-box{
+        display: none !important;
+    }
+    .info-placebox{
+        display: none;
+    }
+    .hbd-tabs-scroll{
+        display: none !important;
+    }
+    .main-bottom-list-item{
+        padding-top: .3rem;
+        padding: 0 .3rem;
+        &-titlebox{
+            font-size:.42rem;
+            color: #333;
+            &-titletxt{
+                margin-top: .2rem;
+                font-size: .26rem;
+                color: #777;
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 30px;
+                .main-bottom-list-timebox{
+                   span{
+                       margin-left: .5rem;
+                   }
+                }
+                .main-bottom-list-sizebox{
+                    display: none;
+                    i{
+                        color: #ccc;
+                        font-size: 12px;
+                        padding: 0 5px;
+                    }
+                    span{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        &-txtbox{
+            border-top: none;
+            border-bottom: none;
+            padding: 0 0 1rem 0;
+            .like-box{
+                width: auto;
+                position: absolute;
+                display: flex;
+                bottom: .5rem;
+                left: 55%;
+                transform: translateX(-50%);
+                color: #999999;
+                cursor: pointer;
+                .main-sharebox-like,.main-sharebox-share{
+                    width: 3rem;
+                    height: .62rem;
+                    border: .02rem solid #ccc;
+                    text-align: center;
+                    line-height: .62rem;
+                    border-radius: .36rem;
+                    font-size: .24rem;
+                    i{
+                        font-size: .3rem;
+                    }
+                    &:hover{
+                        color: #6B3EE0;
+                    }
+                }
+                .active-like{
+                    .icon-z-like:before{
+                        content: '\e510';
+                    }
+                }
+                .main-sharebox-like{
+                    margin-right: .6rem;
+                }
+            }
+        }
+        .main-copy-public{
+            display: none;
+            margin-top: 30px;
+            color: #555555;
+            font-size: 14px;
+            &-title{
+                margin-bottom: 10px;
+            }
+            &-txt{
+                line-height: 26px;
+            }
+        }
+    }
+}

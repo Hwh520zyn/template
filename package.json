@@ -15,6 +15,8 @@
     "fix": "eslint --fix .js, src"
   },
   "dependencies": {
+    "@dxy/dxy-analytics": "^0.4.7",
+    "@dxy/pure-components": "^0.1.4",
     "jquery": "1.12.4",
     "swiper": "4.3.5"
   },
