@@ -5,7 +5,7 @@ import '@/font/iconfont.css'
 import '@/css/dxy-article.less'
 import isMobile from '@/utils/isMobile'
 import Tabs from '@/components/tabs'
-import _daEvent from '@/utils/da.js'
+// import _daEvent from '@/utils/da.js'
 import $ from 'jquery'
 // import dxyshare from  '@/utils/snsapi-v2'
 // $('.head-box').css({'z-index':2})
