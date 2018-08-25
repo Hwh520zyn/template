@@ -21,21 +21,21 @@ function page (el, pageel, params = {}, type) {
                 <div class="hbd-card1">
                     <div class="hbd-card1-left">
                         <!-- img -->
-                      <a href="/infodetail?${type}" class="set">
-                        <img class="hbd-card1-left_img" src="${data.img}" alt="">
+                      <a href="/channelarticledetail/${data.id}?${type}" class="set">
+                        <img class="hbd-card1-left_img" src="${data.titleImg}" alt="">
                         </a>
                         <!-- END img -->
                     </div>
                     <div class="hbd-card1-content">
-                        <div class="hbd-card1-content-head verticalCenter">${data.title}
+                        <div class="hbd-card1-content-head verticalCenter">${data.remark}·${data.title}
                             <div class="hbd-card1-content-head_time textRight">2018 6-5</div>
                         </div>
                         <div class="hbd-card1-content-describe textLeft">
-                                ${data.content}
+                                ${data.description}
                         </div>
                         <div class="hbd-card1-content-detail verticalCenter">
                             <div class="hbd-card1-content-detail-experts">
-                                    丁香园 2018-08-01
+                               ${data.articleDate.slice(0, 10)}
                             </div>
                             <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span href="/likearticle/${data.id}">点赞</span> </div>
                         </div>
@@ -46,7 +46,10 @@ function page (el, pageel, params = {}, type) {
       }
     },
     api: Api.infoPageList,
-    params,
+    params: {
+      page: 1,
+      size: 10
+    },
     onSuccess (res) {
       let items = res.results.items.map(item => {
         let title = item.title
@@ -77,19 +80,13 @@ function page (el, pageel, params = {}, type) {
     },
     debounceTime: 500
   }
-  new PageList(pcConfig)
+  window.page_list = new PageList(pcConfig)
 }
 
-var param = {}
-param = {
-  page: 1,
-  size: 10,
-  id: 43
-}
 $('.hbd-tabs-header').on('click', 'li', async function () {
   const index = $(this).index()
   if (index === 0) {
-    param = {
+    const param = {
       page: 1,
       size: 10,
       id: 43
@@ -97,7 +94,7 @@ $('.hbd-tabs-header').on('click', 'li', async function () {
     const res = await Api.infoPageList(param)
     window.page_list.pageChangeToDo(1, res)
   } else if (index === 1) {
-    param = {
+    const param = {
       page: 1,
       size: 10,
       id: 39631
@@ -105,7 +102,7 @@ $('.hbd-tabs-header').on('click', 'li', async function () {
     const res = await Api.infoPageList(param)
     window.page_list.pageChangeToDo(1, res)
   } else if (index === 2) {
-    param = {
+    const param = {
       page: 1,
       size: 10,
       id: 8928
@@ -113,7 +110,7 @@ $('.hbd-tabs-header').on('click', 'li', async function () {
     const res = await Api.infoPageList(param)
     window.page_list.pageChangeToDo(1, res)
   } else if (index === 3) {
-    param = {
+    const param = {
       page: 1,
       size: 10,
       id: 7972
@@ -121,7 +118,7 @@ $('.hbd-tabs-header').on('click', 'li', async function () {
     const res = await Api.infoPageList(param)
     window.page_list.pageChangeToDo(1, res)
   } else if (index === 4) {
-    param = {
+    const param = {
       page: 1,
       size: 10,
       id: 444
@@ -129,7 +126,7 @@ $('.hbd-tabs-header').on('click', 'li', async function () {
     const res = await Api.infoPageList(param)
     window.page_list.pageChangeToDo(1, res)
   } else if (index === 5) {
-    param = {
+    const param = {
       page: 1,
       size: 10,
       id: 3380
@@ -137,22 +134,19 @@ $('.hbd-tabs-header').on('click', 'li', async function () {
     const res = await Api.infoPageList(param)
     window.page_list.pageChangeToDo(1, res)
   }
-
 })
 // 分页1
-page('#bottom-list', '#bottomPagination', param, 'news')
+page('#bottom-list', '#bottomPagination', 'news')
 // 分页2
-page('#bottom-list2', '#bottomPagination2', param, 'character')
+page('#bottom-list2', '#bottomPagination2', 'character')
 // // 分页3
-page('#bottom-list3', '#bottomPagination3', param, 'hotspot')
+page('#bottom-list3', '#bottomPagination3', 'hotspot')
 // // 分页4
-page('#bottom-list4', '#bottomPagination4', param, 'relation')
+page('#bottom-list4', '#bottomPagination4', 'relation')
 // // 分页5
-page('#bottom-list5', '#bottomPagination5', param, 'manage')
+page('#bottom-list5', '#bottomPagination5', 'manage')
 // // 分页6
-page('#bottom-list6', '#bottomPagination6', param, 'scholarship')
-
-
+page('#bottom-list6', '#bottomPagination6', 'scholarship')
 
 $('#focus input').on('focus', function () {
   $('#focus').addClass('focus').removeClass('blur')

@@ -14,7 +14,7 @@ $('#arrow-box i').on('click', function () {
 function template (data) {
   return `<div class="hbd-articleLists">
   <div class="hbd-cardBox" id="hbd-cardBox">
-      <a href="/interdetail/${data.id}">
+      <a href="/topic/${data.id}">
           <div class="hbd-card1">
               <div class="hbd-card1-left">
                   <!-- img -->
@@ -139,7 +139,6 @@ let mobileConfig = {
 if (isMobile) new PullList(mobileConfig)
 else {
   window.page_list = new PageList(pcConfig)
-
 }
 
 // 搜索框
