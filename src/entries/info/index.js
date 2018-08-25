@@ -11,7 +11,8 @@ new Tabs({
   el: '.main-interdebox-interde-contbox-cont-left',
   defaultActive: 1
 })
-function page (el, pageel, params = {}, type) {
+window.page_list = []
+function page (el, pageel, type) {
   let baseConfig = {
     listConfig: {
       container: el,
@@ -27,7 +28,7 @@ function page (el, pageel, params = {}, type) {
                         <!-- END img -->
                     </div>
                     <div class="hbd-card1-content">
-                        <div class="hbd-card1-content-head verticalCenter">${data.remark}·${data.title}
+                        <div class="hbd-card1-content-head verticalCenter">${data.title}
                             <div class="hbd-card1-content-head_time textRight">2018 6-5</div>
                         </div>
                         <div class="hbd-card1-content-describe textLeft">
@@ -35,7 +36,7 @@ function page (el, pageel, params = {}, type) {
                         </div>
                         <div class="hbd-card1-content-detail verticalCenter">
                             <div class="hbd-card1-content-detail-experts">
-                               ${data.articleDate.slice(0, 10)}
+                                ${data.articleDate.slice(0, 10)}
                             </div>
                             <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span href="/likearticle/${data.id}">点赞</span> </div>
                         </div>
@@ -45,11 +46,8 @@ function page (el, pageel, params = {}, type) {
       </div>`
       }
     },
+    //  ${data.articleDate.slice(0, 10)}
     api: Api.infoPageList,
-    params: {
-      page: 1,
-      size: 10
-    },
     onSuccess (res) {
       let items = res.results.items.map(item => {
         let title = item.title
@@ -64,8 +62,7 @@ function page (el, pageel, params = {}, type) {
       console.log(err)
       console.log('请求出错了')
     },
-    onInit () {
-    },
+    onInit () {},
     onStop () {
       this.$loading.dataless('没有更多了')
     }
@@ -76,63 +73,52 @@ function page (el, pageel, params = {}, type) {
       ele: pageel,
       cur: 1,
       limit: 10,
-      total: 100
+      total: 1000
     },
     debounceTime: 500
   }
-  window.page_list = new PageList(pcConfig)
+  window.page_list.push(new PageList(pcConfig))
 }
-
 $('.hbd-tabs-header').on('click', 'li', async function () {
+  
   const index = $(this).index()
   if (index === 0) {
     const param = {
-      page: 1,
-      size: 10,
       id: 43
     }// 最新资讯
     const res = await Api.infoPageList(param)
-    window.page_list.pageChangeToDo(1, res)
+    window.page_list[index].pageChangeToDo(1, res)
   } else if (index === 1) {
     const param = {
-      page: 1,
-      size: 10,
       id: 39631
     }// 行业人物
     const res = await Api.infoPageList(param)
-    window.page_list.pageChangeToDo(1, res)
+    window.page_list[index].pageChangeToDo(1, res)
   } else if (index === 2) {
     const param = {
-      page: 1,
-      size: 10,
       id: 8928
     }// 医疗热点
     const res = await Api.infoPageList(param)
-    window.page_list.pageChangeToDo(1, res)
+    window.page_list[index].pageChangeToDo(1, res)
   } else if (index === 3) {
     const param = {
-      page: 1,
-      size: 10,
       id: 7972
     }// 医患关系
     const res = await Api.infoPageList(param)
-    window.page_list.pageChangeToDo(1, res)
+    window.page_list[index].pageChangeToDo(1, res)
   } else if (index === 4) {
     const param = {
-      page: 1,
-      size: 10,
       id: 444
     }// 医院管理
     const res = await Api.infoPageList(param)
-    window.page_list.pageChangeToDo(1, res)
+    window.page_list[index].pageChangeToDo(1, res)
   } else if (index === 5) {
     const param = {
       page: 1,
-      size: 10,
       id: 3380
     }// 学术人文
     const res = await Api.infoPageList(param)
-    window.page_list.pageChangeToDo(1, res)
+    window.page_list[index].pageChangeToDo(1, res)
   }
 })
 // 分页1
