@@ -40,39 +40,54 @@ function template (data) {
   </div>
 </div>`
 }
-var api
-api = Api.pageList
+// --------------------------------------
+var params = {}
+params = {
+  page: 1,
+  size: 10
+}
+// api = Api.pageList
 // 排序 -- 正序
 $('#sort-normal').on('click', function () {
-  api = Api.pageList({ sort: 1 })
+  params = {
+    page: 1,
+    size: 10,
+    sort: 1
+  }
 })
 
 // 排序 -- 倒序
 $('#sort-reverse').on('click', function () {
   location.href = '/healthzh/list?sort'
   const url = location.search
-  switch (url) {
-    case '?sort': {
-      api = Api.pageList({ sort: 2 })
+  if (url === '?sort') {
+    params = {
+      page: 1,
+      size: 10,
+      sort: 2
     }
   }
 })
 // 搜索
 $('.common-search').on('change', function (e) {
   const val = $(this).val()
-  api = Api.pageList({ keywords: val })
+  params = {
+    page: 1,
+    size: 10,
+    keywords: val
+  }
 })
-
+// function param ( params = {} ) {
+//   return params
+// }
+// -------------------------------------------
 let baseConfig = {
   listConfig: {
     container: '#exampleList',
     template
   },
-  api: api,
-  params: {
-    page: 1,
-    size: 10
-  },
+  api: Api.pageList,
+  params, // 发送的参数 -------------
   onSuccess (res) {
     const res2 = res.results.items
     let items = res2.map(item => {

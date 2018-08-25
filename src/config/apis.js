@@ -1,7 +1,6 @@
 const { protocol, host } = window.location
-console.log(host)
 const root = `${protocol}//${host}`
-
+// console.log(root)
 const mockRoot = 'http://f2e.dxy.net/mock-api/client/'
 
 // 是否开启mock代理，0：不代理；1：代理线上；2：代理测试
@@ -12,6 +11,7 @@ const apiMap = {
   // example: submit: ['post', 'submit', '5a002f098eda7f5e17603a10']
   demo: ['get', 'apiPath', '5b026e89ab672884de9dd704'],
   pageList: ['get', '/healthzh/list', '5b178010e1540c84e3377b5f'],
+  infoPageList: ['get', '/channellist', '5b178010e1540c84e3377b5f'],
   submitInfo: ['post', '/survey/submit']
 }
 

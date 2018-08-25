@@ -11,7 +11,7 @@ new Tabs({
   el: '.main-interdebox-interde-contbox-cont-left',
   defaultActive: 1
 })
-function page (el, pageel, api, type) {
+function page (el, pageel, params = {}, type) {
   let baseConfig = {
     listConfig: {
       container: el,
@@ -45,11 +45,8 @@ function page (el, pageel, api, type) {
       </div>`
       }
     },
-    api: api,
-    params: {
-      page: 1,
-      size: 5
-    },
+    api: Api.infoPageList,
+    params,
     onSuccess (res) {
       let items = res.results.items.map(item => {
         let title = item.title
@@ -83,22 +80,67 @@ function page (el, pageel, api, type) {
   new PageList(pcConfig)
 }
 
-var newapi
+var param = {}
+param = {
+  page: 1,
+  size: 10,
+  id: 43
+}
 $('.hbd-tabs-header').on('click', 'li', function () {
-  console.log($(this).index())
+  const index = $(this).index()
+  if (index === 0) {
+    param = {
+      page: 1,
+      size: 10,
+      id: 43
+    }// 最新资讯
+  } else if (index === 1) {
+    param = {
+      page: 1,
+      size: 10,
+      id: 39631
+    }// 行业人物
+  } else if (index === 2) {
+    param = {
+      page: 1,
+      size: 10,
+      id: 8928
+    }// 医疗热点
+  } else if (index === 3) {
+    param = {
+      page: 1,
+      size: 10,
+      id: 7972
+    }// 医患关系
+  } else if (index === 4) {
+    param = {
+      page: 1,
+      size: 10,
+      id: 444
+    }// 医院管理
+  } else if (index === 5) {
+    param = {
+      page: 1,
+      size: 10,
+      id: 3380
+    }// 学术人文
+  }
+  
 })
 // 分页1
-page('#bottom-list', '#bottomPagination', Api.pageList, 'news')
+page('#bottom-list', '#bottomPagination', param, 'news')
 // 分页2
-page('#bottom-list2', '#bottomPagination2', Api.pageList, 'character')
+page('#bottom-list2', '#bottomPagination2', param, 'character')
 // // 分页3
-page('#bottom-list3', '#bottomPagination3', Api.pageList, 'hotspot')
+page('#bottom-list3', '#bottomPagination3', param, 'hotspot')
 // // 分页4
-page('#bottom-list4', '#bottomPagination4', Api.pageList, 'relation')
+page('#bottom-list4', '#bottomPagination4', param, 'relation')
 // // 分页5
-page('#bottom-list5', '#bottomPagination5', Api.pageList, 'manage')
+page('#bottom-list5', '#bottomPagination5', param, 'manage')
 // // 分页6
-page('#bottom-list6', '#bottomPagination6', Api.pageList, 'scholarship')
+page('#bottom-list6', '#bottomPagination6', param, 'scholarship')
+
+
 
 $('#focus input').on('focus', function () {
   $('#focus').addClass('focus').removeClass('blur')
