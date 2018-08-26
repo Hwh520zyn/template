@@ -14,7 +14,7 @@ $('#arrow-box i').on('click', function () {
 function template (data) {
   return `<div class="hbd-articleLists">
   <div class="hbd-cardBox" id="hbd-cardBox">
-      <a href="/interdetail/${data.id}">
+      <a href="/topic/${data.tagid}">
           <div class="hbd-card1">
               <div class="hbd-card1-left">
                   <!-- img -->
@@ -22,7 +22,7 @@ function template (data) {
                   <!-- END img -->
               </div>
               <div class="hbd-card1-content">
-                  <div class="hbd-card1-content-head verticalCenter">${data.title}
+                  <div class="hbd-card1-content-head verticalCenter">${data.remark} · ${data.title}
                       <div class="hbd-card1-content-head_time textRight">2018 6-5</div>
                   </div>
                   <div class="hbd-card1-content-describe textLeft">
@@ -51,7 +51,7 @@ $('#sort-normal').on('click', async function () {
   }
   const res = await Api.pageList(params)
   window.page_list.pageChangeToDo(1, res)
-  console.log('res', res)
+  // console.log('res', res)
 })
 
 // 排序 -- 倒序
@@ -63,16 +63,18 @@ $('#sort-reverse').on('click', async function () {
   }
   const res = await Api.pageList(params)
   window.page_list.pageChangeToDo(1, res)
-  console.log('res', res)
+  // console.log('res', res)
 })
 // 搜索
-$('.common-search').on('change', function (e) {
+$('.common-search').on('change', async function (e) {
   const val = $(this).val()
-  params = {
+  const params = {
     page: 1,
     size: 10,
     keywords: val
   }
+  const res = await Api.pageList(params)
+  window.page_list.pageChangeToDo(1, res)
 })
 // function param ( params = {} ) {
 //   return params
@@ -137,7 +139,6 @@ let mobileConfig = {
 if (isMobile) new PullList(mobileConfig)
 else {
   window.page_list = new PageList(pcConfig)
-
 }
 
 // 搜索框
