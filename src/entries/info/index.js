@@ -2,7 +2,7 @@ import '@/css/info.less'
 import Tabs from '@/components/tabs'
 import '@/css/articlelist.less'
 import PageList from '@/components/page-list'
-import PullList from '@/components/pull-list'
+// import PullList from '@/components/pull-list'
 // import Loading from '@/components/loading'
 // import isMobile from '@/utils/isMobile'
 import Api from '@/utils/api'
@@ -163,7 +163,7 @@ $('.hbd-list_content').on('click', function (e) {
   // console.log(id)
   const newid = id.replace(/[^0-9]/ig, '')
   Api.likearticle({id: newid}).then((res) => {})
-  console.log(newid)
+  // console.log(newid)
   if (target.nodeName.toLowerCase() === 'span') {
     target.innerHTML = '已点赞'
     target.parentElement.parentElement.className += ' ' + 'active-like'

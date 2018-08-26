@@ -116,6 +116,7 @@ class PageList {
       } else if (url === '?scholarship') {
         idbox = {id: 3380}
       }
+      console.log(idbox)
       let res = await this.api({page, ...this.params, ...idbox})
       if (!res || !res.success) throw Error(res)
       res = this.onSuccess(res) || res
