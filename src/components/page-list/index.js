@@ -1,9 +1,13 @@
 import List from '@/components/list/list'
 import Pagination from '@dxy/pure-components/dist/pagination'
 import debounce from '@/utils/debounce'
+import $ from 'jquery'
+import initPagination from '@/utils/jqPaginator.min'
 import '@/css/pagination.less'
-// import pagination from '@/utils/pagination'
-// import Pagination from '@/utils/pagination'
+
+console.log('aaa')
+console.log({$})
+initPagination(window, $)
 /**
  * @constructor PageList
  */
@@ -93,17 +97,38 @@ class PageList {
    * 初始化 Page
    */
   initPage () {
-    // this.page = pagination.init({...this.pageConfig})
-    // this.page.init = ({...this.pageConfig})
-    // this.page = Pagination({...this.pageConfig})
-    this.Page = new Pagination({ ...this.pageConfig, clickPageHandler: debounce(this.pageHandler, this.debounceTime).bind(this) })
+    console.log('pageConfig', this.pageConfig)
+    // this.Page = new Pagination({ ...this.pageConfig, clickPageHandler: debounce(this.pageHandler, this.debounceTime).bind(this) })
+    const {
+      ele,
+      cur,
+      total,
+      limit
+    } = this.pageConfig
+
+    let source = [...(new Array(total)).keys()];
+    $(ele).pagination({
+      dataSource: source,
+      pageSize: 10,
+      showGoInput: true,
+      showGoButton: true,
+      nextText: '下一页',
+      prevText: '上一页',
+      afterPageOnClick: debounce(this.pageHandler, this.debounceTime).bind(this),
+      callback: function(data, pagination) {
+        // template method of yourself
+        // var html = template(data);
+        // dataContainer.html(html);
+      }
+    });
   }
   /**
    * 点击分页时的操作函数
    * @param {number} page - 当前页数
    * @param {number} old - 上一次的页数
    */
-  async pageHandler (page, old) {
+  async pageHandler (e, page) {
+    // console.log({page, old})
     this.onLoading(true)
     try {
       let config = {
@@ -120,7 +145,7 @@ class PageList {
       if (!res || !res.success) throw Error(res)
       res = this.onSuccess(res) || res
       this.pageChangeToDo(page, res)
-      this.onPageClick(page, old)
+      // this.onPageClick(page, old)
     } catch (err) {
       console.error('page list 请求出错', err)
       this.onError(err)
@@ -135,11 +160,11 @@ class PageList {
    */
   pageChangeToDo (page, res) {
     let { items = [], pageBean = {} } = res.results
-    this.Page.update({
-      cur: page,
-      limit: pageBean.pageSize,
-      total: pageBean.totalCount
-    })
+    // this.Page.update({
+    //   cur: page,
+    //   limit: pageBean.pageSize,
+    //   total: pageBean.totalCount
+    // })
     this.List.list = items
   }
 }

@@ -1,7 +1,7 @@
-import '@/css/info.less'
 import Tabs from '@/components/tabs'
-import '@/css/articlelist.less'
 import PageList from '@/components/page-list'
+import '@/css/info.less'
+import '@/css/articlelist.less'
 // import PullList from '@/components/pull-list'
 // import Loading from '@/components/loading'
 // import isMobile from '@/utils/isMobile'
@@ -40,7 +40,7 @@ function page (el, pageel, type) {
                             <div class="hbd-card1-content-detail-experts">
                                 ${data.articleDate.slice(0, 10)}
                             </div>
-                            <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span> 点赞 </span></div>
+                            <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span href="/likearticle/${data.id}">点赞</span> </div>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ function page (el, pageel, type) {
       </div>`
       }
     },
-    //  ${data.articleDate.slice(0, 10)} /likearticle/${data.id}
+    //  ${data.articleDate.slice(0, 10)}
     api: Api.infoPageList,
     onSuccess (res) {
       let items = res.results.items.map(item => {
@@ -106,14 +106,12 @@ $('#focus input').on('blur', function () {
 $('.hbd-list_content').on('click', function (e) {
   var ev = e || event
   var target = ev.target || ev.srcElement
-  const id = target.parentNode.parentNode.parentNode.previousElementSibling.querySelector('.set').getAttribute('href')
+  // const id = target.parentNode.parentNode.parentNode.previousElementSibling.querySelector('.set').getAttribute('href')
   // console.log(id)
-  const newid = id.replace(/[^0-9]/ig, '')
-  Api.likearticle({id: newid}).then((res) => {})
-  // console.log(newid)
+  // const newid = id.replace(/[^0-9]/ig, '')
   if (target.nodeName.toLowerCase() === 'span') {
     target.innerHTML = '已点赞'
-    target.parentElement.parentElement.className += ' ' + 'active-like'
+    target.parentElement.className += ' ' + 'active-like'
   }
 })
 
