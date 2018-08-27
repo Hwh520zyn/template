@@ -81,59 +81,20 @@ function page (el, pageel, type) {
   // window.page_list.push =new PageList(pcConfig)
 
 }
-
 $(async function () {
-  let url = this.location.search
-  switch (url) {
-    case '?news' : {
-      const param = {
-        id: 43
-      }// 最新资讯
-      const res = await Api.infoPageList(param)
-      window.page_list[0].pageChangeToDo(1, res)
-      break
-    }
-    case '?character': {
-      const param = {
-        id: 39631
-      }// 行业人物
-      const res = await Api.infoPageList(param)
-      window.page_list[1].pageChangeToDo(1, res)
-      break
-    }
-    case '?hotspot': {
-      const param = {
-        id: 8928
-      }// 医疗热点
-      const res = await Api.infoPageList(param)
-      window.page_list[2].pageChangeToDo(1, res)
-      break
-    }
-    case '?relation': {
-      const param = {
-        id: 7972
-      }// 医患关系
-      const res = await Api.infoPageList(param)
-      window.page_list[3].pageChangeToDo(1, res)
-      break
-    }
-    case '?manage': {
-      const param = {
-        id: 444
-      }// 医院管理
-      const res = await Api.infoPageList(param)
-      window.page_list[4].pageChangeToDo(1, res)
-      break
-    }
-    case '?scholarship': {
-      const param = {
-        id: 3380
-      }// 学术人文
-      const res = await Api.infoPageList(param)
-      window.page_list[5].pageChangeToDo(1, res)
-      break
-    }
+  let config = {
+    '?news': {id: 43},
+    '?character': {id: 39631},
+    '?hotspot': {id: 8928},
+    '?relation': {id: 7972},
+    '?manage': {id: 444},
+    '?scholarship': {id: 3380}
   }
+  let url = this.location.search
+  const res = await Api.infoPageList(config[url])
+  config.map((index, item) => {
+    window.page_list[index].pageChangeToDo(1, res)
+  })
 })
 // 分页1
 page('#bottom-list', '#bottomPagination', 'news')
