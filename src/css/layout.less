@@ -36,10 +36,27 @@
       display: none;
     }
     &-nav{
+      
       &-list{
         display: flex;
         align-items: center;
+        .style-fix{
+          color: #fff;
+          position: relative;
+          &:before {
+            content: '';
+            display: block;
+            height: 3px;
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            right: 0;
+            background-color:#fff;
+            border-radius: 2px;
+          } 
+        }
         li{
+          
           margin-left: 40px;
             color: rgba(255, 255, 255, .7);
             cursor: pointer;

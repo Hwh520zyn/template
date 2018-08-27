@@ -5,8 +5,10 @@ import PageList from '@/components/page-list'
 // import PullList from '@/components/pull-list'
 // import Loading from '@/components/loading'
 // import isMobile from '@/utils/isMobile'
+// import pagination from '@/utils/pagination'
 import Api from '@/utils/api'
 import $ from 'jquery'
+import '@/css/pagination.less'
 new Tabs({
   el: '.main-interdebox-interde-contbox-cont-left',
   defaultActive: 1
@@ -71,32 +73,16 @@ function page (el, pageel, type) {
     ...baseConfig,
     pageConfig: {
       ele: pageel,
-      cur: 1,
-      limit: 10,
+      cue: 1,
+      pagesize: 10,
       total: 1000
     },
     debounceTime: 500
   }
-  window.page_list.push(new PageList(pcConfig))
-  // window.page_list.push =new PageList(pcConfig)
-
+  new PageList(pcConfig)
+  // pagination.init(...pcConfig)
 }
-$(async function () {
-  let config = {
-    '?news': {id: 43},
-    '?character': {id: 39631},
-    '?hotspot': {id: 8928},
-    '?relation': {id: 7972},
-    '?manage': {id: 444},
-    '?scholarship': {id: 3380}
-  }
-  let url = this.location.search
-  const res = await Api.infoPageList(config[url])
-  config.map((index, item) => {
-    window.page_list[index].pageChangeToDo(1, res)
-  })
-})
-// 分页1
+  // 分页1
 page('#bottom-list', '#bottomPagination', 'news')
 // 分页2
 page('#bottom-list2', '#bottomPagination2', 'character')
