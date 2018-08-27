@@ -4,6 +4,7 @@ import isMobile from '@/utils/isMobile.js'
 import Tabs from '@/components/tabs'
 import $ from 'jquery'
 import DxyShare from '@dxy/pure-components/dist/dxyShare'
+import Api from '@/utils/api'
 // 分享
 new DxyShare({
   container: '#dxy-share-sina',
@@ -44,8 +45,10 @@ new HbdVideo({
   }
 })
 
-
-$('.prevent').on('click', function (e) {
-  e.preventDefault()
+$('.like-inter').on('click', function (e) {
+  const id = location.href
+  const newid = id.replace(/[^0-9]/ig, '')
+  // console.log(newid)
+  Api.likearticle({id: newid}).then((res) => {})
 })
 

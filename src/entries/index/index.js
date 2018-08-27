@@ -140,7 +140,14 @@ const valiate = new ValidateForm({
         token: res[3].value,
         token2: res[4].value,
         username: res[5].value,
-        fid: res[6].value
+        fid: res[6].value,
+        sid: res[7].value
+      }).then((res) => {
+        if (res.success) {
+          alert('提交成功')
+        } else {
+          alert('提交失败')
+        }
       })
     )
   }

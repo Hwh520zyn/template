@@ -101,7 +101,17 @@ class PageList {
   async pageHandler (page, old) {
     this.onLoading(true)
     try {
-      let res = await this.api({ page, ...this.params })
+      let config = {
+        '?news': {id: 43},
+        '?character': {id: 39631},
+        '?hotspot': {id: 8928},
+        '?relation': {id: 7972},
+        '?manage': {id: 444},
+        '?scholarship': {id: 3380}
+      }
+      let url = location.search
+      let idbox = config[url]
+      let res = await this.api({page, ...this.params, ...idbox})
       if (!res || !res.success) throw Error(res)
       res = this.onSuccess(res) || res
       this.pageChangeToDo(page, res)

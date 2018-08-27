@@ -14,7 +14,7 @@ $('#arrow-box i').on('click', function () {
 function template (data) {
   return `<div class="hbd-articleLists">
   <div class="hbd-cardBox" id="hbd-cardBox">
-      <a href="/topic/${data.id}">
+      <a href="/topic/${data.tagid}">
           <div class="hbd-card1">
               <div class="hbd-card1-left">
                   <!-- img -->
@@ -22,7 +22,7 @@ function template (data) {
                   <!-- END img -->
               </div>
               <div class="hbd-card1-content">
-                  <div class="hbd-card1-content-head verticalCenter">${data.title}
+                  <div class="hbd-card1-content-head verticalCenter">${data.remark} · ${data.title}
                       <div class="hbd-card1-content-head_time textRight">2018 6-5</div>
                   </div>
                   <div class="hbd-card1-content-describe textLeft">

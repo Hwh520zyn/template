@@ -5,7 +5,7 @@ import '@/css/interdetail.less'
 import Tabs from '@/components/tabs'
 import $ from 'jquery'
 import DxyShare from '@dxy/pure-components/dist/dxyShare'
-
+import Api from '@/utils/api'
 new Tabs({
   el: '.main-interdebox-interde-contbox-cont-left',
   defaultActive: 1
@@ -40,4 +40,11 @@ new DxyShare({
 new DxyShare({
   container: '#icon-box-wb',
   channels: ['qzone']
+})
+
+$('.like-inter').on('click', function (e) {
+  const id = location.href
+  const newid = id.replace(/[^0-9]/ig, '')
+  // console.log(newid)
+  Api.likearticle({id: newid}).then((res) => {})
 })

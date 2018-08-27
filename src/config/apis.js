@@ -12,7 +12,10 @@ const apiMap = {
   demo: ['get', 'apiPath', '5b026e89ab672884de9dd704'],
   pageList: ['get', '/healtharticle/list', '5b178010e1540c84e3377b5f'],
   infoPageList: ['get', '/channellistapi', '5b178010e1540c84e3377b5f'],
-  submitInfo: ['post', '/survey/submit']
+  submitInfo: ['post', '/survey/submit'],
+  likearticle:['get', '/likearticle'],
+  infolistapi:['get', '/infolistapi']
+
 }
 
 const apis = {}
