@@ -3,9 +3,10 @@ import '@/css/layout.less'
 import 'babel-polyfill'
 import '@/font/iconfont.css'
 import '@/css/dxy-article.less'
+import '@/css/pagination.less'
 import isMobile from '@/utils/isMobile'
 import Tabs from '@/components/tabs'
-// import _daEvent from '@/utils/da.js'
+import _daEvent from '@/utils/da.js'
 import $ from 'jquery'
 // import dxyshare from  '@/utils/snsapi-v2'
 // $('.head-box').css({'z-index':2})
@@ -45,7 +46,18 @@ $( function () {
       defaultActive: num
     })
   }
-  let url = this.location.search
+  let u = location.pathname
+  switch (u) {
+    case '/': {
+      $('.head-box-wrapper-nav-list-txt').addClass('style-fix').siblings().removeClass('style-fix')
+      break
+    }
+    case 'channellist': {
+      $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
+      break
+    }
+  }
+  let url = location.search
   switch (url) {
     case '?news' : {
       tabs(1)
@@ -106,3 +118,5 @@ $('#icon-box-wx-friends, #icon-box-wx-circle').on('click', function () {
   $('.link-box').show()
   $('.link-box-textarea').html(url)
 })
+
+

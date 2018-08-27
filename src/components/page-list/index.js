@@ -1,7 +1,9 @@
 import List from '@/components/list/list'
 import Pagination from '@dxy/pure-components/dist/pagination'
 import debounce from '@/utils/debounce'
-
+import '@/css/pagination.less'
+// import pagination from '@/utils/pagination'
+// import Pagination from '@/utils/pagination'
 /**
  * @constructor PageList
  */
@@ -91,6 +93,9 @@ class PageList {
    * 初始化 Page
    */
   initPage () {
+    // this.page = pagination.init({...this.pageConfig})
+    // this.page.init = ({...this.pageConfig})
+    // this.page = Pagination({...this.pageConfig})
     this.Page = new Pagination({ ...this.pageConfig, clickPageHandler: debounce(this.pageHandler, this.debounceTime).bind(this) })
   }
   /**
@@ -102,14 +107,14 @@ class PageList {
     this.onLoading(true)
     try {
       let config = {
-        '?news': {id: 43},
-        '?character': {id: 39631},
-        '?hotspot': {id: 8928},
-        '?relation': {id: 7972},
-        '?manage': {id: 444},
-        '?scholarship': {id: 3380}
+        'news': {id: 43},
+        'character': {id: 39631},
+        'hotspot': {id: 8928},
+        'relation': {id: 7972},
+        'manage': {id: 444},
+        'scholarship': {id: 3380}
       }
-      let url = location.search
+      let url = location.search.slice(1)
       let idbox = config[url]
       let res = await this.api({page, ...this.params, ...idbox})
       if (!res || !res.success) throw Error(res)

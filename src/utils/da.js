@@ -2,7 +2,7 @@ import $ from 'jquery'
 var _da = require('@dxy/dxy-analytics')
 !(function () {
   // 如果使用场景是在浏览器端，那么 window 下回有 _da
-  // console.log(_da)
+  console.log(_da)
   // 配置
   _da.config({
     env: 'production', // 默认：production，可选值：production、develop
@@ -22,7 +22,7 @@ var _da = require('@dxy/dxy-analytics')
  */
 function _daEvent (actionWord) {
   _da.trackEvent(['hbd_biz_yyh', actionWord], function (info) {
-    // console.log(info)
+    console.log(info)
   })
 }
 
