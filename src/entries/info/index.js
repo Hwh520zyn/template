@@ -9,11 +9,34 @@ import '@/css/articlelist.less'
 import Api from '@/utils/api'
 import $ from 'jquery'
 import '@/css/pagination.less'
-new Tabs({
-  el: '.main-interdebox-interde-contbox-cont-left',
-  defaultActive: 1
-})
-window.page_list = []
+
+const handle = {
+  page_list: [],
+  init() {
+    new Tabs({
+      el: '.main-interdebox-interde-contbox-cont-left',
+      defaultActive: 1
+    })
+
+    this.initList()
+  },
+  initList() {
+    let search = window.location.search ? window.location.search.substring(1) : 'news'
+    let config = {
+      news: ['#bottom-list', '#bottomPagination'],
+      character: ['#bottom-list2', '#bottomPagination2'],
+      hotspot: ['#bottom-list3', '#bottomPagination3'],
+      relation: ['#bottom-list4', '#bottomPagination4'],
+      manage: ['#bottom-list5', '#bottomPagination5'],
+      scholarship: ['#bottom-list6', '#bottomPagination6']
+    }
+    this.page_list.push(page(config[search][0], config[search][1], search))
+  }
+}
+
+handle.init()
+
+// window.page_list = []
 function page (el, pageel, type) {
   let baseConfig = {
     listConfig: {
@@ -21,29 +44,30 @@ function page (el, pageel, type) {
       template (data) {
         return `<div class="hbd-articleLists">
         <div class="hbd-cardBox" id="hbd-cardBox">
-                <div class="hbd-card1">
-                    <div class="hbd-card1-left">
-                        <!-- img -->
-                      <a href="/channelarticledetail/${data.id}?${type}" class="set">
-                        <img class="hbd-card1-left_img" src="${data.titleImg}" alt="">
-                        </a>
-                        <!-- END img -->
-                    </div>
-                    <div class="hbd-card1-content">
-                        <div class="hbd-card1-content-head verticalCenter">${data.title}
-                            <div class="hbd-card1-content-head_time textRight">2018 6-5</div>
-                        </div>
-                        <div class="hbd-card1-content-describe textLeft">
-                                ${data.description}
-                        </div>
-                        <div class="hbd-card1-content-detail verticalCenter">
-                            <div class="hbd-card1-content-detail-experts">
-                                ${data.articleDate.slice(0, 10)}
-                            </div>
-                            <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span href="/likearticle/${data.id}">点赞</span> </div>
-                        </div>
-                    </div>
+          <div class="hbd-card1">
+            <div class="hbd-card1-left">
+              <!-- img -->
+              <a href="/channelarticledetail/${data.id}?${type}" class="set">
+                <img class="hbd-card1-left_img" src="${data.titleImg}" alt="">
+                </a>
+                <!-- END img -->
+            </div>
+            <div class="hbd-card1-content">
+              <div class="hbd-card1-content-head verticalCenter">
+                ${data.title}
+                <div class="hbd-card1-content-head_time textRight">2018 6-5</div>
+              </div>
+              <div class="hbd-card1-content-describe textLeft">
+                ${data.description}
+              </div>
+              <div class="hbd-card1-content-detail verticalCenter">
+                <div class="hbd-card1-content-detail-experts">
+                  ${data.articleDate.slice(0, 10)}
                 </div>
+                <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span href="/likearticle/${data.id}">点赞</span> </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>`
       }
@@ -73,27 +97,28 @@ function page (el, pageel, type) {
     ...baseConfig,
     pageConfig: {
       ele: pageel,
-      cue: 1,
-      pagesize: 10,
-      total: 1000
+      pageNo: 1,
+      pageSize: 10,
+      totalCount: 1000
     },
     debounceTime: 500
   }
   new PageList(pcConfig)
-  // pagination.init(...pcConfig)
 }
-  // 分页1
-page('#bottom-list', '#bottomPagination', 'news')
-// 分页2
-page('#bottom-list2', '#bottomPagination2', 'character')
-// // 分页3
-page('#bottom-list3', '#bottomPagination3', 'hotspot')
-// // 分页4
-page('#bottom-list4', '#bottomPagination4', 'relation')
-// // 分页5
-page('#bottom-list5', '#bottomPagination5', 'manage')
-// // 分页6
-page('#bottom-list6', '#bottomPagination6', 'scholarship')
+
+
+// // 分页1
+// page('#bottom-list', '#bottomPagination', 'news')
+// // 分页2
+// page('#bottom-list2', '#bottomPagination2', 'character')
+// // // 分页3
+// page('#bottom-list3', '#bottomPagination3', 'hotspot')
+// // // 分页4
+// page('#bottom-list4', '#bottomPagination4', 'relation')
+// // // 分页5
+// page('#bottom-list5', '#bottomPagination5', 'manage')
+// // // 分页6
+// page('#bottom-list6', '#bottomPagination6', 'scholarship')
 
 $('#focus input').on('focus', function () {
   $('#focus').addClass('focus').removeClass('blur')
