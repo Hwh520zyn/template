@@ -13,7 +13,9 @@ const apiMap = {
   pageList: ['get', '/healtharticle/list', '5b178010e1540c84e3377b5f'],
   infoPageList: ['get', '/channellistapi', '5b178010e1540c84e3377b5f'],
   submitInfo: ['post', '/survey/submit'],
-  likearticle:['get', '/likearticle']
+  likearticle:['get', '/likearticle'],
+  infolistapi:['get', '/infolistapi']
+
 }
 
 const apis = {}
