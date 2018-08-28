@@ -6,7 +6,7 @@ import '@/css/dxy-article.less'
 import '@/css/pagination.less'
 import isMobile from '@/utils/isMobile'
 import Tabs from '@/components/tabs'
-import _daEvent from '@/utils/da.js'
+// import _daEvent from '@/utils/da.js'
 import $ from 'jquery'
 // import dxyshare from  '@/utils/snsapi-v2'
 // $('.head-box').css({'z-index':2})
@@ -52,7 +52,7 @@ $( function () {
       $('.head-box-wrapper-nav-list-txt').addClass('style-fix').siblings().removeClass('style-fix')
       break
     }
-    case 'channellist': {
+    case '/channellist': {
       $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
       break
     }

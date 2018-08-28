@@ -142,14 +142,17 @@ const valiate = new ValidateForm({
         username: res[5].value,
         fid: res[6].value,
         sid: res[7].value
-      }).then((res) => {
-        if (res.success) {
-          alert('提交成功')
-        } else {
-          alert('提交失败')
-        }
       })
-    )
+     ).then(function (res) {
+       if (res.success) {
+         $('.submit-success').show()
+         setTimeout(function () {
+           $('.submit-success').hide()
+         }, 3000)
+       } else {
+         alert('提交失败')
+       }
+     })
   }
 })
 
