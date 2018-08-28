@@ -100,7 +100,7 @@
             margin-top: 10px;
             margin-bottom: 28px;
         }
-       
+
         &-metting{
             padding: 0 15px;
             .changboredr{
@@ -281,7 +281,7 @@
             }
             .hbd-articleLists {
                 .hbd-cardBox{
-                    
+
                     .hbd-card1{
                         padding-bottom: .3rem;
                         .hbd-card1-left{
@@ -314,4 +314,40 @@
             }
         }
     }
+}
+
+/* pager */
+.paginationjs  {
+  .paginationjs-ellipsis {
+    border: 0!important;
+    background-color: transparent!important;
+  }
+  .paginationjs-prev, .paginationjs-next {
+    padding: 0 5px;
+  }
+  .paginationjs-pages {
+    li {
+      margin: 0 3px;
+      border: 1px solid #eee;
+      border-right: 1px solid #eee;
+      border-radius: 4px;
+      overflow: hidden;
+      &.disabled {
+        background-color: #eee;
+      }
+      &:last-child {
+        border-right: 1px solid #eee;
+      }
+      a {
+        color: #777777;
+      }
+      &.active {
+        color: #fff;
+        a {
+          background-color: #6B3EE0;
+        }
+        // border: 1px solid #6B3EE0;
+      }
+    }
+  }
 }

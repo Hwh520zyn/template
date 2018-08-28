@@ -1,9 +1,12 @@
 import List from '@/components/list/list'
 import Pagination from '@dxy/pure-components/dist/pagination'
 import debounce from '@/utils/debounce'
+import $ from 'jquery'
+import initPagination from '@/utils/jqPaginator.min'
 import '@/css/pagination.less'
-// import pagination from '@/utils/pagination'
-// import Pagination from '@/utils/pagination'
+
+console.log({$})
+initPagination(window, $)
 /**
  * @constructor PageList
  */
@@ -73,12 +76,12 @@ class PageList {
   /**
    * 初始化
    */
-  init () {
+  async init () {
     try {
-      this.initList()
-      this.initPage()
+      await this.initList()
+      // this.initPage()
       this.onInit()
-      this.pageHandler(1, 0)
+      // this.pageHandler(1, 0)
     } catch (err) {
       console.error('page list 错误', err)
     }
@@ -86,24 +89,69 @@ class PageList {
   /**
    * 初始化 List
    */
-  initList () {
+  async initList () {
+    let config = {
+      'news': {id: 43},
+      'character': {id: 39631},
+      'hotspot': {id: 8928},
+      'relation': {id: 7972},
+      'manage': {id: 444},
+      'scholarship': {id: 3380}
+    }
+    let url = location.search.slice(1)
+    let idbox = config[url]
+    let res = await this.api({page: 1, ...this.params, ...idbox})
+    if (!res || !res.success) throw Error(res)
+
+    let { items = [], pageBean = {} } = res.results
     this.List = new List(this.listConfig)
+    this.List.list = items
+    Object.assign(this.pageConfig, pageBean)
+    console.log({pageBean})
+    console.log('pageConfig!', this.pageConfig)
+
+
+    this.initPage()
   }
   /**
    * 初始化 Page
    */
   initPage () {
-    // this.page = pagination.init({...this.pageConfig})
-    // this.page.init = ({...this.pageConfig})
-    // this.page = Pagination({...this.pageConfig})
-    this.Page = new Pagination({ ...this.pageConfig, clickPageHandler: debounce(this.pageHandler, this.debounceTime).bind(this) })
+
+    // this.Page = new Pagination({ ...this.pageConfig, clickPageHandler: debounce(this.pageHandler, this.debounceTime).bind(this) })
+    const {
+      ele,
+      pageNo,
+      totalCount,
+      pageSize
+    } = this.pageConfig
+    console.log('pageConfig')
+
+    let source = [...(new Array(totalCount)).keys()];
+    $(ele).pagination({
+      dataSource: source,
+      pageSize,
+      showGoInput: true,
+      showGoButton: true,
+      nextText: '下一页',
+      prevText: '上一页',
+      goButtonText: '确定',
+      formatNavigator: '<span>共<%=totalPage%>页</span>',
+      afterPaging: debounce(this.pageHandler, this.debounceTime).bind(this),
+      callback: function(data, pagination) {
+        // template method of yourself
+        // var html = template(data);
+        // dataContainer.html(html);
+      }
+    });
   }
   /**
    * 点击分页时的操作函数
    * @param {number} page - 当前页数
    * @param {number} old - 上一次的页数
    */
-  async pageHandler (page, old) {
+  async pageHandler (page) {
+    console.log({page})
     this.onLoading(true)
     try {
       let config = {
@@ -120,7 +168,7 @@ class PageList {
       if (!res || !res.success) throw Error(res)
       res = this.onSuccess(res) || res
       this.pageChangeToDo(page, res)
-      this.onPageClick(page, old)
+      // this.onPageClick(page, old)
     } catch (err) {
       console.error('page list 请求出错', err)
       this.onError(err)
@@ -135,11 +183,11 @@ class PageList {
    */
   pageChangeToDo (page, res) {
     let { items = [], pageBean = {} } = res.results
-    this.Page.update({
-      cur: page,
-      limit: pageBean.pageSize,
-      total: pageBean.totalCount
-    })
+    // this.Page.update({
+    //   cur: page,
+    //   limit: pageBean.pageSize,
+    //   total: pageBean.totalCount
+    // })
     this.List.list = items
   }
 }
