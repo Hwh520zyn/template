@@ -1,12 +1,12 @@
 import List from '@/components/list/list'
-import Pagination from '@dxy/pure-components/dist/pagination'
+import pagination from '@dxy/pure-components/dist/pagination'
 import debounce from '@/utils/debounce'
 import $ from 'jquery'
-import initPagination from '@/utils/jqPaginator.min'
+import initpagination from '@/utils/jqpaginator.min'
 import '@/css/pagination.less'
 
 console.log({$})
-initPagination(window, $)
+initpagination(window, $)
 /**
  * @constructor PageList
  */
@@ -118,7 +118,7 @@ class PageList {
    */
   initPage () {
 
-    // this.Page = new Pagination({ ...this.pageConfig, clickPageHandler: debounce(this.pageHandler, this.debounceTime).bind(this) })
+    // this.Page = new pagination({ ...this.pageConfig, clickPageHandler: debounce(this.pageHandler, this.debounceTime).bind(this) })
     const {
       ele,
       pageNo,
