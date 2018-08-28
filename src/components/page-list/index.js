@@ -2,7 +2,7 @@ import List from '@/components/list/list'
 import Pagination from '@dxy/pure-components/dist/pagination'
 import debounce from '@/utils/debounce'
 import $ from 'jquery'
-import initPagination from '@/utils/jqPaginator.min'
+import initPagination from '@/utils/jqpaginator.min'
 import '@/css/pagination.less'
 
 console.log({$})
