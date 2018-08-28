@@ -5,7 +5,7 @@ import $ from 'jquery'
 import initpagination from '@/utils/jqpaginator.min'
 import '@/css/pagination.less'
 
-console.log({$})
+// console.log({$})
 initpagination(window, $)
 /**
  * @constructor PageList
