@@ -134,7 +134,7 @@ class PullList {
    */
   pageChangeToDo (page, res) {
     let { items = [], pageBean = {} } = res.results
-    console.log(items)
+    // console.log(items)
     this.Page.errorTimes = 0
     this.Page.page = page
     this.List.list = this.List.list.concat(items)
