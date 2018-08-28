@@ -42,7 +42,7 @@ new DxyShare({
   channels: ['qzone']
 })
 
-$('.like-inter').on('click', function (e) {
+$('.like-inter, .icon-z-like').on('click', function (e) {
   const id = location.href
   const newid = id.replace(/[^0-9]/ig, '')
   // console.log(newid)
