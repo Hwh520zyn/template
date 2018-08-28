@@ -1,3 +1,4 @@
+@import '~@/css/info.less';
 .main-bottom-list-item{
     margin-top: 20px;
 }
@@ -6,6 +7,23 @@
 }
 .hbd-articleLists{
     .hbd-cardBox{
+        .hbd-card1-content{
+            padding-top: 20px;
+            &-head{
+                width: 560px;
+                height: 20px;
+                display: inline-block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+        .hbd-card1-content-describe{
+            width: 540px;
+            margin: 10px 0 0 0 ;
+            height: 85px;
+            -webkit-line-clamp: 4;
+        }
         .hbd-card1-content-detail-experts-cont{
             display: none;
             span{
@@ -31,5 +49,33 @@
     .main-bottom-list-item{
         margin-top: .3rem;
         padding: 0 .3rem;
+    }
+    .hbd-articleLists{
+        .hbd-cardBox{
+            .hbd-card1-content{
+                padding-top: 0;
+                &-head{
+                    font-size: .32rem;
+                    width: 4.2rem;
+                    height: .9rem;
+                    display: inline-block;
+                    overflow: auto;
+                    text-overflow: unset;
+                    white-space: unset;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;  //块元素显示的文本的行数。
+                    -webkit-box-orient: vertical;
+                }
+            }
+            .hbd-card1-content-detail{
+                font-size: .24rem;
+                margin-top: .3rem;
+            }
+            .hbd-card1-content-describe{
+                display: none;
+            }
+        }
     }
 }
