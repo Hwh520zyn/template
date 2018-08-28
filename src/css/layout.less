@@ -1,4 +1,8 @@
 @import '~@/css/variable.less';
+.paginationjs{
+  display: flex;
+  justify-content: center;
+}
 .head-box{
   width: 100%;
   background-color:@basecolor;
@@ -30,6 +34,7 @@
       }
       &-txt{
         color: #fff;
+        font-weight: 300;
       }
     }
     .mobile-toggle-nav{
@@ -40,6 +45,7 @@
       &-list{
         display: flex;
         align-items: center;
+        font-weight: 300;
         .style-fix{
           color: #fff;
           position: relative;
@@ -240,12 +246,12 @@
         color: #fff;
         cursor: pointer;
         i{
-          font-size: .6rem;
+          font-size: .5rem;
         }
         
       }
       .unfold{
-        .icon-caidan:before{
+        .icon-bars:before{
           content: '\e62e';
         }
       }
@@ -262,6 +268,15 @@
         
         &-list{
           display: block;
+          .style-fix{
+            color: #333;
+            position: relative;
+            &:before {
+              content: '';
+              display: none;
+             
+            } 
+          }
           // a{
           //   display: block;
           //   &:last-child{

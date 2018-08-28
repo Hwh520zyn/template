@@ -127,7 +127,7 @@ class PageList {
     } = this.pageConfig
     console.log('pageConfig')
 
-    let source = [...(new Array(totalCount)).keys()];
+    let source = [...(new Array(totalCount)).keys()]
     $(ele).pagination({
       dataSource: source,
       pageSize,

@@ -48,11 +48,12 @@ function page (el, pageel, type) {
             <div class="hbd-card1-left">
               <!-- img -->
               <a href="/channelarticledetail/${data.id}?${type}" class="set">
-                <img class="hbd-card1-left_img" src="${data.titleImg}" alt="">
+                <img class="hbd-card1-left_img" src="https://res.dxycdn.com/cms/upload/${data.originImg}" alt="">
                 </a>
                 <!-- END img -->
             </div>
             <div class="hbd-card1-content">
+            <a href="/channelarticledetail/${data.id}?${type}" class="set">
               <div class="hbd-card1-content-head verticalCenter">
                 ${data.title}
                 <div class="hbd-card1-content-head_time textRight">2018 6-5</div>
@@ -60,11 +61,13 @@ function page (el, pageel, type) {
               <div class="hbd-card1-content-describe textLeft">
                 ${data.description}
               </div>
+              </a>
               <div class="hbd-card1-content-detail verticalCenter">
                 <div class="hbd-card1-content-detail-experts">
-                  ${data.articleDate.slice(0, 10)}
+                  
                 </div>
-                <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span href="/likearticle/${data.id}">点赞</span> </div>
+               
+                <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span>点赞</span> </div>
               </div>
             </div>
           </div>
@@ -126,17 +129,20 @@ $('#focus input').on('focus', function () {
 $('#focus input').on('blur', function () {
   $('#focus').addClass('blur').removeClass('focus')
 })
-
 // 点赞  .getAttribute('href') firstElementChild
-$('.hbd-list_content').on('click', function (e) {
+$('.common-list').on('click', function (e) {
   var ev = e || event
   var target = ev.target || ev.srcElement
-  // const id = target.parentNode.parentNode.parentNode.previousElementSibling.querySelector('.set').getAttribute('href')
-  // console.log(id)
-  // const newid = id.replace(/[^0-9]/ig, '')
+  const id = target.parentNode.parentNode.parentNode.previousElementSibling.querySelector('.set').getAttribute('href')
+  const newid = id.replace(/[^0-9]/ig, '')
+  // console.log(newid)
+  Api.likearticle({id: newid}).then((res) => {})
   if (target.nodeName.toLowerCase() === 'span') {
     target.innerHTML = '已点赞'
     target.parentElement.className += ' ' + 'active-like'
   }
+  if (target.nodeName.toLowerCase() === 'i') {
+    target.nextElementSibling.innerHTML = '已点赞'
+    target.parentElement.className += ' ' + 'active-like'
+  }
 })
-

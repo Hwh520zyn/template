@@ -210,7 +210,8 @@
             &-intro{
                 width: 1200px;
                 height: 152px;
-                background-color:RGBA(139, 94, 255, 1);
+                background: #8B5EFF  url(~@/assets/pc/foot-title-bg1.png) no-repeat;
+                background-size: 100% 100%;
                 border-radius: 5px;
                 display: flex;
                 align-items: center;
@@ -257,6 +258,7 @@
                     &-txt{
                         font-size: 14px;
                         margin-top: 20px;
+                        font-weight: 300;
                         color: rgba(255,255,255,.8);
                         b{
                             color: rgba(255,255,255,1)
@@ -264,6 +266,7 @@
                     }
                     &-txt2{
                         margin-top: 5px;
+                        font-weight: 300;
                         color: rgba(255,255,255,.8);
                         b{
                             color: rgba(255,255,255,1)
@@ -447,6 +450,7 @@
                     position: relative;
                     box-shadow:0px 5px 5px 0px rgba(0,0,0,0.08);
                     text-align: center;
+                    transition: all .3s;
                     &:hover{
                          box-shadow:0px 5px 5px 5px rgba(0,0,0,0.08);
                     }
@@ -582,6 +586,22 @@
         width: 100%;
         height: auto;
         background: #F6F7FA;
+        .submit-success{
+            display: none;
+            position: fixed;
+            width: 160px;
+            height: 30px;
+            background: #F0FFF0;
+            color: #2EA63E;
+            text-align: center;
+            line-height: 30px;
+            box-shadow:0px 1px 10px 0px rgba(0,0,0,0.12);
+            border-radius:3px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 80px;
+            z-index: 99;
+        }
         &-contact{
             width: 1200px;
             height: auto;
@@ -631,7 +651,9 @@
                             border-radius: 3px;
                             padding-left: 100px;
                             &:focus{
+                                outline: none;
                                 background: #fff;
+                                border:1px solid #ccc;
                             }
                             
                         }
@@ -752,6 +774,7 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          font-weight:300;
           &-logobox{
             display: flex;
             align-items: center;
@@ -1395,6 +1418,21 @@
             width: 100%;
             height: auto;
             background: #F6F7FA;
+            .submit-success{
+                position: fixed;
+                width: 3.2rem;
+                height: .6rem;
+                background: #F0FFF0;
+                color: #2EA63E;
+                text-align: center;
+                line-height: .6rem;
+                box-shadow:0px .01rem .1rem 0px rgba(0,0,0,0.12);
+                border-radius:.06rem;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 1.6rem;
+                z-index: 99;
+            }
             &-contact{
                 width: 100%;
                 height: auto;

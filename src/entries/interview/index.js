@@ -7,9 +7,9 @@ import Api from '@/utils/api'
 import isMobile from '@/utils/isMobile'
 import $ from 'jquery'
 
-$('#arrow-box i').on('click', function () {
-  $(this).css({'color': '#6B3EE0'}).siblings().css({'color': '#DDD'})
-})
+// $('#arrow-box i').on('click', function () {
+//   $(this).css({'color': '#6B3EE0'}).siblings().css({'color': '#DDD'})
+// })
 
 function template (data) {
   return `<div class="hbd-articleLists">
@@ -18,7 +18,7 @@ function template (data) {
           <div class="hbd-card1">
               <div class="hbd-card1-left">
                   <!-- img -->
-                  <img class="hbd-card1-left_img" src="${data.img}" alt="">
+                  <img class="hbd-card1-left_img" src="https://res.dxycdn.com/cms/upload/${data.originImg}" alt="">
                   <!-- END img -->
               </div>
               <div class="hbd-card1-content">
@@ -42,28 +42,27 @@ function template (data) {
 }
 // --------------------------------------
 // api = Api.pageList
-// 排序 -- 正序
-$('#sort-normal').on('click', async function () {
-  const params = {
-    page: 1,
-    size: 10,
-    sort: 1
+$('.main-interviewbox-interview-titlebox-search-sortbox-sort').on('click', async function () {
+  $('#arrow-box i').toggleClass('changecolor')
+  var params
+  // 倒序
+  if ($('#sort-reverse').hasClass('changecolor')) {
+    params = {
+      page: 1,
+      size: 10,
+      sort: 2
+    }
+  }
+  // 正序
+  if ($('#sort-normal').hasClass('changecolor')) {
+    params = {
+      page: 1,
+      size: 10,
+      sort: 1
+    }
   }
   const res = await Api.pageList(params)
   window.page_list.pageChangeToDo(1, res)
-  // console.log('res', res)
-})
-
-// 排序 -- 倒序
-$('#sort-reverse').on('click', async function () {
-  const params = {
-    page: 1,
-    size: 10,
-    sort: 2
-  }
-  const res = await Api.pageList(params)
-  window.page_list.pageChangeToDo(1, res)
-  // console.log('res', res)
 })
 // 搜索
 $('.common-search').on('change', async function (e) {
