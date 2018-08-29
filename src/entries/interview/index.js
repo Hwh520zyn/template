@@ -78,7 +78,12 @@ $('.common-search').on('change', async function (e) {
     keywords: val
   }
   const res = await Api.pageList(params)
-  window.page_list.pageChangeToDo(1, res)
+  // window.page_list.pageChangeToDo(1, res)
+  if (!isMobile) {
+    window.page_list.pageChangeToDo(1, res)
+  } else {
+    window.page_list.changeList(res)
+  }
 })
 // function param ( params = {} ) {
 //   return params
