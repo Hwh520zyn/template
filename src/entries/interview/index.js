@@ -5,6 +5,7 @@ import PullList from '@/components/pull-list'
 import Loading from '@/components/loading'
 import Api from '@/utils/api'
 import isMobile from '@/utils/isMobile'
+import '@/css/layout.less'
 import $ from 'jquery'
 
 // $('#arrow-box i').on('click', function () {
@@ -62,7 +63,11 @@ $('.main-interviewbox-interview-titlebox-search-sortbox-sort').on('click', async
     }
   }
   const res = await Api.pageList(params)
-  window.page_list.pageChangeToDo(1, res)
+  if (!isMobile) {
+    window.page_list.pageChangeToDo(1, res)
+  } else {
+    window.page_list.changeList(res)
+  }
 })
 // 搜索
 $('.common-search').on('change', async function (e) {
@@ -73,7 +78,12 @@ $('.common-search').on('change', async function (e) {
     keywords: val
   }
   const res = await Api.pageList(params)
-  window.page_list.pageChangeToDo(1, res)
+  // window.page_list.pageChangeToDo(1, res)
+  if (!isMobile) {
+    window.page_list.pageChangeToDo(1, res)
+  } else {
+    window.page_list.changeList(res)
+  }
 })
 // function param ( params = {} ) {
 //   return params
@@ -85,10 +95,6 @@ let baseConfig = {
     template
   },
   api: Api.pageList,
-  params: {
-    page: 1,
-    size: 10
-  }, // 发送的参数 -------------
   onSuccess (res) {
     const res2 = res.results.items
     let items = res2.map(item => {
@@ -135,7 +141,7 @@ let mobileConfig = {
     maxError: 10
   }
 }
-if (isMobile) new PullList(mobileConfig)
+if (isMobile) window.page_list = new PullList(mobileConfig)
 else {
   window.page_list = new PageList(pcConfig)
 }
