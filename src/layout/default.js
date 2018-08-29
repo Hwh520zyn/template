@@ -5,6 +5,7 @@ import '@/font/iconfont.css'
 import '@/css/dxy-article.less'
 import '@/css/pagination.less'
 import isMobile from '@/utils/isMobile'
+import Api from '@/utils/api'
 import Tabs from '@/components/tabs'
 // import _daEvent from '@/utils/da.js'
 import $ from 'jquery'
@@ -118,5 +119,3 @@ $('#icon-box-wx-friends, #icon-box-wx-circle').on('click', function () {
   $('.link-box').show()
   $('.link-box-textarea').html(url)
 })
-
-

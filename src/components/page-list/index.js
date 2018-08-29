@@ -107,8 +107,8 @@ class PageList {
     this.List = new List(this.listConfig)
     this.List.list = items
     Object.assign(this.pageConfig, pageBean)
-    console.log({pageBean})
-    console.log('pageConfig!', this.pageConfig)
+    // console.log({pageBean})
+    // console.log('pageConfig!', this.pageConfig)
 
 
     this.initPage()
@@ -125,7 +125,7 @@ class PageList {
       totalCount,
       pageSize
     } = this.pageConfig
-    console.log('pageConfig')
+    // console.log('pageConfig')
 
     let source = [...(new Array(totalCount)).keys()]
     $(ele).pagination({
@@ -151,7 +151,7 @@ class PageList {
    * @param {number} old - 上一次的页数
    */
   async pageHandler (page) {
-    console.log({page})
+    // console.log({page})
     this.onLoading(true)
     try {
       let config = {

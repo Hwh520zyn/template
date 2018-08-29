@@ -139,7 +139,7 @@ class PullList {
     this.Page.page = page
     this.List.list = this.List.list.concat(items)
     // this.List.list = items
-    console.log(this.List.list.concat(items))
+    // console.log(this.List.list.concat(items))
     if (this.isStop(page, pageBean)) {
       this.Page.stop = true
       this.onStop()
@@ -147,7 +147,7 @@ class PullList {
   }
   changeList (res) {
     let { items = []} = res.results
-    console.log(items)
+    // console.log(items)
     this.Page.errorTimes = 0
     this.Page.page = 1
     this.List.list = items
