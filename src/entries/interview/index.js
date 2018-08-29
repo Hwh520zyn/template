@@ -5,6 +5,7 @@ import PullList from '@/components/pull-list'
 import Loading from '@/components/loading'
 import Api from '@/utils/api'
 import isMobile from '@/utils/isMobile'
+import '@/css/layout.less'
 import $ from 'jquery'
 
 // $('#arrow-box i').on('click', function () {
