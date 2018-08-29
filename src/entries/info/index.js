@@ -48,7 +48,7 @@ function page (el, pageel, type) {
             <div class="hbd-card1-left">
               <!-- img -->
               <a href="/channelarticledetail/${data.id}?${type}" class="set">
-                <img class="hbd-card1-left_img" src="https://res.dxycdn.com/cms/upload/${data.originImg}" alt="">
+                <img class="hbd-card1-left_img" src="${data.originImg}" alt="">
                 </a>
                 <!-- END img -->
             </div>
