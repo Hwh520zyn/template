@@ -2,6 +2,9 @@
 // .head-box-wrapper-nav-list{
 //     display: none;
 // }
+.head-box{
+    display: block!important;
+}
 .main-public-banner{
     width: 100%;
     min-width: 1200px;
@@ -153,6 +156,11 @@
 @media(max-width:768px) {
    html{
     font-size: calc(100vw / 7.5)
+    }
+    .head-box{
+        display: none;
+        position: absolute; ;
+        top:-100%;
     }
     .other-nav-box{
         i{

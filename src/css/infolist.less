@@ -1,10 +1,14 @@
 @import '~@/css/info.less';
+@import '~@/css/public.less';
 .main-bottom-list-item{
     margin-top: 20px;
 }
-.head-box-wrapper-nav{
-    display: none ;
+.head-box {
+    display: block!important;
 }
+// .head-box-wrapper-nav{
+//     display: block ;
+// }
 .hbd-articleLists{
     .hbd-cardBox{
         .hbd-card1-content{
@@ -44,8 +48,16 @@
         font-size: calc(100vw /7.5)
     }
     .head-box{
-        display: none !important;
+        display:none!important;
     }
+    .head-box{
+        display: none !important;
+        position: absolute;
+        top: -100%;
+    }
+    // .head-box-wrapper-nav{
+    //     display: none;
+    // }
     .main-bottom-list-item{
         margin-top: .3rem;
         padding: 0 .3rem;
