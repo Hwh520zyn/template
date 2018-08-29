@@ -8,7 +8,7 @@ $(document).on('click', function (e) {
   }
 })
 
-$('.head-box-wrapper-nav-list-txt').on('click', function () {
+$('.head-box-wrapper-nav-list-txt, .head-box-wrapper-logobox-logo').on('click', function () {
   window.location.href = '/'
 })
 $('.head-box-wrapper-nav-list-txt2').on('click', function () {
