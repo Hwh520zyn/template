@@ -95,6 +95,7 @@ $('.main-sharebox-share-hover-icon li').on('mouseenter', function () {
 
 $('.main-sharebox-share').on('click', function () {
   $('.main-sharebox-share-hover').toggleClass('show-share')
+  $(this).toggleClass('change-color-inter')
 })
 
 $('.mobile-share-brower').css({'zIndex': 999})

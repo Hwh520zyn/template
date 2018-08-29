@@ -10,104 +10,105 @@ import Api from '@/utils/api'
 import $ from 'jquery'
 import '@/css/pagination.less'
 
-const handle = {
-  page_list: [],
-  init() {
-    new Tabs({
-      el: '.main-interdebox-interde-contbox-cont-left',
-      defaultActive: 1
-    })
-
-    this.initList()
-  },
-  initList() {
-    let search = window.location.search ? window.location.search.substring(1) : 'news'
-    let config = {
-      news: ['#bottom-list', '#bottomPagination'],
-      character: ['#bottom-list2', '#bottomPagination2'],
-      hotspot: ['#bottom-list3', '#bottomPagination3'],
-      relation: ['#bottom-list4', '#bottomPagination4'],
-      manage: ['#bottom-list5', '#bottomPagination5'],
-      scholarship: ['#bottom-list6', '#bottomPagination6']
+  const handle = {
+    page_list: [],
+    init() {
+      new Tabs({
+        el: '.main-interdebox-interde-contbox-cont-left',
+        defaultActive: 1
+      })
+  
+      this.initList()
+    },
+    initList() {
+      let search = window.location.search ? window.location.search.substring(1) : 'news'
+      let config = {
+        news: ['#bottom-list', '#bottomPagination'],
+        character: ['#bottom-list2', '#bottomPagination2'],
+        hotspot: ['#bottom-list3', '#bottomPagination3'],
+        relation: ['#bottom-list4', '#bottomPagination4'],
+        manage: ['#bottom-list5', '#bottomPagination5'],
+        scholarship: ['#bottom-list6', '#bottomPagination6']
+      }
+      this.page_list.push(page(config[search][0], config[search][1], search))
     }
-    this.page_list.push(page(config[search][0], config[search][1], search))
   }
-}
-
-handle.init()
-
-// window.page_list = []
-function page (el, pageel, type) {
-  let baseConfig = {
-    listConfig: {
-      container: el,
-      template (data) {
-        return `<div class="hbd-articleLists">
-        <div class="hbd-cardBox" id="hbd-cardBox">
-          <div class="hbd-card1">
-            <div class="hbd-card1-left">
-              <!-- img -->
+  
+  handle.init()
+  
+  // window.page_list = []
+  function page (el, pageel, type) {
+    // const surl = lcoation.href.indexOf('y.dxy.net') > -1 ? http://www.dxy.cn/upload/${data.originImg} : ${data.originImg}
+    let baseConfig = {
+      listConfig: {
+        container: el,
+        template (data) {
+          return `<div class="hbd-articleLists">
+          <div class="hbd-cardBox" id="hbd-cardBox">
+            <div class="hbd-card1">
+              <div class="hbd-card1-left">
+                <!-- img -->
+                <a href="/channelarticledetail/${data.id}?${type}" class="set">
+                  <img class="hbd-card1-left_img" src="${data.originImg}"  alt="">
+                  </a>
+                  <!-- END img -->
+              </div>
+              <div class="hbd-card1-content">
               <a href="/channelarticledetail/${data.id}?${type}" class="set">
-                <img class="hbd-card1-left_img" src="${data.originImg}" alt="">
-                </a>
-                <!-- END img -->
-            </div>
-            <div class="hbd-card1-content">
-            <a href="/channelarticledetail/${data.id}?${type}" class="set">
-              <div class="hbd-card1-content-head verticalCenter">
-                ${data.title}
-                <div class="hbd-card1-content-head_time textRight">2018 6-5</div>
-              </div>
-              <div class="hbd-card1-content-describe textLeft">
-                ${data.description}
-              </div>
-              </a>
-              <div class="hbd-card1-content-detail verticalCenter">
-                <div class="hbd-card1-content-detail-experts">
-                  ${data.articleDate.slice(0, 10)}
+                <div class="hbd-card1-content-head verticalCenter">
+                  ${data.title}
+                  <div class="hbd-card1-content-head_time textRight">2018 6-5</div>
                 </div>
-               
-                <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span>点赞</span> </div>
+                <div class="hbd-card1-content-describe textLeft">
+                  ${data.description}
+                </div>
+                </a>
+                <div class="hbd-card1-content-detail verticalCenter">
+                  <div class="hbd-card1-content-detail-experts">
+                    
+                  </div>
+                 
+                  <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span>点赞</span> </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>`
-      }
-    },
-    //  ${data.articleDate.slice(0, 10)}
-    api: Api.infoPageList,
-    onSuccess (res) {
-      let items = res.results.items.map(item => {
-        let title = item.title
-        return { ...item,
-          title
+        </div>`
         }
-      })
-      res.results.items = items
-      return res
-    },
-    onError (err) {
-      console.log(err)
-      console.log('请求出错了')
-    },
-    onInit () {},
-    onStop () {
-      this.$loading.dataless('没有更多了')
+      },
+      //  ${data.articleDate.slice(0, 10)}
+      api: Api.infoPageList,
+      onSuccess (res) {
+        let items = res.results.items.map(item => {
+          let title = item.title
+          return { ...item,
+            title
+          }
+        })
+        res.results.items = items
+        return res
+      },
+      onError (err) {
+        console.log(err)
+        console.log('请求出错了')
+      },
+      onInit () {},
+      onStop () {
+        this.$loading.dataless('没有更多了')
+      }
     }
+    let pcConfig = {
+      ...baseConfig,
+      pageConfig: {
+        ele: pageel,
+        pageNo: 1,
+        pageSize: 10,
+        totalCount: 1000
+      },
+      debounceTime: 500
+    }
+    new PageList(pcConfig)
   }
-  let pcConfig = {
-    ...baseConfig,
-    pageConfig: {
-      ele: pageel,
-      pageNo: 1,
-      pageSize: 10,
-      totalCount: 1000
-    },
-    debounceTime: 500
-  }
-  new PageList(pcConfig)
-}
 
 
 // // 分页1

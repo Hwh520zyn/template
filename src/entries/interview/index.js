@@ -19,7 +19,7 @@ function template (data) {
           <div class="hbd-card1">
               <div class="hbd-card1-left">
                   <!-- img -->
-                  <img class="hbd-card1-left_img" src="https://res.dxycdn.com/cms/upload/${data.originImg}" alt="">
+                  <img class="hbd-card1-left_img" src="${data.img}" alt="">
                   <!-- END img -->
               </div>
               <div class="hbd-card1-content">
