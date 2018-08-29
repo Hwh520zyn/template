@@ -116,6 +116,12 @@
                     .show-share{
                         display: block;
                     }
+                    .change-color-inter{
+                        color: @basecolor;
+                        .icon-fenxiang1:before{
+                            color: @basecolor;
+                        } 
+                    }
                     &-share{
                         position: relative;
                         &:hover{
@@ -128,7 +134,7 @@
                             display: none;
                             width:166px;
                             height: auto;
-                            background: #f7f7f7;
+                            background: #fff;
                             border-radius:5px;
                             right: 0;
                             top: 50px;
@@ -279,6 +285,7 @@
                         justify-content: space-around;
                         margin-bottom: 80px;
                         &-item{
+                            background: #EEEEEE;
                             width: 260px;
                             height: 410px;
                             border-radius: 5px;
@@ -763,6 +770,7 @@
                                         .hbd-cardBox{
                                             .hbd-card1{
                                                 border: none;
+                                                border-bottom: .01rem solid #e5e5e5;
                                             }
                                         }
                                     }

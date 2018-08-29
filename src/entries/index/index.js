@@ -18,11 +18,18 @@ new Swiper('.swiper-container', {
 //     prevEl: '.swiper-button-prev'
 //   }
 })
-new Swiper('#swiper-container', {
-  autoplay: false,
-  spaceBetween: 20,
-  slidesOffsetBefore: 28
-})
+if (isMobile) {
+  new Swiper('#swiper-container', {
+    autoplay: false,
+    spaceBetween: 20,
+    slidesOffsetBefore: 35
+  })
+} else {
+  new Swiper('#swiper-container', {
+    autoplay: false,
+    spaceBetween: 20
+  })
+}
 const oL = ($('#main-casebox-case-list').outerWidth() + $('.main-casebox-case-list-item').outerWidth() / 2) / 2
 $('#main-casebox-case-list').scrollLeft(oL)
 
@@ -129,10 +136,18 @@ const valiate = new ValidateForm({
     // console.log(res[0].value)
     let _formData = null
     if (window.location.href.indexOf('y.dxy.net') !== -1) {
+      // 测试线
       _formData = {
         val_153665: res[0].value,
         val_153666: res[1].value,
         val_153667: res[2].value
+      }
+    } else {
+      // 正式线
+      _formData = {
+        val_190059: res[0].value,
+        val_190060: res[1].value,
+        val_190061: res[2].value
       }
     }
     API.submitInfo(
@@ -171,3 +186,9 @@ window.onscroll = function (e) {
     $('.foot-box').show()
   }
 }
+// const inp = $('.main-contactbox-contact-formbox-left-inputbox input')
+// inp.on('change', function () {
+//   if ($(this).val !== ' ') {
+//     $(this).css({'border': 'none'})
+//   }
+// })

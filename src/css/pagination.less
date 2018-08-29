@@ -4,7 +4,26 @@
   font-size: 14px;
   box-sizing: initial
 }
-
+.paginationjs-prev{
+  margin-right: 10px;
+  padding: 0 10px;
+}
+.paginationjs-next{
+  padding: 0 10px;
+}
+.paginationjs-ellipsis{
+  border:none !important;
+  a{
+    border: none !important;
+  }
+}
+.paginationjs-go-input{
+  margin:0 20px!important;
+  input{
+    background: #eee !important;
+    border-radius: 3px !important;
+  }
+}
 .paginationjs:after {
   display: table;
   content: " ";
@@ -29,9 +48,10 @@
 
 .paginationjs .paginationjs-pages li {
   float: left;
-  border: 1px solid #aaa;
-  border-right: none;
-  list-style: none
+  border: 1px solid #eee;
+  list-style: none;
+  margin-right:3px;
+  border-radius: 3px;
 }
 
 .paginationjs .paginationjs-pages li>a {
@@ -41,9 +61,10 @@
   display: block;
   background: #fff;
   font-size: 14px;
-  color: #333;
+  color: #777;
   text-decoration: none;
-  text-align: center
+  text-align: center;
+  border-radius:3px;
 }
 
 .paginationjs .paginationjs-pages li>a:hover {
@@ -57,7 +78,7 @@
 .paginationjs .paginationjs-pages li.active>a {
   height: 30px;
   line-height: 30px;
-  background: #aaa;
+  background: #6B3EE0;
   color: #fff
 }
 
@@ -70,12 +91,12 @@
 }
 
 .paginationjs .paginationjs-pages li:first-child,.paginationjs .paginationjs-pages li:first-child>a {
-  border-radius: 3px 0 0 3px
+  border-radius: 3px
 }
 
 .paginationjs .paginationjs-pages li:last-child {
-  border-right: 1px solid #aaa;
-  border-radius: 0 3px 3px 0
+  border-right: 1px solid #F8F8F8;
+  border-radius: 3px
 }
 
 .paginationjs .paginationjs-pages li:last-child>a {
@@ -87,7 +108,7 @@
   height: 28px;
   background: #fff;
   border-radius: 3px;
-  border: 1px solid #aaa;
+  border: 1px solid #F8F8F8;
   padding: 0;
   font-size: 14px;
   text-align: center;
@@ -103,7 +124,7 @@
   line-height: 28px;
   background: #fff;
   border-radius: 3px;
-  border: 1px solid #aaa;
+  border: 1px solid #eee;
   text-align: center;
   padding: 0 8px;
   font-size: 14px;
@@ -120,7 +141,7 @@
 }
 
 .paginationjs .paginationjs-go-button>input[type=button]:hover {
-  background-color: #f8f8f8
+  background-color: #eee
 }
 
 .paginationjs .paginationjs-nav {
@@ -341,7 +362,7 @@
 }
 
 .paginationjs .paginationjs-pages li.paginationjs-next {
-  border-right: 1px solid #aaa;
+  border-right: 1px solid #eee;
 }
 
 .paginationjs .paginationjs-go-input>input[type=text] {
