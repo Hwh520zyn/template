@@ -176,19 +176,17 @@ $('#btn-form').on('click', function (e) {
   valiate.btnEvent()
 })
 
-window.onscroll = function (e) {
-  var ev = e || event
-  var stop = document.body.scrollTop || document.documentElement.scrollTop
-  // console.log(stop)
-  if (stop > 5510) {
-    $('.foot-box').hide()
-  } else {
-    $('.foot-box').show()
+$(function () {
+  $('.foot-box').css({'bottom': -100 + 'px'})
+  window.onscroll = function (e) {
+    var ev = e || event
+    var stop = document.body.scrollTop || document.documentElement.scrollTop
+    // console.log(stop)
+    if (stop > 5510) {
+      $('.foot-box').hide()
+    } else {
+      $('.foot-box').show()
+      $('.foot-box').css({'bottom': 0 + 'px'})
+    }
   }
-}
-// const inp = $('.main-contactbox-contact-formbox-left-inputbox input')
-// inp.on('change', function () {
-//   if ($(this).val !== ' ') {
-//     $(this).css({'border': 'none'})
-//   }
-// })
+})
