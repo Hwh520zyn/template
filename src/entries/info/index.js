@@ -65,7 +65,7 @@ import '@/css/pagination.less'
                 </a>
                 <div class="hbd-card1-content-detail verticalCenter">
                   <div class="hbd-card1-content-detail-experts">
-                 
+                     ${data.articleDate.slice(0, 10)}
                   </div>
                  
                   <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span>点赞</span> </div>
