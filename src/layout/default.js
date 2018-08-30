@@ -58,39 +58,17 @@ $( function () {
       break
     }
   }
-  let url = location.search
-  switch (url) {
-    case '?news' : {
-      tabs(1)
-      $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
-      break
-    }
-    case '?character': {
-      tabs(2)
-      $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
-      break
-    }
-    case '?hotspot': {
-      tabs(3)
-      $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
-      break
-    }
-    case '?relation': {
-      tabs(4)
-      $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
-      break
-    }
-    case '?manage': {
-      tabs(5)
-      $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
-      break
-    }
-    case '?scholarship': {
-      tabs(6)
-      $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
-      break
-    }
+  let config = {
+    'news': 1,
+    'character': 2,
+    'hotspot': 3,
+    'relation': 4,
+    'manage': 5,
+    'scholarship': 6
   }
+  let url = location.search.slice(1)
+  tabs(config[url])
+  $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
 })
 
 //分享划过切换
