@@ -62,26 +62,32 @@ $( function () {
   switch (url) {
     case '?news' : {
       tabs(1)
+      $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
       break
     }
     case '?character': {
       tabs(2)
+      $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
       break
     }
     case '?hotspot': {
       tabs(3)
+      $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
       break
     }
     case '?relation': {
       tabs(4)
+      $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
       break
     }
     case '?manage': {
       tabs(5)
+      $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
       break
     }
     case '?scholarship': {
       tabs(6)
+      $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
       break
     }
   }

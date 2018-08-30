@@ -183,6 +183,7 @@ class PageList {
    */
   pageChangeToDo (page, res) {
     let { items = [], pageBean = {} } = res.results
+    location.href = '#place-h'
     // this.Page.update({
     //   cur: page,
     //   limit: pageBean.pageSize,
