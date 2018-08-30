@@ -286,10 +286,6 @@
                         position: absolute;
                         top: 0;
                         left: 0;
-                        backface-visibility: hidden;
-                        transition: all .7s ease-out;
-                        transform-style: preserve-3d;
-                        overflow: hidden;
                         border-radius:.05rem;
                         img{
                             width: 2.5rem;
@@ -298,19 +294,27 @@
                         }
                     }
                     &-front {
-                        transform: rotateY(0);
+                        // transform: rotateY(0);
                         z-index: 1;
                     }
-                    &-back {
-                        display: none;
-                        transform: rotateY(-180deg);
-                        background: @basecolor;
-                    }
-                    &:hover &-front {
-                    transform: rotateY(0);
-                    }
-                    &:hover &-back {
-                    transform: rotateY(0);
+                    // &-back {
+                    //     display: none;
+                    //     transform: rotateY(-180deg);
+                    //     background: @basecolor;
+                    // }
+                    // &:hover &-front {
+                    // // transform: rotateY(0);
+                    // }
+                    // &:hover &-back {
+                    // // transform: rotateY(0);
+                    // }
+                    &:hover {
+                        .main-publicbox-public-list-item-front {
+                            display: block;
+                        }
+                        .main-publicbox-public-list-item-back {
+                            display: none;
+                        }
                     }
                     &-txt{
                         width: 4.2rem;
