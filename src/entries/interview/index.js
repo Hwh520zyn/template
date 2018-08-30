@@ -7,11 +7,17 @@ import Api from '@/utils/api'
 import isMobile from '@/utils/isMobile'
 import '@/css/layout.less'
 import $ from 'jquery'
-
+import 'swiper/dist/css/swiper.min.css'
+import Swiper from 'swiper/dist/js/swiper.min.js'
 // $('#arrow-box i').on('click', function () {
 //   $(this).css({'color': '#6B3EE0'}).siblings().css({'color': '#DDD'})
 // })
-
+new Swiper('.swiper-container', {
+  effect: 'fade',
+  autoplay: {
+    disableOnInteraction: false
+  }
+})
 function template (data) {
   return `<div class="hbd-articleLists">
   <div class="hbd-cardBox" id="hbd-cardBox">
