@@ -175,18 +175,19 @@ $('#btn-form').on('click', function (e) {
   e.preventDefault()
   valiate.btnEvent()
 })
-
-$(function () {
-  $('.foot-box').css({'bottom': -100 + 'px'})
-  window.onscroll = function (e) {
-    var ev = e || event
-    var stop = document.body.scrollTop || document.documentElement.scrollTop
-    // console.log(stop)
-    if (stop > 5510) {
-      $('.foot-box').hide()
-    } else {
-      $('.foot-box').show()
-      $('.foot-box').css({'bottom': 0 + 'px'})
-    }
+// 下导航
+window.onscroll = function (e) {
+  var ev = e || event
+  var stop = document.body.scrollTop || document.documentElement.scrollTop
+  // console.log(stop)
+  if (stop > 5510) {
+    $('.foot-box').hide()
+  } else {
+    $('.foot-box').show()
   }
-})
+}
+// 刷新后下导航消失
+window.onload = function () {
+  window.scroll(0, 1)
+}
+
