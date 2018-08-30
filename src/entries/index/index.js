@@ -146,7 +146,7 @@ const valiate = new ValidateForm({
       // 正式线
       _formData = {
         val_190059: res[0].value,
-        val_190060: res[1].value,
+        val_190647: res[1].value,
         val_190061: res[2].value
       }
     }
