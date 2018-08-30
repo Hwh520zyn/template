@@ -57,6 +57,10 @@ $( function () {
       $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
       break
     }
+    case '/case': {
+      $('.head-box-wrapper-nav-list-txt2').removeClass('style-fix')
+      break
+    }
   }
   let config = {
     'news': 1,
