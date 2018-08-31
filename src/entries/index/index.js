@@ -161,6 +161,11 @@ const valiate = new ValidateForm({
      ).then(function (res) {
        if (res.success) {
          $('.submit-success').show()
+         $('#btn-form').attr('disabled', 'disabled')
+         $('#btn-form').css({'background': '#ccc'})
+         $('#btn-form').on('hover', function () {
+           $(this).css({'background': '#ccc'})
+         })
          setTimeout(function () {
            $('.submit-success').hide()
          }, 3000)
