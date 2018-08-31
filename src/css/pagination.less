@@ -6,10 +6,10 @@
 }
 .paginationjs-prev{
   margin-right: 10px;
-  padding: 0 10px;
+ 
 }
 .paginationjs-next{
-  padding: 0 10px;
+ 
 }
 .paginationjs-ellipsis{
   border:none !important;
@@ -67,9 +67,9 @@
   border-radius:3px;
 }
 
-.paginationjs .paginationjs-pages li>a:hover {
-  background: #eee
-}
+// .paginationjs .paginationjs-pages li>a:hover {
+//   background: #eee
+// }
 
 .paginationjs .paginationjs-pages li.active {
   border: none
@@ -85,12 +85,14 @@
  background: #eee;
 }
 .paginationjs .paginationjs-pages li.disabled>a {
-  opacity: .3
+ background: none;
 }
-
-.paginationjs .paginationjs-pages li.disabled>a:hover {
-  background: 0 0
+.paginationjs-prev li.disabled>a{
+  background: #eee !important;
 }
+// .paginationjs .paginationjs-pages li.disabled>a:hover {
+//   background: 0 0
+// }
 
 .paginationjs .paginationjs-pages li:first-child,.paginationjs .paginationjs-pages li:first-child>a {
   border-radius: 3px
@@ -117,7 +119,8 @@
   vertical-align: baseline;
   outline: 0;
   box-shadow: none;
-  box-sizing: initial
+  box-sizing: initial;
+  border: none;
 }
 
 .paginationjs .paginationjs-go-button>input[type=button] {
@@ -247,9 +250,9 @@
   color: #289de9
 }
 
-.paginationjs.paginationjs-theme-blue .paginationjs-pages li>a:hover {
-  background: #e9f4fc
-}
+// .paginationjs.paginationjs-theme-blue .paginationjs-pages li>a:hover {
+//   background: #e9f4fc
+// }
 
 .paginationjs.paginationjs-theme-blue .paginationjs-pages li.active>a {
   background: #289de9;
@@ -270,17 +273,17 @@
   border-color: #449d44
 }
 
-.paginationjs.paginationjs-theme-blue .paginationjs-go-button>input[type=button]:hover {
-  background-color: #3ca5ea
-}
+// .paginationjs.paginationjs-theme-blue .paginationjs-go-button>input[type=button]:hover {
+//   background-color: #3ca5ea
+// }
 
 .paginationjs.paginationjs-theme-green .paginationjs-pages li>a {
   color: #449d44
 }
 
-.paginationjs.paginationjs-theme-green .paginationjs-pages li>a:hover {
-  background: #ebf4eb
-}
+// .paginationjs.paginationjs-theme-green .paginationjs-pages li>a:hover {
+//   background: #ebf4eb
+// }
 
 .paginationjs.paginationjs-theme-green .paginationjs-pages li.active>a {
   background: #449d44;
@@ -301,17 +304,17 @@
   border-color: #ec971f
 }
 
-.paginationjs.paginationjs-theme-green .paginationjs-go-button>input[type=button]:hover {
-  background-color: #55a555
-}
+// .paginationjs.paginationjs-theme-green .paginationjs-go-button>input[type=button]:hover {
+//   background-color: #55a555
+// }
 
 .paginationjs.paginationjs-theme-yellow .paginationjs-pages li>a {
   color: #ec971f
 }
 
-.paginationjs.paginationjs-theme-yellow .paginationjs-pages li>a:hover {
-  background: #fdf5e9
-}
+// .paginationjs.paginationjs-theme-yellow .paginationjs-pages li>a:hover {
+//   background: #fdf5e9
+// }
 
 .paginationjs.paginationjs-theme-yellow .paginationjs-pages li.active>a {
   background: #ec971f;
@@ -332,17 +335,17 @@
   border-color: #c9302c
 }
 
-.paginationjs.paginationjs-theme-yellow .paginationjs-go-button>input[type=button]:hover {
-  background-color: #eea135
-}
+// .paginationjs.paginationjs-theme-yellow .paginationjs-go-button>input[type=button]:hover {
+//   background-color: #eea135
+// }
 
 .paginationjs.paginationjs-theme-red .paginationjs-pages li>a {
   color: #c9302c
 }
 
-.paginationjs.paginationjs-theme-red .paginationjs-pages li>a:hover {
-  background: #faeaea
-}
+// .paginationjs.paginationjs-theme-red .paginationjs-pages li>a:hover {
+//   background: #faeaea
+// }
 
 .paginationjs.paginationjs-theme-red .paginationjs-pages li.active>a {
   background: #c9302c;
@@ -359,9 +362,9 @@
   color: #fff
 }
 
-.paginationjs.paginationjs-theme-red .paginationjs-go-button>input[type=button]:hover {
-  background-color: #ce4541
-}
+// .paginationjs.paginationjs-theme-red .paginationjs-go-button>input[type=button]:hover {
+//   background-color: #ce4541
+// }
 
 .paginationjs .paginationjs-pages li.paginationjs-next {
   border-right: 1px solid #eee;
