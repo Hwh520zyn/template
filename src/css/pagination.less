@@ -2,7 +2,8 @@
   line-height: 1.6;
   font-family: Marmelad,"Lucida Grande",Arial,"Hiragino Sans GB",Georgia,sans-serif;
   font-size: 14px;
-  box-sizing: initial
+  box-sizing: initial;
+  font-weight: 300;
 }
 .paginationjs-prev{
   margin-right: 10px;
@@ -13,6 +14,7 @@
 }
 .paginationjs-ellipsis{
   border:none !important;
+  background: none !important;
   a{
     border: none !important;
   }
@@ -81,8 +83,20 @@
   background: #6B3EE0;
   color: #fff
 }
+.paginationjs-prev{
+  margin-right: 10px !important;
+  a{
+    padding: 0 10px;
+  }
+}
+.paginationjs-next{
+  margin-left: 10px !important;
+  a{
+    padding: 0 10px;
+  }
+}
 .paginationjs .paginationjs-pages li.disabled {
- background: #eee;
+ background: #F8F8F8;
 }
 .paginationjs .paginationjs-pages li.disabled>a {
  background: none;
