@@ -78,10 +78,12 @@ $( function () {
 //分享划过切换
 $('.main-sharebox-share-hover-icon li').on('mouseenter', function () {
   const index = $(this).index()
+  $('.share-wx').removeClass('change-bg')
   $('.main-sharebox-share-hover-cont li').eq(index).addClass('show-li').siblings().removeClass('show-li')
 })
 
 $('.main-sharebox-share').on('click', function () {
+  $('.share-wx').addClass('change-bg')
   $('.main-sharebox-share-hover').toggleClass('show-share')
   $(this).toggleClass('change-color-inter')
 })

@@ -68,7 +68,7 @@ import '@/css/pagination.less'
                      ${data.articleDate.slice(0, 10)}
                   </div>
                  
-                  <div class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span>点赞</span> </div>
+                  <div  class="hbd-card1-content-detail-experts-cont textRight main-sharebox-like"><i class="iconfont icon-z-like"></i> <span>点赞</span> </div>
                 </div>
               </div>
             </div>
@@ -146,4 +146,5 @@ $('.common-list').on('click', function (e) {
     target.nextElementSibling.innerHTML = '已点赞'
     target.parentElement.className += ' ' + 'active-like'
   }
+  console.log(target)
 })

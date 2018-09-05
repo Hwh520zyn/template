@@ -126,7 +126,6 @@ class PageList {
       pageSize
     } = this.pageConfig
     // console.log('pageConfig')
-
     let source = [...(new Array(totalCount)).keys()]
     $(ele).pagination({
       dataSource: source,
@@ -138,12 +137,14 @@ class PageList {
       goButtonText: '确定',
       formatNavigator: '<span>共<%=totalPage%>页</span>',
       afterPaging: debounce(this.pageHandler, this.debounceTime).bind(this),
-      callback: function(data, pagination) {
+      callback: function (data, pagination) {
+        // console.log(data)
         // template method of yourself
         // var html = template(data);
         // dataContainer.html(html);
+
       }
-    });
+    })
   }
   /**
    * 点击分页时的操作函数
@@ -152,6 +153,7 @@ class PageList {
    */
   async pageHandler (page) {
     // console.log({page})
+    // console.log(old)
     this.onLoading(true)
     try {
       let config = {
@@ -164,11 +166,28 @@ class PageList {
       }
       let url = location.search.slice(1)
       let idbox = config[url]
+      
+      // var pag
+      // try {
+      //   pag = localStorage.hash
+      // } catch (e) {}
+      // console.log(pag)
+      // console.log('page', page)
+      // let res
+      // if (pag) {
+      //   res = await this.api({page: pag, ...this.params, ...idbox})
+      // } else {
       let res = await this.api({page, ...this.params, ...idbox})
+      // }
+      // res = await this.api({page, ...this.params, ...idbox})
       if (!res || !res.success) throw Error(res)
-      res = this.onSuccess(res) || res
+      res = this.onSuccess(res, page) || res
       this.pageChangeToDo(page, res)
       // this.onPageClick(page, old)
+      // try {
+      //   localStorage.hash = page
+      // } catch (e) {}
+
     } catch (err) {
       console.error('page list 请求出错', err)
       this.onError(err)
@@ -181,9 +200,27 @@ class PageList {
    * @param {number} page - 选择的页数
    * @param {object} res - 返回的数据
    */
-  pageChangeToDo (page, res) {
+  async pageChangeToDo (page, res) {
     let { items = [], pageBean = {} } = res.results
     location.href = '#place-h'
+    // try {
+    //   localStorage.hash = page
+    // } catch (e) {}
+
+    // if (window.history && window.history.pushState) {
+    //   // $(window).on('popstate', function () {
+       
+    //     alert('不可回退')
+    //   // })
+    //  }
+
+    // console.log(pag)
+    // var res2
+    // if (pag) {
+    //   res2 = await this.api({page: pag})
+    // }
+    // if (!res2 || !res2.success) throw Error(res)
+    // res = this.onSuccess(res2) || res2
     // this.Page.update({
     //   cur: page,
     //   limit: pageBean.pageSize,
