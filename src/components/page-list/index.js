@@ -100,7 +100,13 @@ class PageList {
     }
     let url = location.search.slice(1)
     let idbox = config[url]
-    let res = await this.api({page: 1, ...this.params, ...idbox})
+
+    const targetPage = window.location.hash.substring(1)
+    console.log({targetPage})
+    const page = isNaN(parseInt(targetPage)) ? 1 : parseInt(targetPage)
+    console.log({page})
+
+    let res = await this.api({page, ...this.params, ...idbox})
     if (!res || !res.success) throw Error(res)
 
     let { items = [], pageBean = {} } = res.results
@@ -117,17 +123,21 @@ class PageList {
    * 初始化 Page
    */
   initPage () {
-
-    // this.Page = new pagination({ ...this.pageConfig, clickPageHandler: debounce(this.pageHandler, this.debounceTime).bind(this) })
     const {
       ele,
       pageNo,
       totalCount,
       pageSize
     } = this.pageConfig
-    // console.log('pageConfig')
+
+    const targetPage = window.location.hash.substring(1)
+    const page = isNaN(parseInt(targetPage)) ? (pageNo || 1) : parseInt(targetPage)
+    console.log({page})
+
+    console.log('pageConfig', this.pageConfig)
     let source = [...(new Array(totalCount)).keys()]
     $(ele).pagination({
+      pageNumber: page,
       dataSource: source,
       pageSize,
       showGoInput: true,
@@ -139,54 +149,44 @@ class PageList {
       afterPaging: debounce(this.pageHandler, this.debounceTime).bind(this),
       callback: function (data, pagination) {
         // console.log(data)
-        // template method of yourself
-        // var html = template(data);
-        // dataContainer.html(html);
-
       }
     })
+
+    window.scrollTo(0, 0)
   }
   /**
    * 点击分页时的操作函数
    * @param {number} page - 当前页数
    * @param {number} old - 上一次的页数
    */
-  async pageHandler (page) {
+  async pageHandler (page = 1) {
     // console.log({page})
     // console.log(old)
     this.onLoading(true)
     try {
       let config = {
-        'news': {id: 43},
-        'character': {id: 39631},
-        'hotspot': {id: 8928},
-        'relation': {id: 7972},
-        'manage': {id: 444},
-        'scholarship': {id: 3380}
+        news: {id: 43},
+        character: {id: 39631},
+        hotspot: {id: 8928},
+        relation: {id: 7972},
+        manage: {id: 444},
+        scholarship: {id: 3380}
       }
       let url = location.search.slice(1)
       let idbox = config[url]
-      
-      // var pag
-      // try {
-      //   pag = localStorage.hash
-      // } catch (e) {}
-      // console.log(pag)
-      // console.log('page', page)
-      // let res
-      // if (pag) {
-      //   res = await this.api({page: pag, ...this.params, ...idbox})
-      // } else {
+
       let res = await this.api({page, ...this.params, ...idbox})
+
+      window.history.pushState({a: 1}, '', `#${page}`)
       // }
+      // window.localStorage.setItem('page', page)
+      window.scrollTo(0, 0)
+
+
       // res = await this.api({page, ...this.params, ...idbox})
       if (!res || !res.success) throw Error(res)
       res = this.onSuccess(res, page) || res
       this.pageChangeToDo(page, res)
-      // this.onPageClick(page, old)
-      // try {
-      //   localStorage.hash = page
-      // } catch (e) {}
 
     } catch (err) {
       console.error('page list 请求出错', err)
@@ -202,31 +202,11 @@ class PageList {
    */
   async pageChangeToDo (page, res) {
     let { items = [], pageBean = {} } = res.results
-    location.href = '#place-h'
-    // try {
-    //   localStorage.hash = page
-    // } catch (e) {}
-
-    // if (window.history && window.history.pushState) {
-    //   // $(window).on('popstate', function () {
-       
-    //     alert('不可回退')
-    //   // })
-    //  }
-
-    // console.log(pag)
-    // var res2
-    // if (pag) {
-    //   res2 = await this.api({page: pag})
-    // }
-    // if (!res2 || !res2.success) throw Error(res)
-    // res = this.onSuccess(res2) || res2
-    // this.Page.update({
-    //   cur: page,
-    //   limit: pageBean.pageSize,
-    //   total: pageBean.totalCount
-    // })
+    if (!this.List) {
+      this.List = new List(this.listConfig)
+    }
     this.List.list = items
+
   }
 }
 
