@@ -42,7 +42,7 @@ import '@/css/pagination.less'
     let baseConfig = {
       listConfig: {
         container: el,
-        template (data) {
+        template (data, page) {
           return `<div class="hbd-articleLists">
           <div class="hbd-cardBox" id="hbd-cardBox">
             <div class="hbd-card1">
@@ -78,7 +78,7 @@ import '@/css/pagination.less'
       },
       //  ${data.articleDate.slice(0, 10)}
       api: Api.infoPageList,
-      onSuccess (res) {
+      onSuccess (res, page) {
         let items = res.results.items.map(item => {
           let title = item.title
           return { ...item,

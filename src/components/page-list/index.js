@@ -4,8 +4,6 @@ import debounce from '@/utils/debounce'
 import $ from 'jquery'
 import initpagination from '@/utils/jqpaginator.min'
 import '@/css/pagination.less'
-
-// console.log({$})
 initpagination(window, $)
 /**
  * @constructor PageList
@@ -79,9 +77,7 @@ class PageList {
   async init () {
     try {
       await this.initList()
-      // this.initPage()
       this.onInit()
-      // this.pageHandler(1, 0)
     } catch (err) {
       console.error('page list 错误', err)
     }
@@ -102,9 +98,7 @@ class PageList {
     let idbox = config[url]
 
     const targetPage = window.location.hash.substring(1)
-    console.log({targetPage})
     const page = isNaN(parseInt(targetPage)) ? 1 : parseInt(targetPage)
-    console.log({page})
 
     let res = await this.api({page, ...this.params, ...idbox})
     if (!res || !res.success) throw Error(res)
@@ -113,8 +107,6 @@ class PageList {
     this.List = new List(this.listConfig)
     this.List.list = items
     Object.assign(this.pageConfig, pageBean)
-    // console.log({pageBean})
-    // console.log('pageConfig!', this.pageConfig)
 
 
     this.initPage()
@@ -132,9 +124,6 @@ class PageList {
 
     const targetPage = window.location.hash.substring(1)
     const page = isNaN(parseInt(targetPage)) ? (pageNo || 1) : parseInt(targetPage)
-    console.log({page})
-
-    console.log('pageConfig', this.pageConfig)
     let source = [...(new Array(totalCount)).keys()]
     $(ele).pagination({
       pageNumber: page,
@@ -148,7 +137,6 @@ class PageList {
       formatNavigator: '<span>共<%=totalPage%>页</span>',
       afterPaging: debounce(this.pageHandler, this.debounceTime).bind(this),
       callback: function (data, pagination) {
-        // console.log(data)
       }
     })
 
@@ -160,8 +148,6 @@ class PageList {
    * @param {number} old - 上一次的页数
    */
   async pageHandler (page = 1) {
-    // console.log({page})
-    // console.log(old)
     this.onLoading(true)
     try {
       let config = {
@@ -178,12 +164,8 @@ class PageList {
       let res = await this.api({page, ...this.params, ...idbox})
 
       window.history.pushState({a: 1}, '', `#${page}`)
-      // }
-      // window.localStorage.setItem('page', page)
       window.scrollTo(0, 0)
 
-
-      // res = await this.api({page, ...this.params, ...idbox})
       if (!res || !res.success) throw Error(res)
       res = this.onSuccess(res, page) || res
       this.pageChangeToDo(page, res)
