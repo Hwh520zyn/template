@@ -2,10 +2,6 @@ import Tabs from '@/components/tabs'
 import PageList from '@/components/page-list'
 import '@/css/info.less'
 import '@/css/articlelist.less'
-// import PullList from '@/components/pull-list'
-// import Loading from '@/components/loading'
-// import isMobile from '@/utils/isMobile'
-// import pagination from '@/utils/pagination'
 import Api from '@/utils/api'
 import $ from 'jquery'
 import '@/css/pagination.less'
@@ -35,14 +31,11 @@ import '@/css/pagination.less'
   }
   
   handle.init()
-  
-  // window.page_list = []
   function page (el, pageel, type) {
-    // const surl = lcoation.href.indexOf('y.dxy.net') > -1 ? http://www.dxy.cn/upload/${data.originImg} : ${data.originImg}
     let baseConfig = {
       listConfig: {
         container: el,
-        template (data) {
+        template (data, page) {
           return `<div class="hbd-articleLists">
           <div class="hbd-cardBox" id="hbd-cardBox">
             <div class="hbd-card1">
@@ -76,9 +69,8 @@ import '@/css/pagination.less'
         </div>`
         }
       },
-      //  ${data.articleDate.slice(0, 10)}
       api: Api.infoPageList,
-      onSuccess (res) {
+      onSuccess (res, page) {
         let items = res.results.items.map(item => {
           let title = item.title
           return { ...item,
@@ -110,20 +102,6 @@ import '@/css/pagination.less'
     new PageList(pcConfig)
   }
 
-
-// // 分页1
-// page('#bottom-list', '#bottomPagination', 'news')
-// // 分页2
-// page('#bottom-list2', '#bottomPagination2', 'character')
-// // // 分页3
-// page('#bottom-list3', '#bottomPagination3', 'hotspot')
-// // // 分页4
-// page('#bottom-list4', '#bottomPagination4', 'relation')
-// // // 分页5
-// page('#bottom-list5', '#bottomPagination5', 'manage')
-// // // 分页6
-// page('#bottom-list6', '#bottomPagination6', 'scholarship')
-
 $('#focus input').on('focus', function () {
   $('#focus').addClass('focus').removeClass('blur')
 })
@@ -146,5 +124,4 @@ $('.common-list').on('click', function (e) {
     target.nextElementSibling.innerHTML = '已点赞'
     target.parentElement.className += ' ' + 'active-like'
   }
-  console.log(target)
 })
