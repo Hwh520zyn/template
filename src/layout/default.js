@@ -73,6 +73,9 @@ $( function () {
   let url = location.search.slice(1)
   tabs(config[url])
   $('.head-box-wrapper-nav-list-txt2').addClass('style-fix').siblings().removeClass('style-fix')
+  if (u === '/') {
+    $('.head-box-wrapper-nav-list-txt2').removeClass('style-fix')
+  }
 })
 
 //分享划过切换
