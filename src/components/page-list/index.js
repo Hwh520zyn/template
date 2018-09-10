@@ -99,7 +99,7 @@ class PageList {
 
     const targetPage = window.location.hash.substring(1)
     const page = isNaN(parseInt(targetPage)) ? 1 : parseInt(targetPage)
-
+   
     let res = await this.api({page, ...this.params, ...idbox})
     if (!res || !res.success) throw Error(res)
 
@@ -124,6 +124,7 @@ class PageList {
 
     const targetPage = window.location.hash.substring(1)
     const page = isNaN(parseInt(targetPage)) ? (pageNo || 1) : parseInt(targetPage)
+    
     let source = [...(new Array(totalCount)).keys()]
     $(ele).pagination({
       pageNumber: page,
