@@ -5,7 +5,7 @@ import '@/css/casedetail.less'
 import '@/css/interdetail.less'
 import Tabs from '@/components/tabs'
 import $ from 'jquery'
-// import DxyShare from '@dxy/pure-components/dist/dxyShare'
+import DxyShare from '@dxy/pure-components/dist/dxyShare'
 import Api from '@/utils/api'
 new Tabs({
   el: '.main-interdebox-interde-contbox-cont-left',
@@ -33,15 +33,15 @@ $('.less').on('click', function () {
 //   channels: ['qzone']
 // })
 
-// // 移动端分享
-// new DxyShare({
-//   container: '#icon-box-qzone',
-//   channels: ['sina']
-// })
-// new DxyShare({
-//   container: '#icon-box-wb',
-//   channels: ['qzone']
-// })
+// 移动端分享
+new DxyShare({
+  container: '#icon-box-qzone',
+  channels: ['sina']
+})
+new DxyShare({
+  container: '#icon-box-wb',
+  channels: ['qzone']
+})
 
 $('.like-inter, .icon-z-like').on('click', function (e) {
   const id = location.href
