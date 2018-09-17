@@ -91,7 +91,7 @@ class PageList {
       'character': {id: 39631},
       'hotspot': {id: 8928},
       'relation': {id: 7972},
-      'manage': {id: 444},
+      'manage': {id: 6283},
       'scholarship': {id: 3380}
     }
     let url = location.search.slice(1)
@@ -156,7 +156,7 @@ class PageList {
         character: {id: 39631},
         hotspot: {id: 8928},
         relation: {id: 7972},
-        manage: {id: 444},
+        manage: {id: 6283},
         scholarship: {id: 3380}
       }
       let url = location.search.slice(1)
