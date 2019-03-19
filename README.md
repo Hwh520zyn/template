@@ -1,7 +1,3 @@
-# 商业项目模板
-
-> pure scaffold for developing web page
-
 ## 使用
 
 ``` bash
@@ -14,8 +10,6 @@ npm run dev
 # 构建项目
 npm run build
 
-# 构建项目（相比npm run build，静态资源引入时会采用绝对路径）
-npm run dxybuild:prod
 
 # 当后端需要模板时，执行此命令，前提必须先执行npm run build构建资源文件。执行后，访问3000端口可看到网站。
 npm run start
