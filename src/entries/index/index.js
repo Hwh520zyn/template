@@ -33,32 +33,6 @@ if (isMobile) {
 const oL = ($('#main-casebox-case-list').outerWidth() + $('.main-casebox-case-list-item').outerWidth() / 2) / 2
 $('#main-casebox-case-list').scrollLeft(oL)
 
-class Toggle {
-  constructor ({ el }) {
-    Object.assign(this, {
-      el: el
-    })
-    this.init()
-  }
-  init () {
-    this.eventInit()
-  }
-  eventInit () {
-    this.el.on('click', function () {
-      $(this).next().next().addClass('height').removeClass('none-height')
-      $(this).next().show()
-    })
-    this.el.next().on('click', function () {
-      $(this).hide()
-      $(this).next().addClass('none-height').removeClass('height')
-    })
-  }
-}
-
-new Toggle({
-  el: $('.common-btn-detail')
-})
-
 // 表单
 class ValidateForm {
   constructor ({ el, validateReg, msgCallback = () => { } }) {
@@ -84,6 +58,7 @@ class ValidateForm {
     this.el.map((index, item) => {
       item.blur(() => {
         const regExp = this.validateReg[index]
+        console.log(regExp)
         if (item.val() === '') {
           item.parent().addClass('empty-error').removeClass('error').removeClass('success')
         } else if (!regExp.test(item.val())) {
@@ -182,7 +157,7 @@ $('#btn-form').on('click', function (e) {
 })
 // 下导航
 window.onscroll = function (e) {
-  var ev = e || event
+  // var ev = e || event
   var stop = document.body.scrollTop || document.documentElement.scrollTop
   // console.log(stop)
   if (stop > 5510) {

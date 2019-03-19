@@ -15,7 +15,6 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    assetsDxyPath: `https://assets.dxycdn.com/gitrepo/${projectName}/dist/`,
     productionSourceMap: true,
     // Run the build command with an extra argument to
     // View the bundle analyzer report after build finishes:

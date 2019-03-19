@@ -10,12 +10,6 @@ exports.getAssetsPublicPath = function () {
   if (!process.env.NODE_ENV === 'production') {
     return config.dev.assetsPublicPath
   }
-  if (!!process.argv.find(a => a.indexOf('dxybuild') > -1)) {
-    const projectName = process.cwd().split(path.sep).pop()
-    return config.build.assetsDxyPath
-  } else {
-    return config.build.assetsPublicPath
-  }
 }
 
 /**
